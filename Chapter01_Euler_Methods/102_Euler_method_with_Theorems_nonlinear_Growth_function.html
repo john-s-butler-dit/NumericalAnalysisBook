@@ -92,50 +92,33 @@
   </a>
  </li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Name of Part 1
- </span>
-</p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter09-Elliptic%20Equations/901_Poisson_Equation_Laplacian.html">
+   Finite Difference Methods for the Poisson Equation
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="101_Euler_method_with_Theorems_Growth_function.html">
    First Order Initial Value Problem
   </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Euler Method with Theorems Applied to Non-Linear Population Equations
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Name of Part 2
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/201_3rd_Order_Taylor_Population_growth.html">
-   Taylor Method
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/202_Taylor_Method_Error_Example.html">
-   1st vs 2nd order Taylor methods
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/203_3rd%20Order_Taylor_Supplementary_Examples.html">
-     Supplementary Examples - 3rd Order Taylor Method
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Euler Method with Theorems Applied to Non-Linear Population Equations
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/201_3rd_Order_Taylor_Population_growth.html">
+   Taylor Method
+  </a>
  </li>
 </ul>
 
@@ -568,8 +551,8 @@ where \)</span>i=0,1,2,…,199<span class="math notranslate nohighlight">\(, and
 <div class="section" id="derivation-of-euler-local-truncation-error">
 <h3>Derivation of  Euler Local truncation error<a class="headerlink" href="#derivation-of-euler-local-truncation-error" title="Permalink to this headline">¶</a></h3>
 <p>The left hand side of a initial value problem <span class="math notranslate nohighlight">\(\frac{dy}{dt}\)</span> is approximated by <strong>Taylors theorem</strong> expand about a point <span class="math notranslate nohighlight">\(t_0\)</span> giving:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-945faad8-f242-463b-9f13-2533d26725c3">
-<span class="eqno">(2)<a class="headerlink" href="#equation-945faad8-f242-463b-9f13-2533d26725c3" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(t_1) = y(t_0)+(t_1-t_0)y^{'}(t_0) + \frac{(t_1-t_0)^2}{2!}y^{''}(\xi), \ \ \ \ \ \ \xi \in [t_0,t_1]. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-235ef456-b541-4326-ba91-4bb7aba3fe0c">
+<span class="eqno">(2)<a class="headerlink" href="#equation-235ef456-b541-4326-ba91-4bb7aba3fe0c" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(t_1) = y(t_0)+(t_1-t_0)y^{'}(t_0) + \frac{(t_1-t_0)^2}{2!}y^{''}(\xi), \ \ \ \ \ \ \xi \in [t_0,t_1]. \end{equation}\]</div>
 <p>Rearranging and letting <span class="math notranslate nohighlight">\(h=t_1-t_0\)</span> the equation becomes
 $<span class="math notranslate nohighlight">\(y^{'}(t_0)=\frac{y(t_1)-y(t_0)}{h}-\frac{h}{2}y^{''}(\xi). \)</span><span class="math notranslate nohighlight">\(
 From this the local truncation error is
