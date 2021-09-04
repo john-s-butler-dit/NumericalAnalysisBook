@@ -54,8 +54,8 @@
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Euler Method with Theorems Applied to Non-Linear Population Equations" href="102_Euler_method_with_Theorems_nonlinear_Growth_function.html" />
-    <link rel="prev" title="Finite Difference Methods for the Poisson Equation" href="../Chapter09-Elliptic%20Equations/903_Poisson_Equation_Boundary.html" />
+    <link rel="next" title="Problem Sheet 1 Question 2a" href="1_Problem_Sheet/01_Problem_Sheet_1_Question_2a.html" />
+    <link rel="prev" title="Numerical Analysis with Applications in Python" href="../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -88,16 +88,16 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../index.html">
-   Numerical Analysis
+   Numerical Analysis with Applications in Python
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Euler Method
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter09-Elliptic%20Equations/901_Poisson_Equation_Laplacian.html">
-   Finite Difference Methods for the Poisson Equation
-  </a>
- </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
    First Order Initial Value Problem
@@ -109,16 +109,65 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="102_Euler_method_with_Theorems_nonlinear_Growth_function.html">
-     Euler Method with Theorems Applied to Non-Linear Population Equations
+    <a class="reference internal" href="1_Problem_Sheet/01_Problem_Sheet_1_Question_2a.html">
+     Problem Sheet 1 Question 2a
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Problem_Sheet/01_Problem_Sheet_1_Question_2b.html">
+     Problem Sheet 1 Question 2b
     </a>
    </li>
   </ul>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Taylor Method
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/201_3rd_Order_Taylor_Population_growth.html">
-   Taylor Method
+  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/202_Taylor_Method_Error_Example.html">
+   1st vs 2nd order Taylor methods
   </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/203_3rd_Order_Taylor_Supplementary_Examples.html">
+   Supplementary Examples - 3rd Order Taylor Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/2_Problem_Sheet/02_PS_Question_1a.html">
+     Problem Sheet 2 Question 1a - 2nd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/2_Problem_Sheet/02_PS_Question_1b.html">
+     Problem Sheet 2 Question 1b - 2nd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/2_Problem_Sheet/02_PS_Question_2a.html">
+     Problem Sheet 2 Question 2a - 3rd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/2_Problem_Sheet/02_PS_Question_2b.html">
+     Problem Sheet 2 Question 2b - 3rd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/2_Problem_Sheet/02_PS_Question_3.html">
+     Problem Sheet 2 Question 3 - 2nd Order Taylor
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -298,32 +347,40 @@
         
               <div>
                 
-  <div class="section" id="first-order-initial-value-problem">
+  <p><a href="https://colab.research.google.com/github/john-s-butler-dit/Numerical-Analysis-Python/blob/master/Chapter%2001%20-%20Euler%20Methods/101_Euler_method_with_Theorems_Growth_function.ipynb" target="_parent"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="section" id="first-order-initial-value-problem">
 <h1>First Order Initial Value Problem<a class="headerlink" href="#first-order-initial-value-problem" title="Permalink to this headline">¶</a></h1>
 <p>The more general form of a first order Ordinary Differential Equation is:</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight" id="equation-d3cd83a1-c763-4e5f-9d67-13d10af48b12">
+<span class="eqno">(1)<a class="headerlink" href="#equation-d3cd83a1-c763-4e5f-9d67-13d10af48b12" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y^{'}=f(t,y).
-\]</div>
+\end{equation}\]</div>
 <p>This can be solved analytically by integrating both sides but this is not straight forward for most problems.
 Numerical methods can be used to approximate the solution at discrete points.</p>
 <div class="section" id="euler-method">
 <h2>Euler method<a class="headerlink" href="#euler-method" title="Permalink to this headline">¶</a></h2>
 <p>The simplest one step numerical method is the Euler Method named after the most prolific of mathematicians <a class="reference external" href="https://en.wikipedia.org/wiki/Leonhard_Euler">Leonhard Euler</a> (15 April 1707 – 18 September 1783) .</p>
-<p>The general Euler formula for to the first order differential equation</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*} y^{'} = f(t,y) \end{align*}\]</div>
-<p>approximates the derivative at time point <span class="math notranslate nohighlight">\(t_i\)</span></p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}y^{'}(t_i) \approx \frac{w_{i+1}-w_i}{t_{i+1}-t_{i}} \end{align*}\]</div>
-<p>where <span class="math notranslate nohighlight">\(w_i\)</span> is the approximate solution of <span class="math notranslate nohighlight">\(y\)</span> at time <span class="math notranslate nohighlight">\(t_i\)</span>.
-This substitution changes the differential equation  into a <strong>difference</strong> equation of the form</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-\frac{w_{i+1}-w_i}{t_{i+1}-t_{i}}=f(t_i,w_i) \end{align*}\]</div>
+<p>The general Euler formula for the first order differential equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c3d51496-2791-4429-8ae7-d2e9c933822b">
+<span class="eqno">(2)<a class="headerlink" href="#equation-c3d51496-2791-4429-8ae7-d2e9c933822b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y^{'} = f(t,y), 
+\end{equation}\]</div>
+<p>approximates the derivative at time point <span class="math notranslate nohighlight">\(t_i\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-51f5e2fd-260f-4484-a625-58d7f9cf8d21">
+<span class="eqno">(3)<a class="headerlink" href="#equation-51f5e2fd-260f-4484-a625-58d7f9cf8d21" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y^{'}(t_i) \approx \frac{w_{i+1}-w_i}{t_{i+1}-t_{i}},
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(w_i\)</span> is the approximate solution of <span class="math notranslate nohighlight">\(y\)</span> at time <span class="math notranslate nohighlight">\(t_i\)</span>.</p>
+<p>This substitution changes the differential equation  into a <strong>difference</strong> equation of the form</p>
+<div class="amsmath math notranslate nohighlight" id="equation-54040b0d-f1ba-40b1-931b-843097a96323">
+<span class="eqno">(4)<a class="headerlink" href="#equation-54040b0d-f1ba-40b1-931b-843097a96323" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\frac{w_{i+1}-w_i}{t_{i+1}-t_{i}}=f(t_i,w_i). 
+\end{equation}\]</div>
 <p>Assuming uniform stepsize <span class="math notranslate nohighlight">\(t_{i+1}-t_{i}\)</span> is replaced by <span class="math notranslate nohighlight">\(h\)</span>, re-arranging the equation gives</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*} w_{i+1}=w_i+hf(t_i,w_i),\end{align*}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-859447a2-8845-48b2-9795-b5981c94b249">
+<span class="eqno">(5)<a class="headerlink" href="#equation-859447a2-8845-48b2-9795-b5981c94b249" title="Permalink to this equation">¶</a></span>\[\begin{equation} 
+w_{i+1}=w_i+hf(t_i,w_i).
+\end{equation}\]</div>
 <p>This can be read as the future <span class="math notranslate nohighlight">\(w_{i+1}\)</span> can be approximated by the present <span class="math notranslate nohighlight">\(w_i\)</span> and the addition of the input to the system <span class="math notranslate nohighlight">\(f(t,y)\)</span> times the time step.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -344,26 +401,50 @@ This substitution changes the differential equation  into a <strong>difference</
 </div>
 <div class="section" id="population-growth">
 <h2>Population growth<a class="headerlink" href="#population-growth" title="Permalink to this headline">¶</a></h2>
-<p>The general form of the population growth differential equation is:
-$<span class="math notranslate nohighlight">\( y^{'}=\epsilon y \)</span><span class="math notranslate nohighlight">\(
-where \)</span>\epsilon<span class="math notranslate nohighlight">\( is the growth rate. The initial population at time \)</span>a<span class="math notranslate nohighlight">\( is 
-\)</span><span class="math notranslate nohighlight">\( y(a)=A \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( a\leq t \leq b. \)</span><span class="math notranslate nohighlight">\(
-Integrating gives  the general analytic (exact) solution: 
-\)</span><span class="math notranslate nohighlight">\( y=Ae^{\epsilon x}. \)</span>$
-We will use this equation to illustrate the application of the Euler method.</p>
+<p>The general form of the population growth differential equation is:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d2367a73-41ff-4e0d-9262-99a352c322f1">
+<span class="eqno">(6)<a class="headerlink" href="#equation-d2367a73-41ff-4e0d-9262-99a352c322f1" title="Permalink to this equation">¶</a></span>\[\begin{equation} 
+y^{'}=\epsilon y 
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon\)</span> is the growth rate. The initial population at time <span class="math notranslate nohighlight">\(a\)</span> is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5bb338fe-7ce7-4852-a620-21df32877a9d">
+<span class="eqno">(7)<a class="headerlink" href="#equation-5bb338fe-7ce7-4852-a620-21df32877a9d" title="Permalink to this equation">¶</a></span>\[\begin{equation} 
+y(a)=A,
+ \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-57dc75ba-301c-42ae-9898-193c259308bc">
+<span class="eqno">(8)<a class="headerlink" href="#equation-57dc75ba-301c-42ae-9898-193c259308bc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+ a\leq t \leq b. 
+\end{equation}\]</div>
+<p>Integrating gives  the general analytic (exact) solution:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c5fa0273-924a-4c9d-817e-bd2eca0e77f9">
+<span class="eqno">(9)<a class="headerlink" href="#equation-c5fa0273-924a-4c9d-817e-bd2eca0e77f9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+ y=Ae^{\epsilon x}. 
+\end{equation}\]</div>
+<p>We will use this equation to illustrate the application of the Euler method.</p>
 </div>
 <div class="section" id="discrete-interval">
 <h2>Discrete Interval<a class="headerlink" href="#discrete-interval" title="Permalink to this headline">¶</a></h2>
-<p>The continuous time <span class="math notranslate nohighlight">\(a\leq t \leq b \)</span> is discretised into <span class="math notranslate nohighlight">\(N\)</span> points seperated by a constant stepsize
-$<span class="math notranslate nohighlight">\( h=\frac{b-a}{N}.\)</span><span class="math notranslate nohighlight">\(
-Here the interval is \)</span>0\leq t \leq 2<span class="math notranslate nohighlight">\( 
-\)</span><span class="math notranslate nohighlight">\( h=\frac{2-0}{20}=0.1.\)</span><span class="math notranslate nohighlight">\(
-This gives the 21 discrete points:
-\)</span><span class="math notranslate nohighlight">\( t_0=0, \ t_1=0.1, \ ... t_{20}=2. \)</span><span class="math notranslate nohighlight">\(
-This is generalised to 
-\)</span><span class="math notranslate nohighlight">\( t_i=0+i0.1, \ \ \ i=0,1,...,20.\)</span>$
-The plot below shows the discrete time steps.</p>
+<p>The continuous time <span class="math notranslate nohighlight">\(a\leq t \leq b \)</span> is discretised into <span class="math notranslate nohighlight">\(N\)</span> points seperated by a constant stepsize</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2ed0a1b0-34f4-4f57-bbe1-dbfc6bb0bd93">
+<span class="eqno">(10)<a class="headerlink" href="#equation-2ed0a1b0-34f4-4f57-bbe1-dbfc6bb0bd93" title="Permalink to this equation">¶</a></span>\[\begin{equation} 
+h=\frac{b-a}{N}.
+\end{equation}\]</div>
+<p>Here the interval is <span class="math notranslate nohighlight">\(0\leq t \leq 2\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-52926ef4-d863-4ec0-82cb-495f2895a290">
+<span class="eqno">(11)<a class="headerlink" href="#equation-52926ef4-d863-4ec0-82cb-495f2895a290" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+ h=\frac{2-0}{20}=0.1,
+\end{equation}\]</div>
+<p>this gives the 21 discrete points:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e9d548f9-a688-4891-84c1-629cb224dd42">
+<span class="eqno">(12)<a class="headerlink" href="#equation-e9d548f9-a688-4891-84c1-629cb224dd42" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+ t_0=0, \ t_1=0.1, \ ... t_{20}=2. 
+\end{equation}\]</div>
+<p>This is generalised to</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2e4d0caf-b3ab-47f1-80a6-a44d9ed8fbd6">
+<span class="eqno">(13)<a class="headerlink" href="#equation-2e4d0caf-b3ab-47f1-80a6-a44d9ed8fbd6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+t_i=0+i0.1, \ \ \ i=0,1,...,20.
+\end{equation}\]</div>
+<p>The plot below shows the discrete time steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Setting up time</span>
@@ -381,22 +462,36 @@ The plot below shows the discrete time steps.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_4_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_4_0.png" />
+<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_5_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_5_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="initial-condition">
 <h2>Initial Condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline">¶</a></h2>
 <p>To get a specify solution to a first order initial value problem, an <strong>initial condition</strong> is required.</p>
-<p>For our population problem the intial condition is:
-$<span class="math notranslate nohighlight">\(y(0)=10.\)</span><span class="math notranslate nohighlight">\(
-This gives the analytic solution
-\)</span><span class="math notranslate nohighlight">\(y=10e^{\epsilon t}.\)</span>$</p>
+<p>For our population problem the intial condition is:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1d1bdb03-6ad4-4e1e-b784-7e6eaa073f77">
+<span class="eqno">(14)<a class="headerlink" href="#equation-1d1bdb03-6ad4-4e1e-b784-7e6eaa073f77" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y(0)=10.
+\end{equation}\]</div>
+<p>This gives the analytic solution</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6776d734-680a-47f7-9860-707f8e953d2a">
+<span class="eqno">(15)<a class="headerlink" href="#equation-6776d734-680a-47f7-9860-707f8e953d2a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y=10e^{\epsilon t}.
+\end{equation}\]</div>
 <div class="section" id="growth-rate">
 <h3>Growth rate<a class="headerlink" href="#growth-rate" title="Permalink to this headline">¶</a></h3>
-<p>Let the growth rate $<span class="math notranslate nohighlight">\(\epsilon=0.5\)</span><span class="math notranslate nohighlight">\( giving the analytic solution.
-\)</span><span class="math notranslate nohighlight">\(y=10e^{0.5 t}.\)</span>$
-The plot below shows the exact solution on the discrete time steps.</p>
+<p>Let the growth rate</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1add750f-902a-4ae0-96c0-2beaa4e258e3">
+<span class="eqno">(16)<a class="headerlink" href="#equation-1add750f-902a-4ae0-96c0-2beaa4e258e3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\epsilon=0.5
+\end{equation}\]</div>
+<p>giving the analytic solution.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fa2114dc-e52e-45c2-a0e4-457cc05787a3">
+<span class="eqno">(17)<a class="headerlink" href="#equation-fa2114dc-e52e-45c2-a0e4-457cc05787a3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y=10e^{0.5 t}.
+\end{equation}\]</div>
+<p>The plot below shows the exact solution on the discrete time steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Analytic Solution y</span>
@@ -413,20 +508,21 @@ The plot below shows the exact solution on the discrete time steps.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_6_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_6_0.png" />
+<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_7_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_7_0.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="numerical-approximation-of-population-growth">
 <h2>Numerical approximation of Population growth<a class="headerlink" href="#numerical-approximation-of-population-growth" title="Permalink to this headline">¶</a></h2>
-<p>The differential equation is transformed using the Euler method into a difference equation of the form
-$<span class="math notranslate nohighlight">\( w_{i+1}=w_{i}+h \epsilon w_i. \)</span><span class="math notranslate nohighlight">\(
-This approximates a series of of values \)</span>w_0, \ w_1, \ …, w_{N}<span class="math notranslate nohighlight">\(.
+<p>The differential equation is transformed using the Euler method into a difference equation of the form</p>
+<div class="amsmath math notranslate nohighlight" id="equation-97bbb94e-77b0-4469-9d5b-27bc9b0f9c3e">
+<span class="eqno">(18)<a class="headerlink" href="#equation-97bbb94e-77b0-4469-9d5b-27bc9b0f9c3e" title="Permalink to this equation">¶</a></span>\[\begin{equation} w_{i+1}=w_{i}+h \epsilon w_i. \end{equation}\]</div>
+<p>This approximates a series of of values <span class="math notranslate nohighlight">\(w_0, \ w_1, \ ..., w_{N}\)</span>.
 For the specific example of the population equation the difference equation is
-      \)</span><span class="math notranslate nohighlight">\( w_{i+1}=w_{i}+h 0.5 w_i. \)</span><span class="math notranslate nohighlight">\(
-where \)</span>w_0=10<span class="math notranslate nohighlight">\(. From this initial condition the series is approximated.
-The plot below shows the exact solution \)</span>y<span class="math notranslate nohighlight">\( in black circles and Euler approximation \)</span>w$ in blue squares.</p>
+\begin{equation} w_{i+1}=w_{i}+h 0.5 w_i. \end{equation}
+where <span class="math notranslate nohighlight">\(w_0=10\)</span>. From this initial condition the series is approximated.
+The plot below shows the exact solution <span class="math notranslate nohighlight">\(y\)</span> in black circles and Euler approximation <span class="math notranslate nohighlight">\(w\)</span> in blue squares.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -446,7 +542,7 @@ The plot below shows the exact solution \)</span>y<span class="math notranslate 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_8_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_8_0.png" />
+<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_9_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_9_0.png" />
 </div>
 </div>
 </div>
@@ -460,22 +556,42 @@ The plot below shows the exact solution \)</span>y<span class="math notranslate 
 <div class="section" id="derivation-of-euler-local-truncation-error">
 <h3>Derivation of  Euler Local truncation error<a class="headerlink" href="#derivation-of-euler-local-truncation-error" title="Permalink to this headline">¶</a></h3>
 <p>The left hand side of a initial value problem <span class="math notranslate nohighlight">\(\frac{dy}{dt}\)</span> is approximated by <strong>Taylors theorem</strong> expand about a point <span class="math notranslate nohighlight">\(t_0\)</span> giving:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c3dbb14a-4a17-4246-9d43-b02763d9162c">
-<span class="eqno">(1)<a class="headerlink" href="#equation-c3dbb14a-4a17-4246-9d43-b02763d9162c" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(t_1) = y(t_0)+(t_1-t_0)y^{'}(t_0) + \frac{(t_1-t_0)^2}{2!}y^{''}(\xi), \ \ \ \ \ \ \xi \in [t_0,t_1]. \end{equation}\]</div>
-<p>Rearranging and letting <span class="math notranslate nohighlight">\(h=t_1-t_0\)</span> the equation becomes
-$<span class="math notranslate nohighlight">\(y^{'}(t_0)=\frac{y(t_1)-y(t_0)}{h}-\frac{h}{2}y^{''}(\xi). \)</span><span class="math notranslate nohighlight">\(
-From this the local truncation error is
-\)</span><span class="math notranslate nohighlight">\(\tau y^{'}(t_0)\leq \frac{h}{2}M  \)</span><span class="math notranslate nohighlight">\(
-where \)</span>y^{‘’}(t) \leq M $.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0700789a-cf5c-41f7-b46b-ae5d27a38c19">
+<span class="eqno">(19)<a class="headerlink" href="#equation-0700789a-cf5c-41f7-b46b-ae5d27a38c19" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y(t_1) = y(t_0)+(t_1-t_0)y^{'}(t_0) + \frac{(t_1-t_0)^2}{2!}y^{''}(\xi), \ \ \ \ \ \ \xi \in [t_0,t_1]. 
+\end{equation}\]</div>
+<p>Rearranging and letting <span class="math notranslate nohighlight">\(h=t_1-t_0\)</span> the equation becomes</p>
+<div class="amsmath math notranslate nohighlight" id="equation-089d489f-16d9-4ba4-ac66-146dd5e98569">
+<span class="eqno">(20)<a class="headerlink" href="#equation-089d489f-16d9-4ba4-ac66-146dd5e98569" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y^{'}(t_0)=\frac{y(t_1)-y(t_0)}{h}-\frac{h}{2}y^{''}(\xi). 
+\end{equation}\]</div>
+<p>From this the local truncation error is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3cd700c8-448c-4309-be30-b270f088ffb8">
+<span class="eqno">(21)<a class="headerlink" href="#equation-3cd700c8-448c-4309-be30-b270f088ffb8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\tau y^{'}(t_0)\leq \frac{h}{2}M  
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(y^{''}(t) \leq M \)</span>.</p>
 <div class="section" id="derivation-of-euler-local-truncation-error-for-the-population-growth">
 <h4>Derivation of  Euler Local truncation error for the Population Growth<a class="headerlink" href="#derivation-of-euler-local-truncation-error-for-the-population-growth" title="Permalink to this headline">¶</a></h4>
-<p>In most cases <span class="math notranslate nohighlight">\(y\)</span> is unknown but in our example problem there is an exact solution which can be used to estimate the local truncation
-$<span class="math notranslate nohighlight">\(y'(t)=5e^{0.5 t}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(y''(t)=2.5e^{0.5 t}\)</span><span class="math notranslate nohighlight">\(
-From this a maximum upper limit can be calculated for \)</span>y^{‘’} <span class="math notranslate nohighlight">\( on the interval \)</span>[t_0,t_1]=[0,0.1]<span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(y''(0.1)=2.5e^{0.1\times 0.5}=2.63=M\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\tau=\frac{h}{2}2.63=0.1315 \)</span><span class="math notranslate nohighlight">\(
-The plot below shows the exact local truncation error \)</span>|y-w|<span class="math notranslate nohighlight">\( (red triangle) and the upper limit of the Truncation error (black v) for the first two time points \)</span>t_0<span class="math notranslate nohighlight">\( and \)</span>t_1$.</p>
+<p>In most cases <span class="math notranslate nohighlight">\(y\)</span> is unknown but in our example problem there is an exact solution which can be used to estimate the local truncation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-26442bef-0e94-4eda-9ba8-76a92572e2c3">
+<span class="eqno">(22)<a class="headerlink" href="#equation-26442bef-0e94-4eda-9ba8-76a92572e2c3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y'(t)=5e^{0.5 t},
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-d6508381-82b5-48a7-9ffe-8d04f24423f7">
+<span class="eqno">(23)<a class="headerlink" href="#equation-d6508381-82b5-48a7-9ffe-8d04f24423f7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y''(t)=2.5e^{0.5 t}.
+\end{equation}\]</div>
+<p>From this a maximum upper limit can be calculated for <span class="math notranslate nohighlight">\(y^{''} \)</span> on the interval <span class="math notranslate nohighlight">\([t_0,t_1]=[0,0.1]\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-73917433-9a4e-45a2-9be3-cf5151f071a7">
+<span class="eqno">(24)<a class="headerlink" href="#equation-73917433-9a4e-45a2-9be3-cf5151f071a7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y''(0.1)=2.5e^{0.1\times 0.5}=2.63=M,
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3a66e587-d9c9-401f-a2e0-60a28b99cb62">
+<span class="eqno">(25)<a class="headerlink" href="#equation-3a66e587-d9c9-401f-a2e0-60a28b99cb62" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\tau=\frac{h}{2}2.63=0.1315. 
+\end{equation}\]</div>
+<p>The plot below shows the exact local truncation error <span class="math notranslate nohighlight">\(|y-w|\)</span> (red triangle) and the upper limit of the Truncation error (black v) for the first two time points <span class="math notranslate nohighlight">\(t_0\)</span> and <span class="math notranslate nohighlight">\(t_1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
@@ -492,7 +608,7 @@ The plot below shows the exact local truncation error \)</span>|y-w|<span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_10_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_10_0.png" />
+<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_11_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_11_0.png" />
 </div>
 </div>
 </div>
@@ -517,7 +633,7 @@ The plot below shows the exact local truncation error \)</span>|y-w|<span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_12_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_12_0.png" />
+<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_13_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_13_0.png" />
 </div>
 </div>
 </div>
@@ -529,45 +645,66 @@ The plot below shows the exact local truncation error \)</span>|y-w|<span class=
 <p><strong>Theorem Global Error</strong></p>
 <p>Suppose <span class="math notranslate nohighlight">\(f\)</span> is continuous and satisfies a Lipschitz Condition with constant
 L on <span class="math notranslate nohighlight">\(D=\{(t,y)|a\leq t \leq b, -\infty &lt; y &lt; \infty \}\)</span> and that a constant M
-exists with the property that
-$<span class="math notranslate nohighlight">\( |y^{''}(t)|\leq M. \)</span><span class="math notranslate nohighlight">\(
-Let \)</span>y(t)<span class="math notranslate nohighlight">\( denote the unique solution of the Initial Value Problem
-\)</span><span class="math notranslate nohighlight">\( y^{'}=f(t,y) \ \ \ a\leq t \leq b \ \ \ y(a)=\alpha \)</span><span class="math notranslate nohighlight">\(
-and \)</span>w_0,w_1,…,w_N<span class="math notranslate nohighlight">\( be the approx generated by the Euler method for some
-positive integer N.  Then for \)</span>i=0,1,…,N<span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( |y(t_i)-w_i| \leq \frac{Mh}{2L}|e^{L(t_i-a)}-1|. \)</span>$</p>
+exists with the property that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f2b03191-072b-4e3d-9665-7b69be7779ed">
+<span class="eqno">(26)<a class="headerlink" href="#equation-f2b03191-072b-4e3d-9665-7b69be7779ed" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+|y^{''}(t)|\leq M. 
+\end{equation}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(y(t)\)</span> denote the unique solution of the Initial Value Problem</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9ca192ca-8ec9-42e1-96c2-7493445c88b9">
+<span class="eqno">(27)<a class="headerlink" href="#equation-9ca192ca-8ec9-42e1-96c2-7493445c88b9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y^{'}=f(t,y) \ \ \ a\leq t \leq b, \ \ \ y(a)=\alpha, 
+\end{equation}\]</div>
+<p>and <span class="math notranslate nohighlight">\(w_0,w_1,...,w_N\)</span> be the approx generated by the Euler method for some
+positive integer N.  Then for <span class="math notranslate nohighlight">\(i=0,1,...,N\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-70c6f9f0-21bd-4850-bfa8-bcea71bd540e">
+<span class="eqno">(28)<a class="headerlink" href="#equation-70c6f9f0-21bd-4850-bfa8-bcea71bd540e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+|y(t_i)-w_i| \leq \frac{Mh}{2L}|e^{L(t_i-a)}-1|. 
+\end{equation}\]</div>
 </div>
 <div class="section" id="theorems-about-ordinary-differential-equations">
 <h3>Theorems about Ordinary Differential Equations<a class="headerlink" href="#theorems-about-ordinary-differential-equations" title="Permalink to this headline">¶</a></h3>
 <p><strong>Definition</strong></p>
 <p>A function <span class="math notranslate nohighlight">\(f(t,y)\)</span> is said to satisfy a <strong>Lipschitz Condition</strong> in the variable <span class="math notranslate nohighlight">\(y\)</span> on
-the set <span class="math notranslate nohighlight">\(D \subset R^2\)</span> if a constant <span class="math notranslate nohighlight">\(L&gt;0\)</span> exist with the property that
-$<span class="math notranslate nohighlight">\( |f(t,y_1)-f(t,y_2)| &lt; L|y_1-y_2| \)</span><span class="math notranslate nohighlight">\(
-whenever \)</span>(t,y_1),(t,y_2) \in D<span class="math notranslate nohighlight">\(.  The constant L is call the Lipschitz Condition
-of \)</span>f$.</p>
+the set <span class="math notranslate nohighlight">\(D \subset R^2\)</span> if a constant <span class="math notranslate nohighlight">\(L&gt;0\)</span> exist with the property that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-77b9ce45-348d-4ed1-b8de-6b325008ade2">
+<span class="eqno">(29)<a class="headerlink" href="#equation-77b9ce45-348d-4ed1-b8de-6b325008ade2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+|f(t,y_1)-f(t,y_2)| &lt; L|y_1-y_2| 
+\end{equation}\]</div>
+<p>whenever <span class="math notranslate nohighlight">\((t,y_1),(t,y_2) \in D\)</span>.  The constant L is call the Lipschitz Condition
+of <span class="math notranslate nohighlight">\(f\)</span>.</p>
 <p><strong>Theorem</strong>
 Suppose <span class="math notranslate nohighlight">\(f(t,y)\)</span> is defined on a convex set <span class="math notranslate nohighlight">\(D \subset R^2\)</span>. If a constant
-<span class="math notranslate nohighlight">\(L&gt;0\)</span> exists with
-$<span class="math notranslate nohighlight">\( \left|\frac{\partial f(t,y)}{\partial y}\right|\leq L \)</span><span class="math notranslate nohighlight">\(
-then \)</span>f<span class="math notranslate nohighlight">\( satisfies a Lipschitz Condition an \)</span>D<span class="math notranslate nohighlight">\( in the variable \)</span>y$ with
+<span class="math notranslate nohighlight">\(L&gt;0\)</span> exists with</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2ace8139-f1f2-4b84-86e5-a8640b44c494">
+<span class="eqno">(30)<a class="headerlink" href="#equation-2ace8139-f1f2-4b84-86e5-a8640b44c494" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\left|\frac{\partial f(t,y)}{\partial y}\right|\leq L,
+\end{equation}\]</div>
+<p>then <span class="math notranslate nohighlight">\(f\)</span> satisfies a Lipschitz Condition an <span class="math notranslate nohighlight">\(D\)</span> in the variable <span class="math notranslate nohighlight">\(y\)</span> with
 Lipschitz constant L.</p>
 </div>
 <div class="section" id="global-truncation-error-for-the-population-equation">
 <h3>Global truncation error for the population equation<a class="headerlink" href="#global-truncation-error-for-the-population-equation" title="Permalink to this headline">¶</a></h3>
 <p>For the population equation specific values <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(M\)</span> can be calculated.</p>
-<p>In this case <span class="math notranslate nohighlight">\(f(t,y)=\epsilon y\)</span> is continuous and satisfies a Lipschitz Condition with constant
-$<span class="math notranslate nohighlight">\( \left|\frac{\partial f(t,y)}{\partial y}\right|\leq L \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \left|\frac{\partial \epsilon y}{\partial y}\right|\leq \epsilon=0.5=L \)</span>$</p>
+<p>In this case <span class="math notranslate nohighlight">\(f(t,y)=\epsilon y\)</span> is continuous and satisfies a Lipschitz Condition with constant</p>
+<div class="amsmath math notranslate nohighlight" id="equation-80fa2cd3-217c-40b7-8cb3-0724082aab68">
+<span class="eqno">(31)<a class="headerlink" href="#equation-80fa2cd3-217c-40b7-8cb3-0724082aab68" title="Permalink to this equation">¶</a></span>\[\begin{equation} \left|\frac{\partial f(t,y)}{\partial y}\right|\leq L, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-59381110-7c50-4db8-990a-43f6b13a1982">
+<span class="eqno">(32)<a class="headerlink" href="#equation-59381110-7c50-4db8-990a-43f6b13a1982" title="Permalink to this equation">¶</a></span>\[\begin{equation} \left|\frac{\partial \epsilon y}{\partial y}\right|\leq \epsilon=0.5=L, \end{equation}\]</div>
 <p>on <span class="math notranslate nohighlight">\(D=\{(t,y)|0\leq t \leq 2, 10 &lt; y &lt; 30 \}\)</span> and that a constant <span class="math notranslate nohighlight">\(M\)</span>
-exists with the property that
-$<span class="math notranslate nohighlight">\( |y^{''}(t)|\leq M. \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( |y^{''}(t)|=2.5e^{0.5\times 2} \leq 2.5 e=6.8. \)</span>$</p>
+exists with the property that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4a28177d-62c3-4d6b-a0c4-68c3f49e5b00">
+<span class="eqno">(33)<a class="headerlink" href="#equation-4a28177d-62c3-4d6b-a0c4-68c3f49e5b00" title="Permalink to this equation">¶</a></span>\[\begin{equation} |y^{''}(t)|\leq M. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-c8090ace-03e1-40d3-813d-668f2c653e2b">
+<span class="eqno">(34)<a class="headerlink" href="#equation-c8090ace-03e1-40d3-813d-668f2c653e2b" title="Permalink to this equation">¶</a></span>\[\begin{equation} |y^{''}(t)|=2.5e^{0.5\times 2} \leq 2.5 e=6.8. \end{equation}\]</div>
 <p><strong>Specific Theorem Global Error</strong></p>
-<p>Let <span class="math notranslate nohighlight">\(y(t)\)</span> denote the unique solution of the Initial Value Problem
-$<span class="math notranslate nohighlight">\( y^{'}=0.5 y \ \ \ 0\leq t \leq 10 \ \ \ y(0)=10 \)</span><span class="math notranslate nohighlight">\(
-and \)</span>w_0,w_1,…,w_N<span class="math notranslate nohighlight">\( be the approx generated by the Euler method for some
-positive integer N.  Then for \)</span>i=0,1,…,N<span class="math notranslate nohighlight">\(,
-\)</span><span class="math notranslate nohighlight">\( |y(t_i)-w_i| \leq \frac{6.8 h}{2\times 0.5}|e^{0.5(t_i-0)}-1| \)</span>$</p>
+<p>Let <span class="math notranslate nohighlight">\(y(t)\)</span> denote the unique solution of the Initial Value Problem</p>
+<div class="amsmath math notranslate nohighlight" id="equation-da4303a3-7dd9-44fc-9d62-7de9de833947">
+<span class="eqno">(35)<a class="headerlink" href="#equation-da4303a3-7dd9-44fc-9d62-7de9de833947" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=0.5 y \ \ \ 0\leq t \leq 10 \ \ \ y(0)=10 \end{equation}\]</div>
+<p>and <span class="math notranslate nohighlight">\(w_0,w_1,...,w_N\)</span> be the approx generated by the Euler method for some
+positive integer N.  Then for <span class="math notranslate nohighlight">\(i=0,1,...,N\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-353dfce5-8a3f-4357-9a14-629486f41bdb">
+<span class="eqno">(36)<a class="headerlink" href="#equation-353dfce5-8a3f-4357-9a14-629486f41bdb" title="Permalink to this equation">¶</a></span>\[\begin{equation} |y(t_i)-w_i| \leq \frac{6.8 h}{2\times 0.5}|e^{0.5(t_i-0)}-1| \end{equation}\]</div>
 <p>The figure below shows the exact error <span class="math notranslate nohighlight">\(y-w\)</span> in red triangles and the upper global error in black x’s.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -585,7 +722,7 @@ positive integer N.  Then for \)</span>i=0,1,…,N<span class="math notranslate 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_15_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_15_0.png" />
+<img alt="../_images/101_Euler_method_with_Theorems_Growth_function_16_0.png" src="../_images/101_Euler_method_with_Theorems_Growth_function_16_0.png" />
 </div>
 </div>
 </div>
@@ -594,7 +731,7 @@ positive integer N.  Then for \)</span>i=0,1,…,N<span class="math notranslate 
 <p>The table below shows the iteration <span class="math notranslate nohighlight">\(i\)</span>, the discrete time point t[i], the Euler approximation w[i] of the solution <span class="math notranslate nohighlight">\(y\)</span>, the exact error <span class="math notranslate nohighlight">\(|y-w|\)</span> and the upper limit of the global error for the linear population equation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time t_i&#39;</span><span class="p">:</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span>    <span class="s1">&#39;Euler (w_i) &#39;</span><span class="p">:</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;Exact (y)&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;Exact Error (|y-w|)&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]),</span><span class="mi">10</span><span class="p">),</span><span class="sa">r</span><span class="s1">&#39;Global Error &#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="mf">6.8</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">20</span><span class="p">)}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time t_i&#39;</span><span class="p">:</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span>    <span class="s1">&#39;Euler (w_i) &#39;</span><span class="p">:</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;Exact (y)&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;Exact Error (|y_i-w_i|)&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]),</span><span class="mi">10</span><span class="p">),</span><span class="sa">r</span><span class="s1">&#39;Global Error &#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="mf">6.8</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">20</span><span class="p">)}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
@@ -622,7 +759,7 @@ positive integer N.  Then for \)</span>i=0,1,…,N<span class="math notranslate 
       <th>time t_i</th>
       <th>Euler (w_i)</th>
       <th>Exact (y)</th>
-      <th>Exact Error (|y-w|)</th>
+      <th>Exact Error (|y_i-w_i|)</th>
       <th>Global Error</th>
     </tr>
   </thead>
@@ -747,19 +884,19 @@ positive integer N.  Then for \)</span>i=0,1,…,N<span class="math notranslate 
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../Chapter09-Elliptic%20Equations/903_Poisson_Equation_Boundary.html" title="previous page">
+        <a class="left-prev" href="../index.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Finite Difference Methods for the Poisson Equation</p>
+                <p class="prevnext-title">Numerical Analysis with Applications in Python</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="102_Euler_method_with_Theorems_nonlinear_Growth_function.html" title="next page">
+        <a class="right-next" href="1_Problem_Sheet/01_Problem_Sheet_1_Question_2a.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Euler Method with Theorems Applied to Non-Linear Population Equations</p>
+                <p class="prevnext-title">Problem Sheet 1 Question 2a</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

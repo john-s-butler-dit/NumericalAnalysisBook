@@ -1,0 +1,674 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem Sheet 2 Question 1a - 2nd Order Taylor &#8212; Numerical Analysis</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Problem Sheet 2 Question 1b - 2nd Order Taylor" href="02_PS_Question_1b.html" />
+    <link rel="prev" title="Supplementary Examples - 3rd Order Taylor Method" href="../203_3rd_Order_Taylor_Supplementary_Examples.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Numerical Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Numerical Analysis with Applications in Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Euler Method
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Chapter01_Euler_Methods/101_Euler_method_with_Theorems_Growth_function.html">
+   First Order Initial Value Problem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter01_Euler_Methods/1_Problem_Sheet/01_Problem_Sheet_1_Question_2a.html">
+     Problem Sheet 1 Question 2a
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter01_Euler_Methods/1_Problem_Sheet/01_Problem_Sheet_1_Question_2b.html">
+     Problem Sheet 1 Question 2b
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Taylor Method
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../202_Taylor_Method_Error_Example.html">
+   1st vs 2nd order Taylor methods
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../203_3rd_Order_Taylor_Supplementary_Examples.html">
+   Supplementary Examples - 3rd Order Taylor Method
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Problem Sheet 2 Question 1a - 2nd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_PS_Question_1b.html">
+     Problem Sheet 2 Question 1b - 2nd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_PS_Question_2a.html">
+     Problem Sheet 2 Question 2a - 3rd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_PS_Question_2b.html">
+     Problem Sheet 2 Question 2b - 3rd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_PS_Question_3.html">
+     Problem Sheet 2 Question 3 - 2nd Order Taylor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Chapter02_Higher_Order_Methods/2_Problem_Sheet/02_PS_Question_1a.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/john-s-butler-dit/Numerical-Analysis-Python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-discrete-interval">
+   General Discrete Interval
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specific-discrete-interval">
+   Specific Discrete Interval
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nd-order-taylor-solution">
+   2nd Order Taylor Solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#global-error">
+   Global Error
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#local-error">
+     Local Error
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lipschitz-constant">
+     Lipschitz constant
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specific-global-upper-bound-formula">
+     Specific Global Upper Bound Formula
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/john-s-butler-dit/Numerical-Analysis-Python/blob/master/Chapter%2002%20-%20Higher%20Order%20Methods/2_Problem%20Sheet/02_PS%20Question%201a.ipynb" target="_parent"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="section" id="problem-sheet-2-question-1a-2nd-order-taylor">
+<h1>Problem Sheet 2 Question 1a - 2nd Order Taylor<a class="headerlink" href="#problem-sheet-2-question-1a-2nd-order-taylor" title="Permalink to this headline">¶</a></h1>
+<p>The general form of the population growth differential equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-90eb2da4-7f16-4cdb-9341-11bef9867108">
+<span class="eqno">(96)<a class="headerlink" href="#equation-90eb2da4-7f16-4cdb-9341-11bef9867108" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=t-y, \ \ (0 \leq t \leq 4), \end{equation}\]</div>
+<p>with the initial condition</p>
+<div class="amsmath math notranslate nohighlight" id="equation-423c7f30-eb02-4566-bf4a-5d8d388bbc16">
+<span class="eqno">(97)<a class="headerlink" href="#equation-423c7f30-eb02-4566-bf4a-5d8d388bbc16" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(0)=1\end{equation}\]</div>
+<p>For N=4
+with the analytic (exact) solution</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6c65738e-63a2-46ce-a6c0-3321ca3eecce">
+<span class="eqno">(98)<a class="headerlink" href="#equation-6c65738e-63a2-46ce-a6c0-3321ca3eecce" title="Permalink to this equation">¶</a></span>\[\begin{equation} y= 2e^{-t}+t+1.\end{equation}\]</div>
+<p>Apply <strong>2nd Order Taylor Method</strong> to approximate the solution of the given initial value problems using the indicated number of time steps. Compare the approximate solution with the given exact solution, and compare the actual error with the theoretical error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Library</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span> 
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># side-stepping mpl backend</span>
+<span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="k">as</span> <span class="nn">gridspec</span> <span class="c1"># subplots</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="general-discrete-interval">
+<h2>General Discrete Interval<a class="headerlink" href="#general-discrete-interval" title="Permalink to this headline">¶</a></h2>
+<p>The continuous time <span class="math notranslate nohighlight">\(a\leq t \leq b \)</span> is discretised into <span class="math notranslate nohighlight">\(N\)</span> points seperated by a constant stepsize</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5d5aa0a8-b8ec-49ad-88fe-22b978acd438">
+<span class="eqno">(99)<a class="headerlink" href="#equation-5d5aa0a8-b8ec-49ad-88fe-22b978acd438" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{b-a}{N}.\end{equation}\]</div>
+</div>
+<div class="section" id="specific-discrete-interval">
+<h2>Specific Discrete Interval<a class="headerlink" href="#specific-discrete-interval" title="Permalink to this headline">¶</a></h2>
+<p>Here the interval is <span class="math notranslate nohighlight">\(0\leq t \leq 4\)</span> with <span class="math notranslate nohighlight">\(N=4\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-c79b3663-f7c5-4f2d-8d4e-2406648f6581">
+<span class="eqno">(100)<a class="headerlink" href="#equation-c79b3663-f7c5-4f2d-8d4e-2406648f6581" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{4-0}{4}=1.\end{equation}\]</div>
+<p>This gives the 5 discrete points with stepsize h=1:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6ad44a93-73a5-4e43-b14a-7d987154aabf">
+<span class="eqno">(101)<a class="headerlink" href="#equation-6ad44a93-73a5-4e43-b14a-7d987154aabf" title="Permalink to this equation">¶</a></span>\[\begin{equation} t_0=0, \ t_1=1, \ ... t_{4}=4. \end{equation}\]</div>
+<p>This is generalised to</p>
+<div class="amsmath math notranslate nohighlight" id="equation-82d0e0b7-33e2-42c1-99af-9756b1cdc299">
+<span class="eqno">(102)<a class="headerlink" href="#equation-82d0e0b7-33e2-42c1-99af-9756b1cdc299" title="Permalink to this equation">¶</a></span>\[\begin{equation} t_i=0+i1, \ \ \ i=0,1,...,4.\end{equation}\]</div>
+<p>The plot below illustrates the discrete time steps from 0 to 4.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Setting up time</span>
+<span class="n">t_end</span><span class="o">=</span><span class="mi">4</span>
+<span class="n">t_start</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">4</span>
+<span class="n">h</span><span class="o">=</span><span class="p">(</span><span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">t_start</span><span class="p">,</span><span class="n">t_end</span><span class="o">+</span><span class="mf">0.01</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="s1">&#39;o:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="o">*</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Illustration of discrete time points for h=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_PS_Question_1a_4_0.png" src="../../_images/02_PS_Question_1a_4_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="nd-order-taylor-solution">
+<h2>2nd Order Taylor Solution<a class="headerlink" href="#nd-order-taylor-solution" title="Permalink to this headline">¶</a></h2>
+<p>The 2nd Order Taylor difference equation is given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a494ac67-edbf-400f-918d-b9208f0729c7">
+<span class="eqno">(103)<a class="headerlink" href="#equation-a494ac67-edbf-400f-918d-b9208f0729c7" title="Permalink to this equation">¶</a></span>\[\begin{equation} w_{i+1}=w_i+h\left[f(t_i,w_i)+\frac{h}{2}f'(t_i,w_i)\right],\end{equation}\]</div>
+<p>where</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c20cc279-d357-4f1e-aa54-1fe25e3d3f59">
+<span class="eqno">(104)<a class="headerlink" href="#equation-c20cc279-d357-4f1e-aa54-1fe25e3d3f59" title="Permalink to this equation">¶</a></span>\[\begin{equation} f(t_i,w_i)=t_i-w_i\end{equation}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c50d11e3-f433-4951-98ba-86c4b6756c5a">
+<span class="eqno">(105)<a class="headerlink" href="#equation-c50d11e3-f433-4951-98ba-86c4b6756c5a" title="Permalink to this equation">¶</a></span>\[\begin{equation} f'(t_i,w_i)=1-t_i+w_i,\end{equation}\]</div>
+<p>which gives</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8a2dde15-885c-4183-a574-99824aebeeb6">
+<span class="eqno">(106)<a class="headerlink" href="#equation-8a2dde15-885c-4183-a574-99824aebeeb6" title="Permalink to this equation">¶</a></span>\[\begin{equation} w_{i+1}=w_i+h(t_i-w_i)+\frac{h^2}{2}(1-t_i+w_i) \end{equation}\]</div>
+<p>for <span class="math notranslate nohighlight">\(i=0,1,2,3\)</span> with the initial condition,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-52d1ded9-718a-49b3-a96b-7d0a1628b78c">
+<span class="eqno">(107)<a class="headerlink" href="#equation-52d1ded9-718a-49b3-a96b-7d0a1628b78c" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_0=1.\end{equation}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IC</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="n">INTITIAL_CONDITION</span><span class="o">=</span><span class="n">IC</span>
+<span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">INTITIAL_CONDITION</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span> <span class="c1"># Exact Solution</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="global-error">
+<h2>Global Error<a class="headerlink" href="#global-error" title="Permalink to this headline">¶</a></h2>
+<p>The upper bound of the global error is:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-164b2743-17d8-4203-a506-549f92dd4ab1">
+<span class="eqno">(108)<a class="headerlink" href="#equation-164b2743-17d8-4203-a506-549f92dd4ab1" title="Permalink to this equation">¶</a></span>\[\begin{equation} |y(t_i)-w_i|\leq\frac{Mh^2}{6}\frac{1}{L} |e^{Lt_i}-1|, \end{equation}\]</div>
+<p>where
+<span class="math notranslate nohighlight">\(|y'''(t)|\leq M \)</span> for <span class="math notranslate nohighlight">\(t \in (0,4)\)</span> and <span class="math notranslate nohighlight">\(L\)</span> is the Lipschitz constant.
+Generally we do not have access to <span class="math notranslate nohighlight">\(M\)</span> or <span class="math notranslate nohighlight">\(L\)</span>, but as we have the exact solution we can find <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<div class="section" id="local-error">
+<h3>Local Error<a class="headerlink" href="#local-error" title="Permalink to this headline">¶</a></h3>
+<p>The global error consistent of an exponential term and the local error.
+The local error for the 2nd Order Taylor method is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-97e2f3a0-0fad-452f-82a7-f30c7d85608f">
+<span class="eqno">(109)<a class="headerlink" href="#equation-97e2f3a0-0fad-452f-82a7-f30c7d85608f" title="Permalink to this equation">¶</a></span>\[\begin{equation} |y(t_1)-w_1|&lt;\tau=\frac{Mh^2}{6}, \end{equation}\]</div>
+<p>by differentiation the exact solution
+<span class="math notranslate nohighlight">\( y= 2e^{-t}+t+1\)</span>
+three times</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a23584be-5e18-40a3-be46-62f905597366">
+<span class="eqno">(110)<a class="headerlink" href="#equation-a23584be-5e18-40a3-be46-62f905597366" title="Permalink to this equation">¶</a></span>\[\begin{equation}y'=-2e^{-t}+1,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-657f6166-ae40-4c2b-b686-65579304ebb7">
+<span class="eqno">(111)<a class="headerlink" href="#equation-657f6166-ae40-4c2b-b686-65579304ebb7" title="Permalink to this equation">¶</a></span>\[\begin{equation}y''=2e^{-t},\end{equation}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3a4c2d05-8734-4c38-8b04-942b42a7d51a">
+<span class="eqno">(112)<a class="headerlink" href="#equation-3a4c2d05-8734-4c38-8b04-942b42a7d51a" title="Permalink to this equation">¶</a></span>\[\begin{equation}y'''=-2e^{-t}.\end{equation}\]</div>
+<p>Then we choose the largest possible value of <span class="math notranslate nohighlight">\(y''\)</span> on the interval of interest <span class="math notranslate nohighlight">\((0,4)\)</span>, which gives,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8aaeb581-619b-41c1-80a9-f2e8ac36ec62">
+<span class="eqno">(113)<a class="headerlink" href="#equation-8aaeb581-619b-41c1-80a9-f2e8ac36ec62" title="Permalink to this equation">¶</a></span>\[\begin{equation}|y''(t)|\leq |-2e^{0}|=2, \end{equation}\]</div>
+<p>therefore</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f9902fac-50a8-4725-8789-22d39b646569">
+<span class="eqno">(114)<a class="headerlink" href="#equation-f9902fac-50a8-4725-8789-22d39b646569" title="Permalink to this equation">¶</a></span>\[\begin{equation}M=2.\end{equation}\]</div>
+<p>This gives the local error</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d3571791-d606-497e-b63c-90a9ed923271">
+<span class="eqno">(115)<a class="headerlink" href="#equation-d3571791-d606-497e-b63c-90a9ed923271" title="Permalink to this equation">¶</a></span>\[\begin{equation} |y(t_1)-w_1|&lt;\tau=\frac{Mh^2}{6}=\frac{2h^2}{6}=\frac{h^2}{3}.\end{equation}\]</div>
+</div>
+<div class="section" id="lipschitz-constant">
+<h3>Lipschitz constant<a class="headerlink" href="#lipschitz-constant" title="Permalink to this headline">¶</a></h3>
+<p>The Lipschitz constant <span class="math notranslate nohighlight">\(L\)</span> is from the Lipschitz condition,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0f774b81-099d-4847-8d3f-4bf361d5eb51">
+<span class="eqno">(116)<a class="headerlink" href="#equation-0f774b81-099d-4847-8d3f-4bf361d5eb51" title="Permalink to this equation">¶</a></span>\[\begin{equation}\left| \frac{\partial f(t,y)}{\partial t}\right|\leq L. \end{equation}\]</div>
+<p>The constant can be found by taking partical derivative of <span class="math notranslate nohighlight">\(f(t,y)=t-y\)</span> with respect to <span class="math notranslate nohighlight">\(y\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-b2297529-f321-4d49-a377-a415ec0c6211">
+<span class="eqno">(117)<a class="headerlink" href="#equation-b2297529-f321-4d49-a377-a415ec0c6211" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{\partial f(t,y)}{\partial y}=-1\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-b2d0158a-7e57-4529-a702-1c5108af7eb5">
+<span class="eqno">(118)<a class="headerlink" href="#equation-b2d0158a-7e57-4529-a702-1c5108af7eb5" title="Permalink to this equation">¶</a></span>\[\begin{equation}L=|-1|=1.\end{equation}\]</div>
+</div>
+<div class="section" id="specific-global-upper-bound-formula">
+<h3>Specific Global Upper Bound Formula<a class="headerlink" href="#specific-global-upper-bound-formula" title="Permalink to this headline">¶</a></h3>
+<p>Puting these values into the upper bound gives:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-51795718-ff73-4581-9f5b-122a8c7a55e0">
+<span class="eqno">(119)<a class="headerlink" href="#equation-51795718-ff73-4581-9f5b-122a8c7a55e0" title="Permalink to this equation">¶</a></span>\[\begin{equation} |y(t_i)-w_i|\leq\frac{h^2}{3} |e^{t_i}-1|. \end{equation}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Upper_bound</span><span class="o">=</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Upper Bound</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="c1"># --- left hand plot</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;o:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="c1">#ax.legend(loc=&#39;best&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Numerical Solution (w) h=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+
+<span class="c1"># --- right hand plot</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Analytic Solution (y)&#39;</span><span class="p">)</span>
+
+<span class="c1">#ax.legend(loc=&#39;best&#39;)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w</span><span class="o">-</span><span class="n">y</span><span class="p">),</span><span class="s1">&#39;o:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Exact Error |w-y|&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- title, explanatory text and save</span>
+
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w</span><span class="o">-</span><span class="n">y</span><span class="p">),</span><span class="s1">&#39;o:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">Upper_bound</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Upper Bound&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- title, explanatory text and save</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y&#39;=t-y$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_PS_Question_1a_11_0.png" src="../../_images/02_PS_Question_1a_11_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time t_i&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span>    <span class="s1">&#39; 2nd Order Taylor (w_i) &#39;</span><span class="p">:</span><span class="n">w</span><span class="p">,</span>    <span class="s1">&#39;Exact (y_i) &#39;</span><span class="p">:</span><span class="n">y</span><span class="p">,</span>    <span class="s1">&#39;Exact Error( |y_i-w_i|) &#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">w</span><span class="p">),</span><span class="s1">&#39;Upper Bound&#39;</span><span class="p">:</span><span class="n">Upper_bound</span><span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time t_i</th>
+      <th>2nd Order Taylor (w_i)</th>
+      <th>Exact (y_i)</th>
+      <th>Exact Error( |y_i-w_i|)</th>
+      <th>Upper Bound</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>1.000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>1.000</td>
+      <td>0.735759</td>
+      <td>0.264241</td>
+      <td>0.572761</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0</td>
+      <td>1.500</td>
+      <td>1.270671</td>
+      <td>0.229329</td>
+      <td>2.129685</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.0</td>
+      <td>2.250</td>
+      <td>2.099574</td>
+      <td>0.150426</td>
+      <td>6.361846</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4.0</td>
+      <td>3.125</td>
+      <td>3.036631</td>
+      <td>0.088369</td>
+      <td>17.866050</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Chapter02_Higher_Order_Methods/2_Problem_Sheet"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../203_3rd_Order_Taylor_Supplementary_Examples.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Supplementary Examples - 3rd Order Taylor Method</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="02_PS_Question_1b.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Problem Sheet 2 Question 1b - 2nd Order Taylor</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By John S Butler<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

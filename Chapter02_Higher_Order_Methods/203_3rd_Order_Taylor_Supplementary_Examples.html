@@ -54,6 +54,7 @@
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Problem Sheet 2 Question 1a - 2nd Order Taylor" href="2_Problem_Sheet/02_PS_Question_1a.html" />
     <link rel="prev" title="1st vs 2nd order Taylor methods" href="202_Taylor_Method_Error_Example.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -87,51 +88,83 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../index.html">
-   Numerical Analysis
+   Numerical Analysis with Applications in Python
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Name of Part 1
+  Euler Method
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter01_Euler_Methods/101_Euler_method_with_Theorems_Growth_function.html">
    First Order Initial Value Problem
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter01_Euler_Methods/102_Euler_method_with_Theorems_nonlinear_Growth_function.html">
-   Euler Method with Theorems Applied to Non-Linear Population Equations
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Name of Part 2
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="201_3rd_Order_Taylor_Population_growth.html">
-   Taylor Method
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="202_Taylor_Method_Error_Example.html">
-   1st vs 2nd order Taylor methods
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Supplementary Examples - 3rd Order Taylor Method
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet/01_Problem_Sheet_1_Question_2a.html">
+     Problem Sheet 1 Question 2a
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet/01_Problem_Sheet_1_Question_2b.html">
+     Problem Sheet 1 Question 2b
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Taylor Method
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="202_Taylor_Method_Error_Example.html">
+   1st vs 2nd order Taylor methods
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Supplementary Examples - 3rd Order Taylor Method
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Problem_Sheet/02_PS_Question_1a.html">
+     Problem Sheet 2 Question 1a - 2nd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Problem_Sheet/02_PS_Question_1b.html">
+     Problem Sheet 2 Question 1b - 2nd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Problem_Sheet/02_PS_Question_2a.html">
+     Problem Sheet 2 Question 2a - 3rd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Problem_Sheet/02_PS_Question_2b.html">
+     Problem Sheet 2 Question 2b - 3rd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Problem_Sheet/02_PS_Question_3.html">
+     Problem Sheet 2 Question 3 - 2nd Order Taylor
     </a>
    </li>
   </ul>
@@ -177,7 +210,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Chapter02_Higher_Order_Methods/203_3rd Order_Taylor_Supplementary_Examples.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Chapter02_Higher_Order_Methods/203_3rd_Order_Taylor_Supplementary_Examples.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -273,16 +306,20 @@
         
               <div>
                 
-  <div class="section" id="supplementary-examples-3rd-order-taylor-method">
+  <p><a href="https://colab.research.google.com/github/john-s-butler-dit/Numerical-Analysis-Python/blob/master/Chapter%2002%20-%20Higher%20Order%20Methods/203_3rd%20Order%20Taylor%20Supplementary%20Examples.ipynb" target="_parent"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="section" id="supplementary-examples-3rd-order-taylor-method">
 <h1>Supplementary Examples - 3rd Order Taylor Method<a class="headerlink" href="#supplementary-examples-3rd-order-taylor-method" title="Permalink to this headline">¶</a></h1>
-<p>This notebook illustrates the 3rd order Taylor method using the initial value problem
-$<span class="math notranslate nohighlight">\( y^{'}=t-y, \ \ (1 \leq t \leq 3) \)</span><span class="math notranslate nohighlight">\(
-with the initial condition
-\)</span><span class="math notranslate nohighlight">\(y(1)=\frac{2}{e}\)</span>$</p>
+<p>This notebook illustrates the 3rd order Taylor method using the initial value problem</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d6de90bc-b8f0-4871-9004-2536a55e3ab6">
+<span class="eqno">(85)<a class="headerlink" href="#equation-d6de90bc-b8f0-4871-9004-2536a55e3ab6" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=t-y, \ \ (1 \leq t \leq 3),  \end{equation}\]</div>
+<p>with the initial condition</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1adf378c-d7c8-4110-a963-dfa30e117066">
+<span class="eqno">(86)<a class="headerlink" href="#equation-1adf378c-d7c8-4110-a963-dfa30e117066" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(1)=\frac{2}{e} \end{equation}\]</div>
 <div class="section" id="rd-order-taylor">
 <h2>3rd Order Taylor:<a class="headerlink" href="#rd-order-taylor" title="Permalink to this headline">¶</a></h2>
-<p>The general form of the 3rd order Taylor is:
-$<span class="math notranslate nohighlight">\( w_{i+1}=w_i+h\left[f(t_i,w_i)+\frac{h}{2}f'(t_i,w_i)+\frac{h^2}{6}f''(t_i,w_i)\right]\)</span>$</p>
+<p>The general form of the 3rd order Taylor is:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ec44bb43-cace-4786-a3f1-72bbb5a0f3e8">
+<span class="eqno">(87)<a class="headerlink" href="#equation-ec44bb43-cace-4786-a3f1-72bbb5a0f3e8" title="Permalink to this equation">¶</a></span>\[\begin{equation} w_{i+1}=w_i+h\left[f(t_i,w_i)+\frac{h}{2}f'(t_i,w_i)+\frac{h^2}{6}f''(t_i,w_i)\right] \end{equation}\]</div>
 </div>
 <div class="section" id="read-in-libraries">
 <h2>Read in Libraries<a class="headerlink" href="#read-in-libraries" title="Permalink to this headline">¶</a></h2>
@@ -304,14 +341,14 @@ $<span class="math notranslate nohighlight">\( w_{i+1}=w_i+h\left[f(t_i,w_i)+\fr
 </div>
 <div class="section" id="setting-up-the-discrete-time-axis">
 <h2>Setting up the discrete time axis<a class="headerlink" href="#setting-up-the-discrete-time-axis" title="Permalink to this headline">¶</a></h2>
-<div class="math notranslate nohighlight">
-\[ h=\frac{t_{end}-t_{start}}{N} \]</div>
-<div class="math notranslate nohighlight">
-\[ h=\frac{3-1}{10}=0.2 \]</div>
-<div class="math notranslate nohighlight">
-\[t_i=t_0+ih\]</div>
-<div class="math notranslate nohighlight">
-\[t_i=0+0.2i\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-0b1aed85-19dc-4a24-8cf1-146c4ffe9f7b">
+<span class="eqno">(88)<a class="headerlink" href="#equation-0b1aed85-19dc-4a24-8cf1-146c4ffe9f7b" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{t_{end}-t_{start}}{N},  \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-ea15b99a-3790-4c7e-acfa-67555b1cb490">
+<span class="eqno">(89)<a class="headerlink" href="#equation-ea15b99a-3790-4c7e-acfa-67555b1cb490" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{3-1}{10}=0.2, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-44f20d17-6946-4d5b-aa51-f15ef5f33149">
+<span class="eqno">(90)<a class="headerlink" href="#equation-44f20d17-6946-4d5b-aa51-f15ef5f33149" title="Permalink to this equation">¶</a></span>\[\begin{equation}t_i=t_0+ih, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6f9726df-8787-4902-9bcb-7b134edfaf76">
+<span class="eqno">(91)<a class="headerlink" href="#equation-6f9726df-8787-4902-9bcb-7b134edfaf76" title="Permalink to this equation">¶</a></span>\[\begin{equation}t_i=0+0.2i, \end{equation}\]</div>
 <p>for <span class="math notranslate nohighlight">\(i=0,1,2,...,5.\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -333,15 +370,15 @@ $<span class="math notranslate nohighlight">\( w_{i+1}=w_i+h\left[f(t_i,w_i)+\fr
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Illustration of discrete time points for h=0.2&#39;)
 </pre></div>
 </div>
-<img alt="../_images/203_3rd Order_Taylor_Supplementary_Examples_4_1.png" src="../_images/203_3rd Order_Taylor_Supplementary_Examples_4_1.png" />
+<img alt="../_images/203_3rd_Order_Taylor_Supplementary_Examples_5_1.png" src="../_images/203_3rd_Order_Taylor_Supplementary_Examples_5_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="specific-3rd-order-taylor">
 <h2>Specific 3rd Order Taylor<a class="headerlink" href="#specific-3rd-order-taylor" title="Permalink to this headline">¶</a></h2>
-<p>To write the specific difference equation for the intial value problem we need derive <span class="math notranslate nohighlight">\(f\)</span>, <span class="math notranslate nohighlight">\(f'\)</span> and <span class="math notranslate nohighlight">\(f''\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[f(t,y)=t-y\]</div>
+<p>To write the specific difference equation for the intial value problem we need derive <span class="math notranslate nohighlight">\(f\)</span>, <span class="math notranslate nohighlight">\(f'\)</span> and <span class="math notranslate nohighlight">\(f''\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-159b8c77-4881-4e91-b6c2-0874c25186ae">
+<span class="eqno">(92)<a class="headerlink" href="#equation-159b8c77-4881-4e91-b6c2-0874c25186ae" title="Permalink to this equation">¶</a></span>\[\begin{equation}f(t,y)=t-y, \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myfun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
@@ -351,8 +388,8 @@ $<span class="math notranslate nohighlight">\( w_{i+1}=w_i+h\left[f(t_i,w_i)+\fr
 </div>
 </div>
 </div>
-<div class="math notranslate nohighlight">
-\[f'(t,y)=1-y'=1-t+y\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-aad2a689-282b-4618-84e7-c9a9b454b29d">
+<span class="eqno">(93)<a class="headerlink" href="#equation-aad2a689-282b-4618-84e7-c9a9b454b29d" title="Permalink to this equation">¶</a></span>\[\begin{equation}f'(t,y)=1-y'=1-t+y, \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myfund</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
@@ -362,8 +399,8 @@ $<span class="math notranslate nohighlight">\( w_{i+1}=w_i+h\left[f(t_i,w_i)+\fr
 </div>
 </div>
 </div>
-<div class="math notranslate nohighlight">
-\[f''(t,y)=-1+y'=-1+t-y\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-bc16df01-b7cc-40c6-980c-adf18769e3a5">
+<span class="eqno">(94)<a class="headerlink" href="#equation-bc16df01-b7cc-40c6-980c-adf18769e3a5" title="Permalink to this equation">¶</a></span>\[\begin{equation}f''(t,y)=-1+y'=-1+t-y \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myfundd</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
@@ -375,8 +412,9 @@ $<span class="math notranslate nohighlight">\( w_{i+1}=w_i+h\left[f(t_i,w_i)+\fr
 </div>
 <div class="section" id="specific-difference-equation">
 <h3>Specific Difference equation<a class="headerlink" href="#specific-difference-equation" title="Permalink to this headline">¶</a></h3>
-<p>This gives the difference equation
-$<span class="math notranslate nohighlight">\( w_{i+1}= w_{i} + h(t_i-w_i+\frac{h}{2}(1-t_i+w_i)+\frac{h^2}{6}(-1+t_i-w_i)) \)</span>$</p>
+<p>This gives the difference equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d2184987-cf09-4a7f-a36c-13eb8aeb6f46">
+<span class="eqno">(95)<a class="headerlink" href="#equation-d2184987-cf09-4a7f-a36c-13eb8aeb6f46" title="Permalink to this equation">¶</a></span>\[\begin{equation} w_{i+1}= w_{i} + h(t_i-w_i+\frac{h}{2}(1-t_i+w_i)+\frac{h^2}{6}(-1+t_i-w_i)). \end{equation}\]</div>
 </div>
 </div>
 <div class="section" id="method">
@@ -405,10 +443,10 @@ $<span class="math notranslate nohighlight">\( w_{i+1}= w_{i} + h(t_i-w_i+\frac{
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc810583d90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe370a95d90&gt;
 </pre></div>
 </div>
-<img alt="../_images/203_3rd Order_Taylor_Supplementary_Examples_15_1.png" src="../_images/203_3rd Order_Taylor_Supplementary_Examples_15_1.png" />
+<img alt="../_images/203_3rd_Order_Taylor_Supplementary_Examples_16_1.png" src="../_images/203_3rd_Order_Taylor_Supplementary_Examples_16_1.png" />
 </div>
 </div>
 </div>
@@ -523,6 +561,8 @@ $<span class="math notranslate nohighlight">\( w_{i+1}= w_{i} + h(t_i-w_i+\frac{
 </div></div></div>
 </div>
 </div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -563,6 +603,15 @@ $<span class="math notranslate nohighlight">\( w_{i+1}= w_{i} + h(t_i-w_i+\frac{
             </div>
         </a>
     </div>
+     <div id="next">
+        <a class="right-next" href="2_Problem_Sheet/02_PS_Question_1a.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Problem Sheet 2 Question 1a - 2nd Order Taylor</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
