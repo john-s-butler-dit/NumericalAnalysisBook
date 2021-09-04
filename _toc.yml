@@ -1,0 +1,16 @@
+format: jb-book
+root: index
+chapters:
+- file: Chapter01_Euler_Methods/101_Euler_method_with_Theorems_Growth_function
+  sections:
+  - file: Chapter01_Euler_Methods/102_Euler_method_with_Theorems_nonlinear_Growth_function
+chapters:
+- file: Chapter02_Higher_Order_Methods/201_3rd_Order_Taylor_Population_growth
+  sections:
+  - file: Chapter02_Higher_Order_Methods/202_Taylor_Method_Error_Example
+  - file: Chapter02_Higher_Order_Methods/203_3rd Order_Taylor_Supplementary_Examples
+chapters:
+- file: Chapter09-Elliptic Equations/901_Poisson_Equation_Laplacian
+  sections:
+  - file: Chapter09-Elliptic Equations/902_Poisson_Equation-Zero_Boundary_Conditions
+  - file: Chapter09-Elliptic Equations/903_Poisson_Equation_Boundary
