@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1st vs 2nd order Taylor methods" href="202_Taylor_Method_Error_Example.html" />
-    <link rel="prev" title="Euler Method with Theorems Applied to Non-Linear Population Equations" href="../Chapter01_Euler_Methods/102_Euler_method_with_Theorems_nonlinear_Growth_function.html" />
+    <link rel="prev" title="Problem Sheet 1 Question 2b" href="../Chapter01_Euler_Methods/1_Problem_Sheet/102b_Problem_Sheet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -88,30 +88,59 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../index.html">
-   Numerical Analysis
+   Numerical Analysis with Applications in Python
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Name of Part 1
+  Euler Method
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter01_Euler_Methods/101_Euler_method_with_Theorems_Growth_function.html">
    First Order Initial Value Problem
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter01_Euler_Methods/102_Euler_method_with_Theorems_nonlinear_Growth_function.html">
-   Euler Method with Theorems Applied to Non-Linear Population Equations
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter01_Euler_Methods/102_Euler_method_with_Theorems_nonlinear_Growth_function.html">
+     Euler Method with Theorems Applied to Non-Linear Population Equations
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet.html">
+     Problem Sheet 1
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet/102a_Problem_Sheet.html">
+       Problem Sheet 1 Question 2a
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet/102b_Problem_Sheet.html">
+       Problem Sheet 1 Question 2b
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Name of Part 2
+  Taylor Method
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -124,16 +153,48 @@
   <a class="reference internal" href="202_Taylor_Method_Error_Example.html">
    1st vs 2nd order Taylor methods
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="203_3rd%20Order_Taylor_Supplementary_Examples.html">
-     Supplementary Examples - 3rd Order Taylor Method
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="2_Problem_Sheet.html">
+     Problem Sheet 1
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="2_Problem_Sheet/201a_Problem_Sheet.html">
+       Problem Sheet 2 Question 1a - 2nd Order Taylor
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="2_Problem_Sheet/201b_Problem_Sheet.html">
+       Problem Sheet 2 Question 1b - 2nd Order Taylor
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="2_Problem_Sheet/202a_Problem_Sheet.html">
+       Problem Sheet 2 Question 2a - 3rd Order Taylor
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="2_Problem_Sheet/202b_Problem_Sheet.html">
+       Problem Sheet 2 Question 2b - 3rd Order Taylor
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="2_Problem_Sheet/203_Problem_Sheet.html">
+       Problem Sheet 2 Question 3 - 2nd Order Taylor
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -362,43 +423,63 @@
         
               <div>
                 
-  <div class="section" id="taylor-method">
+  <p><a href="https://colab.research.google.com/github/john-s-butler-dit/Numerical-Analysis-Python/blob/master/Chapter%2002%20-%20Higher%20Order%20Methods/201_3rd%20Order%20Taylor_Population_growth.ipynb" target="_parent"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="section" id="taylor-method">
 <h1>Taylor Method<a class="headerlink" href="#taylor-method" title="Permalink to this headline">¶</a></h1>
 <p>This notebook implements the 3rd order Taylor method for three different population intial value problems.</p>
 </div>
 <div class="section" id="rd-order-taylor">
 <h1>3rd Order Taylor<a class="headerlink" href="#rd-order-taylor" title="Permalink to this headline">¶</a></h1>
-<p>The general 3rd Order Taylor method for to the first order differential equation
-$<span class="math notranslate nohighlight">\( y^{'} = f(t,y) \)</span><span class="math notranslate nohighlight">\(
-numerical approximates \)</span>y<span class="math notranslate nohighlight">\( the at time point \)</span>t_i<span class="math notranslate nohighlight">\( as \)</span>w_i<span class="math notranslate nohighlight">\(
-with the  formula:
-\)</span><span class="math notranslate nohighlight">\( w_{i+1}=w_i+h\big[f(t_i,w_i)+\frac{h}{2}f'(t_i,w_i)+\frac{h^2}{6}f''(t_i,w_i)\big],\)</span><span class="math notranslate nohighlight">\(
-where \)</span>h<span class="math notranslate nohighlight">\( is the stepsize.
-for \)</span>i=0,…,N-1<span class="math notranslate nohighlight">\(.
-With the local truncation error of 
-\)</span><span class="math notranslate nohighlight">\(\tau=\frac{h^3}{24}y^{''''}(\xi_i),\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\xi \in [t_i,t_{i+1}]$.
+<p>The general 3rd Order Taylor method for to the first order differential equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d4aa03f7-865f-48c8-a403-4f0edc349b4d">
+<span class="eqno">(113)<a class="headerlink" href="#equation-d4aa03f7-865f-48c8-a403-4f0edc349b4d" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'} = f(t,y), \end{equation}\]</div>
+<p>numerical approximates <span class="math notranslate nohighlight">\(y\)</span> the at time point <span class="math notranslate nohighlight">\(t_i\)</span> as <span class="math notranslate nohighlight">\(w_i\)</span>
+with the  formula:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8409ec49-5b6d-447a-89e5-96c01eb870ef">
+<span class="eqno">(114)<a class="headerlink" href="#equation-8409ec49-5b6d-447a-89e5-96c01eb870ef" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+ w_{i+1}=w_i+h\big[f(t_i,w_i)+\frac{h}{2}f'(t_i,w_i)+\frac{h^2}{6}f''(t_i,w_i)\big],\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(h\)</span> is the stepsize.
+for <span class="math notranslate nohighlight">\(i=0,...,N-1\)</span>.
+With the local truncation error of</p>
+<div class="amsmath math notranslate nohighlight" id="equation-39c00578-f317-44b1-9e7d-7162167cd34c">
+<span class="eqno">(115)<a class="headerlink" href="#equation-39c00578-f317-44b1-9e7d-7162167cd34c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\tau=\frac{h^3}{24}y^{''''}(\xi_i),\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\xi \in [t_i,t_{i+1}]\)</span>.
 To illustrate the method we will apply it to three intial value problems:</p>
 <div class="section" id="linear">
 <h2>1. Linear<a class="headerlink" href="#linear" title="Permalink to this headline">¶</a></h2>
-<p>Consider the linear population Differential Equation
-$<span class="math notranslate nohighlight">\( y^{'}=0.1y, \ \ (2000 \leq t \leq 2020), \)</span><span class="math notranslate nohighlight">\(
-with the initial condition,
-\)</span><span class="math notranslate nohighlight">\(y(2000)=6.\)</span>$</p>
+<p>Consider the linear population Differential Equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a412b779-d503-410f-843d-cf06ed77c093">
+<span class="eqno">(116)<a class="headerlink" href="#equation-a412b779-d503-410f-843d-cf06ed77c093" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+ y^{'}=0.1y, \ \ (2000 \leq t \leq 2020), \end{equation}\]</div>
+<p>with the initial condition,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d2746ff7-c50b-4584-9f4f-b671ff1c8797">
+<span class="eqno">(117)<a class="headerlink" href="#equation-d2746ff7-c50b-4584-9f4f-b671ff1c8797" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y(2000)=6.\end{equation}\]</div>
 </div>
 <div class="section" id="non-linear-population-equation">
 <h2>2. Non-Linear Population Equation<a class="headerlink" href="#non-linear-population-equation" title="Permalink to this headline">¶</a></h2>
-<p>Consider the non-linear population Differential Equation
-$<span class="math notranslate nohighlight">\( y^{'}=0.2y-0.01y^2, \ \ (2000 \leq t \leq 2020), \)</span><span class="math notranslate nohighlight">\(
-with the initial condition,
-\)</span><span class="math notranslate nohighlight">\(y(2000)=6.\)</span>$</p>
+<p>Consider the non-linear population Differential Equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-16ec50a5-2e12-4ba5-9b61-b24bc88203c4">
+<span class="eqno">(118)<a class="headerlink" href="#equation-16ec50a5-2e12-4ba5-9b61-b24bc88203c4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+ y^{'}=0.2y-0.01y^2, \ \ (2000 \leq t \leq 2020), \end{equation}\]</div>
+<p>with the initial condition,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9c8ed43e-fd28-43ec-a44a-da1dddc8e512">
+<span class="eqno">(119)<a class="headerlink" href="#equation-9c8ed43e-fd28-43ec-a44a-da1dddc8e512" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y(2000)=6.
+\end{equation}\]</div>
 </div>
 <div class="section" id="non-linear-population-equation-with-an-oscillation">
 <h2>3. Non-Linear Population Equation with an oscillation<a class="headerlink" href="#non-linear-population-equation-with-an-oscillation" title="Permalink to this headline">¶</a></h2>
-<p>Consider the non-linear population Differential Equation with an oscillation
-$<span class="math notranslate nohighlight">\( y^{'}=0.2y-0.01y^2+\sin(2\pi t), \ \ (2000 \leq t \leq 2020), \)</span><span class="math notranslate nohighlight">\(
-with the initial condition,
-\)</span><span class="math notranslate nohighlight">\(y(2000)=6.\)</span>$</p>
+<p>Consider the non-linear population Differential Equation with an oscillation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2ebf5d56-527d-4a67-bb1c-3e8ca5d01a62">
+<span class="eqno">(120)<a class="headerlink" href="#equation-2ebf5d56-527d-4a67-bb1c-3e8ca5d01a62" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+ y^{'}=0.2y-0.01y^2+\sin(2\pi t), \ \ (2000 \leq t \leq 2020), 
+ \end{equation}\]</div>
+<p>with the initial condition,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c2e7b266-57a9-40e6-8e75-2df762ae52d9">
+<span class="eqno">(121)<a class="headerlink" href="#equation-c2e7b266-57a9-40e6-8e75-2df762ae52d9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y(2000)=6.\end{equation}\]</div>
 </div>
 <div class="section" id="read-in-libraries">
 <h2>Read in Libraries<a class="headerlink" href="#read-in-libraries" title="Permalink to this headline">¶</a></h2>
@@ -422,15 +503,19 @@ with the initial condition,
 </div>
 <div class="section" id="discrete-interval">
 <h2>Discrete Interval<a class="headerlink" href="#discrete-interval" title="Permalink to this headline">¶</a></h2>
-<p>The continuous time <span class="math notranslate nohighlight">\(a\leq t \leq b \)</span> is discretised into <span class="math notranslate nohighlight">\(N\)</span> points seperated by a constant stepsize
-$<span class="math notranslate nohighlight">\( h=\frac{b-a}{N}.\)</span><span class="math notranslate nohighlight">\(
-Here the interval is \)</span>2000\leq t \leq 2020,<span class="math notranslate nohighlight">\( 
-\)</span><span class="math notranslate nohighlight">\( h=\frac{2020-2000}{200}=0.1.\)</span><span class="math notranslate nohighlight">\(
-This gives the 201 discrete points:
-\)</span><span class="math notranslate nohighlight">\( t_0=2000, \ t_1=2000.1, \ ... t_{200}=2020. \)</span><span class="math notranslate nohighlight">\(
-This is generalised to 
-\)</span><span class="math notranslate nohighlight">\( t_i=2000+i0.1, \ \ \ i=0,1,...,200.\)</span>$
-The plot below shows the discrete time steps:</p>
+<p>The continuous time <span class="math notranslate nohighlight">\(a\leq t \leq b \)</span> is discretised into <span class="math notranslate nohighlight">\(N\)</span> points seperated by a constant stepsize</p>
+<div class="amsmath math notranslate nohighlight" id="equation-684c49b8-9b9d-42e1-817c-5d8cd8cb10e0">
+<span class="eqno">(122)<a class="headerlink" href="#equation-684c49b8-9b9d-42e1-817c-5d8cd8cb10e0" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{b-a}{N}.\end{equation}\]</div>
+<p>Here the interval is <span class="math notranslate nohighlight">\(2000\leq t \leq 2020,\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-ae59314e-f3c3-43d4-8f70-e5236edc320a">
+<span class="eqno">(123)<a class="headerlink" href="#equation-ae59314e-f3c3-43d4-8f70-e5236edc320a" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{2020-2000}{200}=0.1.\end{equation}\]</div>
+<p>This gives the 201 discrete points:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1829dfaa-fa7d-4cef-ac97-2b718a02b7a0">
+<span class="eqno">(124)<a class="headerlink" href="#equation-1829dfaa-fa7d-4cef-ac97-2b718a02b7a0" title="Permalink to this equation">¶</a></span>\[\begin{equation} t_0=2000, \ t_1=2000.1, \ ... t_{200}=2020. \end{equation}\]</div>
+<p>This is generalised to</p>
+<div class="amsmath math notranslate nohighlight" id="equation-75fb2684-2ebc-49ed-8da2-16dae44556d1">
+<span class="eqno">(125)<a class="headerlink" href="#equation-75fb2684-2ebc-49ed-8da2-16dae44556d1" title="Permalink to this equation">¶</a></span>\[\begin{equation} t_i=2000+i0.1, \ \ \ i=0,1,...,200.\end{equation}\]</div>
+<p>The plot below shows the discrete time steps:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="o">=</span><span class="mi">200</span>
@@ -446,7 +531,7 @@ The plot below shows the discrete time steps:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/201_3rd_Order_Taylor_Population_growth_4_0.png" src="../_images/201_3rd_Order_Taylor_Population_growth_4_0.png" />
+<img alt="../_images/201_3rd_Order_Taylor_Population_growth_5_0.png" src="../_images/201_3rd_Order_Taylor_Population_growth_5_0.png" />
 </div>
 </div>
 </div>
@@ -455,17 +540,21 @@ The plot below shows the discrete time steps:</p>
 <h1>1. Linear Population Equation<a class="headerlink" href="#linear-population-equation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="exact-solution">
 <h2>Exact Solution<a class="headerlink" href="#exact-solution" title="Permalink to this headline">¶</a></h2>
-<p>The linear population equation
-$<span class="math notranslate nohighlight">\( y^{'}=0.1y, \ \ (2000 \leq t \leq 2020), \)</span><span class="math notranslate nohighlight">\(
-with the initial condition,
-\)</span><span class="math notranslate nohighlight">\(y(2000)=6.\)</span><span class="math notranslate nohighlight">\(
-has a known exact (analytic) solution
-\)</span><span class="math notranslate nohighlight">\( y=6e^{0.1(t-2000)}. \)</span>$</p>
+<p>The linear population equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-98d0954c-de7b-4d2a-bd2a-5470af860fdd">
+<span class="eqno">(126)<a class="headerlink" href="#equation-98d0954c-de7b-4d2a-bd2a-5470af860fdd" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=0.1y, \ \ (2000 \leq t \leq 2020), \end{equation}\]</div>
+<p>with the initial condition,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9e5fc79d-eb0b-46e4-b6da-fa586a606fac">
+<span class="eqno">(127)<a class="headerlink" href="#equation-9e5fc79d-eb0b-46e4-b6da-fa586a606fac" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(2000)=6.\end{equation}\]</div>
+<p>has a known exact (analytic) solution</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f67fb172-6ac7-4a3a-944a-15e48be9c79f">
+<span class="eqno">(128)<a class="headerlink" href="#equation-f67fb172-6ac7-4a3a-944a-15e48be9c79f" title="Permalink to this equation">¶</a></span>\[\begin{equation} y=6e^{0.1(t-2000)}. \end{equation}\]</div>
 </div>
 <div class="section" id="specific-3rd-order-taylor-for-the-linear-population-equation">
 <h2>Specific 3rd Order Taylor for the Linear Population Equation<a class="headerlink" href="#specific-3rd-order-taylor-for-the-linear-population-equation" title="Permalink to this headline">¶</a></h2>
-<p>To write the specific 3rd Order Taylor difference equation for the intial value problem we need to calculate the first derivative of
-$<span class="math notranslate nohighlight">\(f(t,y)=0.1y,\)</span>$</p>
+<p>To write the specific 3rd Order Taylor difference equation for the intial value problem we need to calculate the first derivative of</p>
+<div class="amsmath math notranslate nohighlight" id="equation-245bb3d3-b87e-4252-9d25-d29609a1ac65">
+<span class="eqno">(129)<a class="headerlink" href="#equation-245bb3d3-b87e-4252-9d25-d29609a1ac65" title="Permalink to this equation">¶</a></span>\[\begin{equation}f(t,y)=0.1y,\end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linfun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
@@ -475,8 +564,9 @@ $<span class="math notranslate nohighlight">\(f(t,y)=0.1y,\)</span>$</p>
 </div>
 </div>
 </div>
-<p>with respect to t
-$<span class="math notranslate nohighlight">\( f'(t,y)=0.1y'=0.1(0.1y)=0.01y \)</span>$</p>
+<p>with respect to <span class="math notranslate nohighlight">\(t\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-67908661-e6c5-49e6-a11a-081a6d4feb79">
+<span class="eqno">(130)<a class="headerlink" href="#equation-67908661-e6c5-49e6-a11a-081a6d4feb79" title="Permalink to this equation">¶</a></span>\[\begin{equation} f'(t,y)=0.1y'=0.1(0.1y)=0.01y, \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linfun_d</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
@@ -486,8 +576,9 @@ $<span class="math notranslate nohighlight">\( f'(t,y)=0.1y'=0.1(0.1y)=0.01y \)<
 </div>
 </div>
 </div>
-<p>and the second derivative of <span class="math notranslate nohighlight">\(f\)</span> with respect to <span class="math notranslate nohighlight">\(t\)</span>,
-$<span class="math notranslate nohighlight">\(f'(t,y)=0.01y'=0.01(0.1y)=0.001y.\)</span>$</p>
+<p>and the second derivative of <span class="math notranslate nohighlight">\(f\)</span> with respect to <span class="math notranslate nohighlight">\(t\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-29fe3dcf-b6c3-4a75-8dc3-1065ef36654c">
+<span class="eqno">(131)<a class="headerlink" href="#equation-29fe3dcf-b6c3-4a75-8dc3-1065ef36654c" title="Permalink to this equation">¶</a></span>\[\begin{equation}f'(t,y)=0.01y'=0.01(0.1y)=0.001y.\end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linfun_dd</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
@@ -499,10 +590,12 @@ $<span class="math notranslate nohighlight">\(f'(t,y)=0.01y'=0.01(0.1y)=0.001y.\
 </div>
 <div class="section" id="linear-population-3rd-order-taylor-difference-equation">
 <h3>Linear Population 3rd Order Taylor Difference equation<a class="headerlink" href="#linear-population-3rd-order-taylor-difference-equation" title="Permalink to this headline">¶</a></h3>
-<p>Substituting the derivatives of the linear population equation into the 3rd order Taylor equation gives the difference equation
-$<span class="math notranslate nohighlight">\( w_{i+1}= w_{i} + h\big[0.1 w_i+\frac{h}{2}(0.01 w_i)+\frac{h^2}{6}(0.001w_i)\big], \)</span><span class="math notranslate nohighlight">\(
-for \)</span>i=0,…,199<span class="math notranslate nohighlight">\(, where \)</span>w_i<span class="math notranslate nohighlight">\( is the numerical approximation of \)</span>y<span class="math notranslate nohighlight">\( at time \)</span>t_i<span class="math notranslate nohighlight">\(, with the initial condition
-\)</span><span class="math notranslate nohighlight">\(w_0=6.\)</span>$</p>
+<p>Substituting the derivatives of the linear population equation into the 3rd order Taylor equation gives the difference equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8315d40b-10ad-4630-9f97-b81caaefd060">
+<span class="eqno">(132)<a class="headerlink" href="#equation-8315d40b-10ad-4630-9f97-b81caaefd060" title="Permalink to this equation">¶</a></span>\[\begin{equation} w_{i+1}= w_{i} + h\big[0.1 w_i+\frac{h}{2}(0.01 w_i)+\frac{h^2}{6}(0.001w_i)\big],\end{equation}\]</div>
+<p>for <span class="math notranslate nohighlight">\(i=0,...,199\)</span>, where <span class="math notranslate nohighlight">\(w_i\)</span> is the numerical approximation of <span class="math notranslate nohighlight">\(y\)</span> at time <span class="math notranslate nohighlight">\(t_i\)</span>, with the initial condition</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9a3496a9-8f81-4314-939a-e6620a1866c9">
+<span class="eqno">(133)<a class="headerlink" href="#equation-9a3496a9-8f81-4314-939a-e6620a1866c9" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_0=6.\end{equation}\]</div>
 </div>
 </div>
 <div class="section" id="method">
@@ -533,7 +626,7 @@ for \)</span>i=0,…,199<span class="math notranslate nohighlight">\(, where \)<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/201_3rd_Order_Taylor_Population_growth_15_0.png" src="../_images/201_3rd_Order_Taylor_Population_growth_15_0.png" />
+<img alt="../_images/201_3rd_Order_Taylor_Population_growth_16_0.png" src="../_images/201_3rd_Order_Taylor_Population_growth_16_0.png" />
 </div>
 </div>
 </div>
@@ -651,15 +744,17 @@ for \)</span>i=0,…,199<span class="math notranslate nohighlight">\(, where \)<
 </div>
 <div class="section" id="id1">
 <h2>2. Non-Linear Population Equation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="math notranslate nohighlight">
-\[ y^{'}=0.2y-0.01y^2, \ \ (2000 \leq t \leq 2020), \]</div>
-<p>with the initial condition,
-$<span class="math notranslate nohighlight">\(y(2000)=6.\)</span>$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9b133daa-e2ab-4969-8a7c-dc46363224d3">
+<span class="eqno">(134)<a class="headerlink" href="#equation-9b133daa-e2ab-4969-8a7c-dc46363224d3" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=0.2y-0.01y^2, \ \ (2000 \leq t \leq 2020), \end{equation}\]</div>
+<p>with the initial condition,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-aec73d01-4c7a-4674-b4b1-a67deac58384">
+<span class="eqno">(135)<a class="headerlink" href="#equation-aec73d01-4c7a-4674-b4b1-a67deac58384" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(2000)=6.\end{equation}\]</div>
 </div>
 <div class="section" id="specific-3rd-order-taylor-for-the-non-linear-population-equation">
 <h2>Specific 3rd Order Taylor for the Non-Linear Population Equation<a class="headerlink" href="#specific-3rd-order-taylor-for-the-non-linear-population-equation" title="Permalink to this headline">¶</a></h2>
-<p>To write the specific 3rd Order Taylor difference equation for the intial value problem we need to calculate the first derivative of
-$<span class="math notranslate nohighlight">\(f(t,y)=0.2y-0.01y^2,\)</span>$</p>
+<p>To write the specific 3rd Order Taylor difference equation for the intial value problem we need to calculate the first derivative of</p>
+<div class="amsmath math notranslate nohighlight" id="equation-640cfe12-79e6-4f6a-abfd-c50d6bdce5ef">
+<span class="eqno">(136)<a class="headerlink" href="#equation-640cfe12-79e6-4f6a-abfd-c50d6bdce5ef" title="Permalink to this equation">¶</a></span>\[\begin{equation}f(t,y)=0.2y-0.01y^2,\end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nonlinfun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
@@ -669,9 +764,11 @@ $<span class="math notranslate nohighlight">\(f(t,y)=0.2y-0.01y^2,\)</span>$</p>
 </div>
 </div>
 </div>
-<p>with respect to <span class="math notranslate nohighlight">\(t\)</span>
-$<span class="math notranslate nohighlight">\( f'(t,y)=0.2y'-0.02y'y=0.2(0.2y-0.01y^2)-0.02(0.2y-0.01y^2)y\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(=(0.2-0.02y)(0.2y-0.01y^2)=(0.2-0.02y)f(t,y) \)</span>$</p>
+<p>with respect to <span class="math notranslate nohighlight">\(t\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-5c9e4d66-4095-49b9-b2c5-0df9602fea32">
+<span class="eqno">(137)<a class="headerlink" href="#equation-5c9e4d66-4095-49b9-b2c5-0df9602fea32" title="Permalink to this equation">¶</a></span>\[\begin{equation} f'(t,y)=0.2y'-0.02y'y=0.2(0.2y-0.01y^2)-0.02(0.2y-0.01y^2)y,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-4b46d2b4-e735-4308-b67a-bf106a24c19d">
+<span class="eqno">(138)<a class="headerlink" href="#equation-4b46d2b4-e735-4308-b67a-bf106a24c19d" title="Permalink to this equation">¶</a></span>\[\begin{equation}=(0.2-0.02y)(0.2y-0.01y^2)=(0.2-0.02y)f(t,y), \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nonlinfun_d</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
@@ -681,9 +778,11 @@ $<span class="math notranslate nohighlight">\( f'(t,y)=0.2y'-0.02y'y=0.2(0.2y-0.
 </div>
 </div>
 </div>
-<p>and the second derivative with respect to <span class="math notranslate nohighlight">\(t\)</span>
-$<span class="math notranslate nohighlight">\( f''(t,y)=-0.02y'(0.2y-0.01y^2)+(0.2-0.02y)(0.2y'-0.02y'y)\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(=-0.02(0.2y-0.01y^2)^2+(0.2-0.02y)^2(0.2y-0.01y^2) \)</span>$</p>
+<p>and the second derivative with respect to <span class="math notranslate nohighlight">\(t\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-b2a3a935-a30f-4a3f-a6ea-bebddfe773e1">
+<span class="eqno">(139)<a class="headerlink" href="#equation-b2a3a935-a30f-4a3f-a6ea-bebddfe773e1" title="Permalink to this equation">¶</a></span>\[\begin{equation} f''(t,y)=-0.02y'(0.2y-0.01y^2)+(0.2-0.02y)(0.2y'-0.02y'y),\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-a910900d-cbd2-438b-af8f-e63e7e891a14">
+<span class="eqno">(140)<a class="headerlink" href="#equation-a910900d-cbd2-438b-af8f-e63e7e891a14" title="Permalink to this equation">¶</a></span>\[\begin{equation}=-0.02(0.2y-0.01y^2)^2+(0.2-0.02y)^2(0.2y-0.01y^2), \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nonlinfun_dd</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
@@ -695,11 +794,14 @@ $<span class="math notranslate nohighlight">\( f''(t,y)=-0.02y'(0.2y-0.01y^2)+(0
 </div>
 <div class="section" id="non-linear-population-3rd-order-taylor-difference-equation">
 <h3>Non-Linear Population 3rd Order Taylor Difference equation<a class="headerlink" href="#non-linear-population-3rd-order-taylor-difference-equation" title="Permalink to this headline">¶</a></h3>
-<p>Substituting the derivatives of the non-linear population equation into the 3rd order Taylor equation gives the difference equation
-$<span class="math notranslate nohighlight">\( w_{i+1}= w_{i} + h\big[\big(0.2w_i-0.01w_i^2\big)+\frac{h}{2}\big((0.2-0.02w_i)(0.2w_i-0.01w_i^2)\big)+\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\frac{h^2}{6}\big(-0.02(0.2w_i-0.01w_i^2)^2+(0.2-0.02w_i)^2(0.2w_i-0.01w_i^2)\big)\big], \)</span><span class="math notranslate nohighlight">\(
-for \)</span>i=0,…,199<span class="math notranslate nohighlight">\(, where \)</span>w_i<span class="math notranslate nohighlight">\( is the numerical approximation of \)</span>y<span class="math notranslate nohighlight">\( at time \)</span>t_i<span class="math notranslate nohighlight">\(, with the initial condition
-\)</span><span class="math notranslate nohighlight">\(w_0=6.\)</span>$</p>
+<p>Substituting the derivatives of the non-linear population equation into the 3rd order Taylor equation gives the difference equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-458c68c5-6cce-4594-9b26-225fd13cdf67">
+<span class="eqno">(141)<a class="headerlink" href="#equation-458c68c5-6cce-4594-9b26-225fd13cdf67" title="Permalink to this equation">¶</a></span>\[\begin{equation} w_{i+1}= w_{i} + h\big[\big(0.2w_i-0.01w_i^2\big)+\frac{h}{2}\big((0.2-0.02w_i)(0.2w_i-0.01w_i^2)\big)+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-cce0cdf4-60df-4d16-9fe2-d9158c11802e">
+<span class="eqno">(142)<a class="headerlink" href="#equation-cce0cdf4-60df-4d16-9fe2-d9158c11802e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\frac{h^2}{6}\big(-0.02(0.2w_i-0.01w_i^2)^2+(0.2-0.02w_i)^2(0.2w_i-0.01w_i^2)\big)\big], \end{equation}\]</div>
+<p>for <span class="math notranslate nohighlight">\(i=0,...,199\)</span>, where <span class="math notranslate nohighlight">\(w_i\)</span> is the numerical approximation of <span class="math notranslate nohighlight">\(y\)</span> at time <span class="math notranslate nohighlight">\(t_i\)</span>, with the initial condition
+$<span class="math notranslate nohighlight">\(w_0=6.\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -725,7 +827,7 @@ for \)</span>i=0,…,199<span class="math notranslate nohighlight">\(, where \)<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/201_3rd_Order_Taylor_Population_growth_27_0.png" src="../_images/201_3rd_Order_Taylor_Population_growth_27_0.png" />
+<img alt="../_images/201_3rd_Order_Taylor_Population_growth_28_0.png" src="../_images/201_3rd_Order_Taylor_Population_growth_28_0.png" />
 </div>
 </div>
 </div>
@@ -900,7 +1002,7 @@ for \)</span>i=0,…,199<span class="math notranslate nohighlight">\(, where \)<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/201_3rd_Order_Taylor_Population_growth_39_0.png" src="../_images/201_3rd_Order_Taylor_Population_growth_39_0.png" />
+<img alt="../_images/201_3rd_Order_Taylor_Population_growth_40_0.png" src="../_images/201_3rd_Order_Taylor_Population_growth_40_0.png" />
 </div>
 </div>
 </div>
@@ -1026,11 +1128,11 @@ for \)</span>i=0,…,199<span class="math notranslate nohighlight">\(, where \)<
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../Chapter01_Euler_Methods/102_Euler_method_with_Theorems_nonlinear_Growth_function.html" title="previous page">
+        <a class="left-prev" href="../Chapter01_Euler_Methods/1_Problem_Sheet/102b_Problem_Sheet.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Euler Method with Theorems Applied to Non-Linear Population Equations</p>
+                <p class="prevnext-title">Problem Sheet 1 Question 2b</p>
             </div>
         </a>
     </div>

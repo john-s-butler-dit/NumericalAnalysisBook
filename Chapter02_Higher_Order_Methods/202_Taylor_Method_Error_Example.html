@@ -54,8 +54,8 @@
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Supplementary Examples - 3rd Order Taylor Method" href="203_3rd_Order_Taylor_Supplementary_Examples.html" />
-    <link rel="prev" title="Problem Sheet 1 Question 2b" href="../Chapter01_Euler_Methods/1_Problem_Sheet/01_Problem_Sheet_1_Question_2b.html" />
+    <link rel="next" title="Problem Sheet 2 Question 1a - 2nd Order Taylor" href="2_Problem_Sheet/201a_Problem_Sheet.html" />
+    <link rel="prev" title="Problem Sheet 1" href="2_Problem_Sheet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -109,14 +109,31 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet/01_Problem_Sheet_1_Question_2a.html">
-     Problem Sheet 1 Question 2a
+    <a class="reference internal" href="../Chapter01_Euler_Methods/102_Euler_method_with_Theorems_nonlinear_Growth_function.html">
+     Euler Method with Theorems Applied to Non-Linear Population Equations
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet/01_Problem_Sheet_1_Question_2b.html">
-     Problem Sheet 1 Question 2b
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet.html">
+     Problem Sheet 1
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet/102a_Problem_Sheet.html">
+       Problem Sheet 1 Question 2a
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet/102b_Problem_Sheet.html">
+       Problem Sheet 1 Question 2b
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -127,43 +144,48 @@
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   1st vs 2nd order Taylor methods
+ <li class="toctree-l1">
+  <a class="reference internal" href="201_3rd_Order_Taylor_Population_growth.html">
+   Taylor Method
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="203_3rd_Order_Taylor_Supplementary_Examples.html">
-   Supplementary Examples - 3rd Order Taylor Method
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="2_Problem_Sheet.html">
+   Problem Sheet 1
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1st vs 2nd order Taylor methods
+    </a>
+   </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Problem_Sheet/02_PS_Question_1a.html">
+    <a class="reference internal" href="2_Problem_Sheet/201a_Problem_Sheet.html">
      Problem Sheet 2 Question 1a - 2nd Order Taylor
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Problem_Sheet/02_PS_Question_1b.html">
+    <a class="reference internal" href="2_Problem_Sheet/201b_Problem_Sheet.html">
      Problem Sheet 2 Question 1b - 2nd Order Taylor
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Problem_Sheet/02_PS_Question_2a.html">
+    <a class="reference internal" href="2_Problem_Sheet/202a_Problem_Sheet.html">
      Problem Sheet 2 Question 2a - 3rd Order Taylor
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Problem_Sheet/02_PS_Question_2b.html">
+    <a class="reference internal" href="2_Problem_Sheet/202b_Problem_Sheet.html">
      Problem Sheet 2 Question 2b - 3rd Order Taylor
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Problem_Sheet/02_PS_Question_3.html">
+    <a class="reference internal" href="2_Problem_Sheet/203_Problem_Sheet.html">
      Problem Sheet 2 Question 3 - 2nd Order Taylor
     </a>
    </li>
@@ -280,37 +302,37 @@
 <div class="section" id="intial-value-poblem">
 <h2>Intial Value Poblem<a class="headerlink" href="#intial-value-poblem" title="Permalink to this headline">¶</a></h2>
 <p>The general form of the population growth differential equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2bb68481-734e-4dc3-9239-9a5b2adf04c0">
-<span class="eqno">(76)<a class="headerlink" href="#equation-2bb68481-734e-4dc3-9239-9a5b2adf04c0" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=t-y, \ \ (0 \leq t \leq 4), \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-c291e92d-0d97-4594-b272-113ec36d826a">
+<span class="eqno">(143)<a class="headerlink" href="#equation-c291e92d-0d97-4594-b272-113ec36d826a" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=t-y, \ \ (0 \leq t \leq 4), \end{equation}\]</div>
 <p>with the initial condition</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7fed52b7-9fa5-4387-9b76-89ce5cb0bc35">
-<span class="eqno">(77)<a class="headerlink" href="#equation-7fed52b7-9fa5-4387-9b76-89ce5cb0bc35" title="Permalink to this equation">¶</a></span>\[\begin{equation}x(0)=1, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-50c7522a-3708-4713-8cc7-ee2d51f41a11">
+<span class="eqno">(144)<a class="headerlink" href="#equation-50c7522a-3708-4713-8cc7-ee2d51f41a11" title="Permalink to this equation">¶</a></span>\[\begin{equation}x(0)=1, \end{equation}\]</div>
 <p>For N=4
 with the analytic (exact) solution</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d6fe99aa-d4e9-4b44-8c84-e99c8618e93a">
-<span class="eqno">(78)<a class="headerlink" href="#equation-d6fe99aa-d4e9-4b44-8c84-e99c8618e93a" title="Permalink to this equation">¶</a></span>\[\begin{equation} y= 2e^{-t}+t+1. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-9edb7d32-1074-4a1e-b99c-df38459c53e2">
+<span class="eqno">(145)<a class="headerlink" href="#equation-9edb7d32-1074-4a1e-b99c-df38459c53e2" title="Permalink to this equation">¶</a></span>\[\begin{equation} y= 2e^{-t}+t+1. \end{equation}\]</div>
 </div>
 <div class="section" id="taylor-solution">
 <h2>Taylor Solution<a class="headerlink" href="#taylor-solution" title="Permalink to this headline">¶</a></h2>
-<div class="amsmath math notranslate nohighlight" id="equation-357dc49d-cbaf-4b79-a33d-88deee9f3bc6">
-<span class="eqno">(79)<a class="headerlink" href="#equation-357dc49d-cbaf-4b79-a33d-88deee9f3bc6" title="Permalink to this equation">¶</a></span>\[\begin{equation} f(t,y)=t-y,  \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-11b0dddb-527e-4668-97c5-79e81409f05b">
+<span class="eqno">(146)<a class="headerlink" href="#equation-11b0dddb-527e-4668-97c5-79e81409f05b" title="Permalink to this equation">¶</a></span>\[\begin{equation} f(t,y)=t-y,  \end{equation}\]</div>
 <p>differentiate with respect to <span class="math notranslate nohighlight">\(t\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa2976fb-358a-4f9b-9688-9c6bfca42f87">
-<span class="eqno">(80)<a class="headerlink" href="#equation-fa2976fb-358a-4f9b-9688-9c6bfca42f87" title="Permalink to this equation">¶</a></span>\[\begin{equation} f'(t,y)=1-y'=1-t+y,  \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-87fa2ff7-cddf-46e3-a582-0395af8f4109">
+<span class="eqno">(147)<a class="headerlink" href="#equation-87fa2ff7-cddf-46e3-a582-0395af8f4109" title="Permalink to this equation">¶</a></span>\[\begin{equation} f'(t,y)=1-y'=1-t+y,  \end{equation}\]</div>
 <p>This gives the first order Taylor,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c29f62b-4de5-4146-9318-726525883b67">
-<span class="eqno">(81)<a class="headerlink" href="#equation-9c29f62b-4de5-4146-9318-726525883b67" title="Permalink to this equation">¶</a></span>\[\begin{equation}T^1(t_i,w,i)=f(t_i,w_i)=t_i-w_i, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-66231339-c394-463a-8f30-339b2d345db5">
+<span class="eqno">(148)<a class="headerlink" href="#equation-66231339-c394-463a-8f30-339b2d345db5" title="Permalink to this equation">¶</a></span>\[\begin{equation}T^1(t_i,w,i)=f(t_i,w_i)=t_i-w_i, \end{equation}\]</div>
 <p>and the second order Taylor,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b4397d5-56f3-4812-824a-68838b7b750f">
-<span class="eqno">(82)<a class="headerlink" href="#equation-4b4397d5-56f3-4812-824a-68838b7b750f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-60ac08fc-0d72-4c2f-9653-b1c0cc5fc4d0">
+<span class="eqno">(149)<a class="headerlink" href="#equation-60ac08fc-0d72-4c2f-9653-b1c0cc5fc4d0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 T^2(t_i,w,i)=f(t_i,w_i)+\frac{h}{2}f'(t_i,w_i)=t_i-w_i+\frac{h}{2}(1-t_i+w_i).\end{equation}\]</div>
 <p>The first order Taylor difference equation, which is identical to the Euler method, is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e0e576fb-6097-495d-8406-2c3d5ecc2bf2">
-<span class="eqno">(83)<a class="headerlink" href="#equation-e0e576fb-6097-495d-8406-2c3d5ecc2bf2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bcf43423-38cf-48e6-aa96-a6adc7163a91">
+<span class="eqno">(150)<a class="headerlink" href="#equation-bcf43423-38cf-48e6-aa96-a6adc7163a91" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{i+1}=w_i+h(t_i-w_i).  \end{equation}\]</div>
 <p>The second order Taylor difference equation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fc385ed3-496a-46c2-8bd8-a7823334ad42">
-<span class="eqno">(84)<a class="headerlink" href="#equation-fc385ed3-496a-46c2-8bd8-a7823334ad42" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-efab27b0-baf4-47ff-9bce-b99326c6cc27">
+<span class="eqno">(151)<a class="headerlink" href="#equation-efab27b0-baf4-47ff-9bce-b99326c6cc27" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{i+1}=w_i+h(t_i-w_i+\frac{h}{2}(1-t_i+w_i)).  \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -426,19 +448,19 @@ w_{i+1}=w_i+h(t_i-w_i+\frac{h}{2}(1-t_i+w_i)).  \end{equation}\]</div>
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../Chapter01_Euler_Methods/1_Problem_Sheet/01_Problem_Sheet_1_Question_2b.html" title="previous page">
+        <a class="left-prev" href="2_Problem_Sheet.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Problem Sheet 1 Question 2b</p>
+                <p class="prevnext-title">Problem Sheet 1</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="203_3rd_Order_Taylor_Supplementary_Examples.html" title="next page">
+        <a class="right-next" href="2_Problem_Sheet/201a_Problem_Sheet.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Supplementary Examples - 3rd Order Taylor Method</p>
+                <p class="prevnext-title">Problem Sheet 2 Question 1a - 2nd Order Taylor</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

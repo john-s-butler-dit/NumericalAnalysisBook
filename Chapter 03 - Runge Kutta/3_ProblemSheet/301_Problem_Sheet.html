@@ -1,0 +1,1118 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application of 2nd order Runge Kutta to Populations Equations &#8212; Numerical Analysis</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Adams Bashforth" href="../../Chapter%2004%20-%20Multistep%20Methods/401_Adams%20Bashforth%20Example.html" />
+    <link rel="prev" title="Example 4th order Runge Kutta" href="../302_4th%20Order%20Runge%20Kutta.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Numerical Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Numerical Analysis with Applications in Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Euler Method
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Chapter01_Euler_Methods/101_Euler_method_with_Theorems_Growth_function.html">
+   First Order Initial Value Problem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter01_Euler_Methods/102_Euler_method_with_Theorems_nonlinear_Growth_function.html">
+     Euler Method with Theorems Applied to Non-Linear Population Equations
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../Chapter01_Euler_Methods/index.html">
+     Problem Sheet 1
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../Chapter01_Euler_Methods/1_Problem_Sheet/102a_Problem_Sheet.html">
+       Problem Sheet 1 Question 2a
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../Chapter01_Euler_Methods/1_Problem_Sheet/102b_Problem_Sheet.html">
+       Problem Sheet 1 Question 2b
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Taylor Method
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Chapter02_Higher_Order_Methods/201_3rd_Order_Taylor_Population_growth.html">
+   Taylor Method
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Chapter02_Higher_Order_Methods/202_Taylor_Method_Error_Example.html">
+   1st vs 2nd order Taylor methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter02_Higher_Order_Methods/203_3rd_Order_Taylor_Supplementary_Examples.html">
+     Supplementary Examples - 3rd Order Taylor Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter02_Higher_Order_Methods/2_Problem_Sheet/201a_Problem_Sheet.html">
+     Problem Sheet 2 Question 1a - 2nd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter02_Higher_Order_Methods/2_Problem_Sheet/201b_Problem_Sheet.html">
+     Problem Sheet 2 Question 1b - 2nd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter02_Higher_Order_Methods/2_Problem_Sheet/202a_Problem_Sheet.html">
+     Problem Sheet 2 Question 2a - 3rd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter02_Higher_Order_Methods/2_Problem_Sheet/202b_Problem_Sheet.html">
+     Problem Sheet 2 Question 2b - 3rd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter02_Higher_Order_Methods/2_Problem_Sheet/203_Problem_Sheet.html">
+     Problem Sheet 2 Question 3 - 2nd Order Taylor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Runge Kutta
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../301_2nd%20Order%20Runge%20Kutta%20Population%20Equations.html">
+   Application of 2nd order Runge Kutta to Populations Equations
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../302_4th%20Order%20Runge%20Kutta.html">
+   Example 4th order Runge Kutta
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Application of 2nd order Runge Kutta to Populations Equations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Multistep Methods
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Chapter%2004%20-%20Multistep%20Methods/401_Adams%20Bashforth%20Example.html">
+   Adams Bashforth
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Chapter%2004%20-%20Multistep%20Methods/402_Adams%20Bashforth%20Population%20Equations.html">
+   2 Step Adam Bashforth
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Chapter%2004%20-%20Multistep%20Methods/403_Adams%20Moulton%20Example.html">
+   Adams Moulton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Chapter%2004%20-%20Multistep%20Methods/404_Adams%20Moulton%20Population%20Equations.html">
+   1 Step Adams Moulton
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Chapter%2004%20-%20Multistep%20Methods/405_Adams%20Predictor%20Corrector%20Example.html">
+   Adams Predictor Corrector
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter%2004%20-%20Multistep%20Methods/4_Problem_Sheet/401a_Problem_Sheet.html">
+     Problem Sheet Question 2a
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter%2004%20-%20Multistep%20Methods/4_Problem_Sheet/401b_Problem_Sheet.html">
+     Problem Sheet Question 2a
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter%2004%20-%20Multistep%20Methods/4_Problem_Sheet/402a_Problem_Sheet.html">
+     Problem Sheet Question 2a
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter%2004%20-%20Multistep%20Methods/4_Problem_Sheet/406b_Problem_Sheet.html">
+     Problem Sheet Question 2a
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Chapter 03 - Runge Kutta/3_ProblemSheet/301_Problem_Sheet.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/john-s-butler-dit/Numerical-Analysis-Python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Application of 2nd order Runge Kutta to Populations Equations
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nd-order-runge-kutta">
+   2nd Order Runge Kutta
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear">
+     1. Linear
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-linear-population-equation">
+     2. Non-Linear Population Equation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-linear-population-equation-with-an-oscillation">
+     3. Non-Linear Population Equation with an oscillation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#setting-up-libraries">
+       Setting up Libraries
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discrete-interval">
+     Discrete Interval
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-population-equation">
+   1. Linear Population Equation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exact-solution">
+     Exact Solution
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specific-2nd-order-runge-kutta">
+     Specific 2nd Order Runge Kutta
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-results">
+     Plotting Results
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table">
+     Table
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2. Non-Linear Population Equation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specific-2nd-order-runge-kutta-for-the-non-linear-population-equation">
+     Specific 2nd Order Runge Kutta for the Non-Linear Population Equation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results">
+     Results
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Table
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-linear-population-equation-with-an-oscilation">
+     3. Non-Linear Population Equation with an oscilation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specific-2nd-order-runge-kutta-for-the-non-linear-population-equation-with-an-oscilation">
+     Specific 2nd Order Runge Kutta for the Non-Linear Population Equation with an oscilation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Results
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Table
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="application-of-2nd-order-runge-kutta-to-populations-equations">
+<h1>Application of 2nd order Runge Kutta to Populations Equations<a class="headerlink" href="#application-of-2nd-order-runge-kutta-to-populations-equations" title="Permalink to this headline">¶</a></h1>
+<p>This notebook implements the 2nd Order Runge Kutta method for three different population intial value problems.</p>
+</div>
+<div class="section" id="nd-order-runge-kutta">
+<h1>2nd Order Runge Kutta<a class="headerlink" href="#nd-order-runge-kutta" title="Permalink to this headline">¶</a></h1>
+<p>The general 2nd Order Runge Kutta method for to the first order differential equation
+$<span class="math notranslate nohighlight">\( y^{'} = f(t,y) \)</span><span class="math notranslate nohighlight">\(
+numerical approximates \)</span>y<span class="math notranslate nohighlight">\( the at time point \)</span>t_i<span class="math notranslate nohighlight">\( as \)</span>w_i<span class="math notranslate nohighlight">\(
+with the  formula:
+\)</span><span class="math notranslate nohighlight">\( w_{i+1}=w_i+\frac{h}{2}\big[k_1+k_2],\)</span><span class="math notranslate nohighlight">\(
+for \)</span>i=0,…,N-1<span class="math notranslate nohighlight">\(, where 
+\)</span><span class="math notranslate nohighlight">\(k_1=f(t_i,w_i)\)</span><span class="math notranslate nohighlight">\(
+and
+\)</span><span class="math notranslate nohighlight">\(k_2=f(t_i+h,w_i+hk_1)\)</span><span class="math notranslate nohighlight">\(
+and \)</span>h$ is the stepsize.</p>
+<p>To illustrate the method we will apply it to three intial value problems:</p>
+<div class="section" id="linear">
+<h2>1. Linear<a class="headerlink" href="#linear" title="Permalink to this headline">¶</a></h2>
+<p>Consider the linear population Differential Equation
+$<span class="math notranslate nohighlight">\( y^{'}=0.1y, \ \ (2000 \leq t \leq 2020), \)</span><span class="math notranslate nohighlight">\(
+with the initial condition,
+\)</span><span class="math notranslate nohighlight">\(y(2000)=6.\)</span>$</p>
+</div>
+<div class="section" id="non-linear-population-equation">
+<h2>2. Non-Linear Population Equation<a class="headerlink" href="#non-linear-population-equation" title="Permalink to this headline">¶</a></h2>
+<p>Consider the non-linear population Differential Equation
+$<span class="math notranslate nohighlight">\( y^{'}=0.2y-0.01y^2, \ \ (2000 \leq t \leq 2020), \)</span><span class="math notranslate nohighlight">\(
+with the initial condition,
+\)</span><span class="math notranslate nohighlight">\(y(2000)=6.\)</span>$</p>
+</div>
+<div class="section" id="non-linear-population-equation-with-an-oscillation">
+<h2>3. Non-Linear Population Equation with an oscillation<a class="headerlink" href="#non-linear-population-equation-with-an-oscillation" title="Permalink to this headline">¶</a></h2>
+<p>Consider the non-linear population Differential Equation with an oscillation
+$<span class="math notranslate nohighlight">\( y^{'}=0.2y-0.01y^2+\sin(2\pi t), \ \ (2000 \leq t \leq 2020), \)</span><span class="math notranslate nohighlight">\(
+with the initial condition,
+\)</span><span class="math notranslate nohighlight">\(y(2000)=6.\)</span>$</p>
+<div class="section" id="setting-up-libraries">
+<h3>Setting up Libraries<a class="headerlink" href="#setting-up-libraries" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Library</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># side-stepping mpl backend</span>
+<span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="k">as</span> <span class="nn">gridspec</span> <span class="c1"># subplots</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="discrete-interval">
+<h2>Discrete Interval<a class="headerlink" href="#discrete-interval" title="Permalink to this headline">¶</a></h2>
+<p>The continuous time <span class="math notranslate nohighlight">\(a\leq t \leq b \)</span> is discretised into <span class="math notranslate nohighlight">\(N\)</span> points seperated by a constant stepsize
+$<span class="math notranslate nohighlight">\( h=\frac{b-a}{N}.\)</span><span class="math notranslate nohighlight">\(
+Here the interval is \)</span>2000\leq t \leq 2020,<span class="math notranslate nohighlight">\( 
+\)</span><span class="math notranslate nohighlight">\( h=\frac{2020-2000}{200}=0.1.\)</span><span class="math notranslate nohighlight">\(
+This gives the 201 discrete points:
+\)</span><span class="math notranslate nohighlight">\( t_0=2000, \ t_1=2000.1, \ ... t_{200}=2020. \)</span><span class="math notranslate nohighlight">\(
+This is generalised to 
+\)</span><span class="math notranslate nohighlight">\( t_i=2000+i0.1, \ \ \ i=0,1,...,200.\)</span>$
+The plot below shows the discrete time steps:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="o">=</span><span class="mi">200</span>
+<span class="n">t_end</span><span class="o">=</span><span class="mf">2020.0</span>
+<span class="n">t_start</span><span class="o">=</span><span class="mf">2000.0</span>
+<span class="n">h</span><span class="o">=</span><span class="p">((</span><span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+<span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">t_start</span><span class="p">,</span><span class="n">t_end</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="s1">&#39;o:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Illustration of discrete time points for h=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/301_Problem_Sheet_4_0.png" src="../../_images/301_Problem_Sheet_4_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="linear-population-equation">
+<h1>1. Linear Population Equation<a class="headerlink" href="#linear-population-equation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="exact-solution">
+<h2>Exact Solution<a class="headerlink" href="#exact-solution" title="Permalink to this headline">¶</a></h2>
+<p>The linear population equation
+$<span class="math notranslate nohighlight">\( y^{'}=0.1y, \ \ (2000 \leq t \leq 2020), \)</span><span class="math notranslate nohighlight">\(
+with the initial condition,
+\)</span><span class="math notranslate nohighlight">\(y(2000)=6.\)</span><span class="math notranslate nohighlight">\(
+has a known exact (analytic) solution
+\)</span><span class="math notranslate nohighlight">\( y=6e^{0.1(t-2000)}. \)</span>$</p>
+</div>
+<div class="section" id="specific-2nd-order-runge-kutta">
+<h2>Specific 2nd Order Runge Kutta<a class="headerlink" href="#specific-2nd-order-runge-kutta" title="Permalink to this headline">¶</a></h2>
+<p>To write the specific 2nd Order Runge Kutta method for the linear population equation we need
+$<span class="math notranslate nohighlight">\(f(t,y)=0.1y\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linfun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
+    <span class="n">ftw</span><span class="o">=</span><span class="mf">0.1</span><span class="o">*</span><span class="n">w</span>
+    <span class="k">return</span> <span class="n">ftw</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>this gives
+$<span class="math notranslate nohighlight">\(k_1=f(t_i,w_i)=0.lw_i,\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(k_2=f(t_i+h,w_i+hk_1)=0.1(w_i+hk_1),\)</span><span class="math notranslate nohighlight">\(
+and the difference equation
+\)</span><span class="math notranslate nohighlight">\(w_{i+1}=w_{i}+\frac{h}{2}(k_1+k_2)\)</span><span class="math notranslate nohighlight">\(
+for \)</span>i=0,…,199<span class="math notranslate nohighlight">\(, where \)</span>w_i<span class="math notranslate nohighlight">\( is the numerical approximation of \)</span>y<span class="math notranslate nohighlight">\( at time \)</span>t_i<span class="math notranslate nohighlight">\(, with step size \)</span>h<span class="math notranslate nohighlight">\( and the initial condition
+\)</span><span class="math notranslate nohighlight">\(w_0=6.\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mf">6.0</span>
+<span class="c1">## 2nd Order Runge Kutta</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">k1</span><span class="o">=</span><span class="n">linfun</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">k2</span><span class="o">=</span><span class="n">linfun</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span><span class="o">+</span><span class="n">k2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-results">
+<h2>Plotting Results<a class="headerlink" href="#plotting-results" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">2000</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;o:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Runge Kutta&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;s:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exact&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/301_Problem_Sheet_10_0.png" src="../../_images/301_Problem_Sheet_10_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="table">
+<h2>Table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
+<p>The table below shows the time, the Runge Kutta numerical approximation, <span class="math notranslate nohighlight">\(w\)</span>,  the exact solution, <span class="math notranslate nohighlight">\(y\)</span>, and the exact error <span class="math notranslate nohighlight">\(|y(t_i)-w_i|\)</span> for the linear population equation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time t_i&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span>    <span class="s1">&#39;Runge Kutta&#39;</span><span class="p">:</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;Exact (y)&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;Exact Error&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="o">-</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span><span class="mi">10</span><span class="p">))}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time t_i</th>
+      <th>Runge Kutta</th>
+      <th>Exact (y)</th>
+      <th>Exact Error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000.0</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000.1</td>
+      <td>6.060300</td>
+      <td>6.060301</td>
+      <td>0.000001</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000.2</td>
+      <td>6.121206</td>
+      <td>6.121208</td>
+      <td>0.000002</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000.3</td>
+      <td>6.182724</td>
+      <td>6.182727</td>
+      <td>0.000003</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2000.4</td>
+      <td>6.244861</td>
+      <td>6.244865</td>
+      <td>0.000004</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2000.5</td>
+      <td>6.307621</td>
+      <td>6.307627</td>
+      <td>0.000005</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2000.6</td>
+      <td>6.371013</td>
+      <td>6.371019</td>
+      <td>0.000006</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2000.7</td>
+      <td>6.435042</td>
+      <td>6.435049</td>
+      <td>0.000007</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2000.8</td>
+      <td>6.499714</td>
+      <td>6.499722</td>
+      <td>0.000009</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2000.9</td>
+      <td>6.565036</td>
+      <td>6.565046</td>
+      <td>0.000010</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>2. Non-Linear Population Equation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[ y^{'}=0.2y-0.01y^2, \ \ (2000 \leq t \leq 2020), \]</div>
+<p>with the initial condition,
+$<span class="math notranslate nohighlight">\(y(2000)=6.\)</span>$</p>
+</div>
+<div class="section" id="specific-2nd-order-runge-kutta-for-the-non-linear-population-equation">
+<h2>Specific 2nd Order Runge Kutta for the Non-Linear Population Equation<a class="headerlink" href="#specific-2nd-order-runge-kutta-for-the-non-linear-population-equation" title="Permalink to this headline">¶</a></h2>
+<p>To write the specific 2nd Order Runge Kutta method we need
+$<span class="math notranslate nohighlight">\(f(t,y)=0.2y-0.01y^2,\)</span><span class="math notranslate nohighlight">\(
+this gives
+\)</span><span class="math notranslate nohighlight">\(k_1=f(t_i,w_i)=0.2w_i-0.01w_i^2,\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(k_2=f(t_i+h,w_i+hk_1)=0.2(w_i+hk_1)-0.01(w_i+hk_1)^2,\)</span><span class="math notranslate nohighlight">\(
+and the difference equation
+\)</span><span class="math notranslate nohighlight">\(w_{i+1}=w_{i}+\frac{h}{2}(k_1+k_2)\)</span><span class="math notranslate nohighlight">\(
+for \)</span>i=0,…,199<span class="math notranslate nohighlight">\(, where \)</span>w_i<span class="math notranslate nohighlight">\( is the numerical approximation of \)</span>y<span class="math notranslate nohighlight">\( at time \)</span>t_i<span class="math notranslate nohighlight">\(, with step size \)</span>h<span class="math notranslate nohighlight">\( and the initial condition
+\)</span><span class="math notranslate nohighlight">\(w_0=6.\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nonlinfun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
+    <span class="n">ftw</span><span class="o">=</span><span class="mf">0.2</span><span class="o">*</span><span class="n">w</span><span class="o">-</span><span class="mf">0.01</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">w</span>
+    <span class="k">return</span> <span class="n">ftw</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mf">6.0</span>
+<span class="c1">## 2nd Order Runge Kutta</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">k1</span><span class="o">=</span><span class="n">nonlinfun</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">k2</span><span class="o">=</span><span class="n">nonlinfun</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span><span class="o">+</span><span class="n">k2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>The plot below shows the Runge Kutta numerical approximation, <span class="math notranslate nohighlight">\(w\)</span> (circles) for the non-linear population equation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;o:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Runge Kutta&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/301_Problem_Sheet_17_0.png" src="../../_images/301_Problem_Sheet_17_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Table<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>The table below shows the time and the Runge Kutta numerical approximation, <span class="math notranslate nohighlight">\(w\)</span>,  for the non-linear population equation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time t_i&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span> 
+     <span class="s1">&#39;Runge Kutta&#39;</span><span class="p">:</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time t_i</th>
+      <th>Runge Kutta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000.0</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000.1</td>
+      <td>6.084332</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000.2</td>
+      <td>6.169328</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000.3</td>
+      <td>6.254977</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2000.4</td>
+      <td>6.341270</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2000.5</td>
+      <td>6.428197</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2000.6</td>
+      <td>6.515747</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2000.7</td>
+      <td>6.603909</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2000.8</td>
+      <td>6.692672</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2000.9</td>
+      <td>6.782025</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="non-linear-population-equation-with-an-oscilation">
+<h2>3. Non-Linear Population Equation with an oscilation<a class="headerlink" href="#non-linear-population-equation-with-an-oscilation" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[ y^{'}=0.2y-0.01y^2+\sin(2\pi t), \ \ (2000 \leq t \leq 2020), \]</div>
+<p>with the initial condition,
+$<span class="math notranslate nohighlight">\(y(2000)=6.\)</span>$</p>
+</div>
+<div class="section" id="specific-2nd-order-runge-kutta-for-the-non-linear-population-equation-with-an-oscilation">
+<h2>Specific 2nd Order Runge Kutta for the Non-Linear Population Equation with an oscilation<a class="headerlink" href="#specific-2nd-order-runge-kutta-for-the-non-linear-population-equation-with-an-oscilation" title="Permalink to this headline">¶</a></h2>
+<p>To write the specific 2nd Order Runge Kutta difference equation for the intial value problem we need
+$<span class="math notranslate nohighlight">\(f(t,y)=0.2y-0.01y^2+\sin(2\pi t),\)</span><span class="math notranslate nohighlight">\(
+which gives
+\)</span><span class="math notranslate nohighlight">\(k_1=f(t_i,w_i)=0.2w_i-0.01w_i^2+\sin(2\pi t_i),\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(k_2=f(t_i+h,w_i+hk_1)=0.2(w_i+hk_1)-0.01(w_i+hk_1)^2+\sin(2\pi (t_i+h)),\)</span><span class="math notranslate nohighlight">\(
+and the difference equation
+\)</span><span class="math notranslate nohighlight">\(w_{i+1}=w_{i}+\frac{h}{2}(k_1+k_2)\)</span><span class="math notranslate nohighlight">\(
+for \)</span>i=0,…,199<span class="math notranslate nohighlight">\(, where \)</span>w_i<span class="math notranslate nohighlight">\( is the numerical approximation of \)</span>y<span class="math notranslate nohighlight">\( at time \)</span>t_i<span class="math notranslate nohighlight">\(, with step size \)</span>h<span class="math notranslate nohighlight">\( and the initial condition
+\)</span><span class="math notranslate nohighlight">\(w_0=6.\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nonlin_oscfun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
+    <span class="n">ftw</span><span class="o">=</span><span class="mf">0.2</span><span class="o">*</span><span class="n">w</span><span class="o">-</span><span class="mf">0.01</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">w</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ftw</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mf">6.0</span>
+<span class="c1">## 2nd Order Runge Kutta</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">k1</span><span class="o">=</span><span class="n">nonlin_oscfun</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">k2</span><span class="o">=</span><span class="n">nonlin_oscfun</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span><span class="o">+</span><span class="n">k2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Results<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>The plot below shows the 2nd order Runge Kutta numerical approximation, <span class="math notranslate nohighlight">\(w\)</span> (circles) for the non-linear population equation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;o:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Taylor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/301_Problem_Sheet_24_0.png" src="../../_images/301_Problem_Sheet_24_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Table<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>The table below shows the time and the 2nd order Runge Kutta numerical approximation, <span class="math notranslate nohighlight">\(w\)</span>,  for the non-linear population equation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time t_i&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span> 
+     <span class="s1">&#39;Runge Kutta&#39;</span><span class="p">:</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time t_i</th>
+      <th>Runge Kutta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000.0</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000.1</td>
+      <td>6.113722</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000.2</td>
+      <td>6.276109</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000.3</td>
+      <td>6.458005</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2000.4</td>
+      <td>6.623032</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2000.5</td>
+      <td>6.741504</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2000.6</td>
+      <td>6.801784</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2000.7</td>
+      <td>6.814712</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2000.8</td>
+      <td>6.809444</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2000.9</td>
+      <td>6.822305</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Chapter 03 - Runge Kutta/3_ProblemSheet"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../302_4th%20Order%20Runge%20Kutta.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Example 4th order Runge Kutta</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../../Chapter%2004%20-%20Multistep%20Methods/401_Adams%20Bashforth%20Example.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Adams Bashforth</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By John S Butler<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
