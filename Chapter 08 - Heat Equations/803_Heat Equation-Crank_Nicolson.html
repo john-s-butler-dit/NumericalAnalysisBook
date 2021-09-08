@@ -1,0 +1,1088 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Implicit Crank-Nicolson Difference Equation for the Heat Equation &#8212; Numerical Analysis</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Implicit Crank-Nicolson Difference Equation for the Heat Equation" href="804_Heat%20Equation-CN-Different_Initial_Boundary.html" />
+    <link rel="prev" title="The Implicit Backward Time Centered Space (BTCS) Difference Equation for the Heat Equation" href="802_Heat%20Equation-%20BTCS.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Numerical Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Numerical Analysis with Applications in Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Euler Method
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter01_Euler_Methods/101_Euler_method_with_Theorems_Growth_function.html">
+   First Order Initial Value Problem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter01_Euler_Methods/102_Euler_method_with_Theorems_nonlinear_Growth_function.html">
+     Euler Method with Theorems Applied to Non-Linear Population Equations
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet.html">
+     Problem Sheet 1
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet/102a_Problem_Sheet.html">
+       Problem Sheet 1 Question 2a
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Chapter01_Euler_Methods/1_Problem_Sheet/102b_Problem_Sheet.html">
+       Problem Sheet 1 Question 2b
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Taylor Method
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/201_3rd_Order_Taylor_Population_growth.html">
+   Taylor Method
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/2_Problem_Sheet.html">
+   Problem Sheet 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/202_Taylor_Method_Error_Example.html">
+     1st vs 2nd order Taylor methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/2_Problem_Sheet/201a_Problem_Sheet.html">
+     Problem Sheet 2 Question 1a - 2nd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/2_Problem_Sheet/201b_Problem_Sheet.html">
+     Problem Sheet 2 Question 1b - 2nd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/2_Problem_Sheet/202a_Problem_Sheet.html">
+     Problem Sheet 2 Question 2a - 3rd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/2_Problem_Sheet/202b_Problem_Sheet.html">
+     Problem Sheet 2 Question 2b - 3rd Order Taylor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/2_Problem_Sheet/203_Problem_Sheet.html">
+     Problem Sheet 2 Question 3 - 2nd Order Taylor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Runge Kutta
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter%2003%20-%20Runge%20Kutta/301_2nd%20Order%20Runge%20Kutta%20Population%20Equations.html">
+   Application of 2nd order Runge Kutta to Populations Equations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Multistep Methods
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter%2004%20-%20Multistep%20Methods/401_Adams%20Bashforth%20Example.html">
+   Adams Bashforth
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2004%20-%20Multistep%20Methods/402_Adams%20Bashforth%20Population%20Equations.html">
+     2 Step Adam Bashforth
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter%2004%20-%20Multistep%20Methods/403_Adams%20Moulton%20Example.html">
+   Adams Moulton
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2004%20-%20Multistep%20Methods/404_Adams%20Moulton%20Population%20Equations.html">
+     1 Step Adams Moulton
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter%2004%20-%20Multistep%20Methods/405_Adams%20Predictor%20Corrector%20Example.html">
+   Adams Predictor Corrector
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter%2004%20-%20Multistep%20Methods/4_Problem_Sheet.html">
+   Problem Sheet 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2004%20-%20Multistep%20Methods/4_Problem_Sheet/401a_Problem_Sheet.html">
+     Problem Sheet Question 2a
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2004%20-%20Multistep%20Methods/4_Problem_Sheet/401b_Problem_Sheet.html">
+     Problem Sheet Question 2a
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2004%20-%20Multistep%20Methods/4_Problem_Sheet/402a_Problem_Sheet.html">
+     Problem Sheet Question 2a
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2004%20-%20Multistep%20Methods/4_Problem_Sheet/406b_Problem_Sheet.html">
+     Problem Sheet Question 2a
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Consistency, Convergence and Stability
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter%2005%20-%20IVP%20Consistent%20Convergence%20Stability/501_Consistent.html">
+   Consistency of a Multistep method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2005%20-%20IVP%20Consistent%20Convergence%20Stability/502_Convergent.html">
+     Convergence of a Multistep Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2005%20-%20IVP%20Consistent%20Convergence%20Stability/503_Stability.html">
+     Stability of a Multistep method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2005%20-%20IVP%20Consistent%20Convergence%20Stability/504_Futher%20Notes%20on%20Stability.html">
+     Further Notes on Stability
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Boundary Value Problems
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter%2006%20-%20Boundary%20Value%20Problems/601_Linear%20Shooting%20Method.html">
+   Linear Shooting Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2006%20-%20Boundary%20Value%20Problems/602_Non-Linear%20Shooting%20Method.html">
+     Non-Linear Shooting Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2006%20-%20Boundary%20Value%20Problems/603_Boundary%20Value%20Problem.html">
+     Finite Difference Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2006%20-%20Boundary%20Value%20Problems/604_Boundary%20Value%20Problem%20Example%202.html">
+     Finite Difference Method
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Parabolic Equations (Heat Equation)
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="801_Heat%20Equation-%20FTCS.html">
+   The Explicit Forward Time Centered Space (FTCS) Difference Equation for the Heat Equation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="802_Heat%20Equation-%20BTCS.html">
+     The Implicit Backward Time Centered Space (BTCS) Difference Equation for the Heat Equation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     The Implicit Crank-Nicolson Difference Equation for the Heat Equation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="804_Heat%20Equation-CN-Different_Initial_Boundary.html">
+     The Implicit Crank-Nicolson Difference Equation for the Heat Equation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Elliptic Equations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter%2009%20-%20Elliptic%20Equations/901_Poisson%20Equation-Laplacian.html">
+   Finite Difference Methods for the Poisson Equation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Hyperbolic Equations (Wave Equation)
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter%2010%20-%20Hyperbolic%20Equations/1001_Wave%20Equation.html">
+   Wave Equation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2010%20-%20Hyperbolic%20Equations/1002_Wave%20Equation-Lax-Friedrich.html">
+     Wave Equation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2010%20-%20Hyperbolic%20Equations/1003_Wave%20Equation-Lax-Wendroff.html">
+     Lax-Wendroff Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter%2010%20-%20Hyperbolic%20Equations/1004_Burger%20Equation.html">
+     Burger Equation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Chapter 08 - Heat Equations/803_Heat Equation-Crank_Nicolson.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/john-s-butler-dit/Numerical-Analysis-Python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#john-s-butler-john-s-butler-tudublin-ie-course-notes-github">
+   John S Butler john.s.butler@tudublin.ie   Course Notes    Github
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-heat-equation">
+   The Heat Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crank-nicolson-difference-method">
+   Crank-Nicolson Difference method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discete-grid">
+   Discete Grid
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discrete-initial-and-boundary-conditions">
+   Discrete Initial and Boundary Conditions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-implicit-crank-nicolson-difference-equation">
+   The Implicit Crank-Nicolson Difference Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-trunction-error">
+   Local Trunction Error
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stability-analyis">
+   Stability Analyis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/john-s-butler-dit/Numerical-Analysis-Python/blob/master/Chapter%2008%20-%20Heat%20Equations/803_Heat%20Equation-Crank_Nicolson.ipynb" target="_parent"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="section" id="the-implicit-crank-nicolson-difference-equation-for-the-heat-equation">
+<h1>The Implicit Crank-Nicolson Difference Equation for the Heat Equation<a class="headerlink" href="#the-implicit-crank-nicolson-difference-equation-for-the-heat-equation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="john-s-butler-john-s-butler-tudublin-ie-course-notes-github">
+<h2>John S Butler john.s.butler&#64;tudublin.ie   <a class="reference external" href="https://johnsbutler.netlify.com/files/Teaching/Numerical_Analysis_for_Differential_Equations.pdf">Course Notes</a>    <a class="reference external" href="https://github.com/john-s-butler-dit/Numerical-Analysis-Python">Github</a><a class="headerlink" href="#john-s-butler-john-s-butler-tudublin-ie-course-notes-github" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This notebook will illustrate the Crank-Nicolson Difference method for the Heat Equation.</p>
+</div>
+<div class="section" id="the-heat-equation">
+<h2>The Heat Equation<a class="headerlink" href="#the-heat-equation" title="Permalink to this headline">¶</a></h2>
+<p>The Heat Equation is the first order in time (<span class="math notranslate nohighlight">\(t\)</span>) and second order in space (<span class="math notranslate nohighlight">\(x\)</span>) Partial Differential Equation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d3358981-5cce-4718-937d-cb9203638b21">
+<span class="eqno">(740)<a class="headerlink" href="#equation-d3358981-5cce-4718-937d-cb9203638b21" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2},\end{equation}\]</div>
+<p>The equation describes heat transfer on a domain</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d14a830e-b4ae-49f3-abfa-2db645bc3ce0">
+<span class="eqno">(741)<a class="headerlink" href="#equation-d14a830e-b4ae-49f3-abfa-2db645bc3ce0" title="Permalink to this equation">¶</a></span>\[\begin{equation} \Omega = \{ t \geq, 0\leq x \leq 1\}. \end{equation}\]</div>
+<p>with an initial condition at time <span class="math notranslate nohighlight">\(t=0\)</span> for all <span class="math notranslate nohighlight">\(x\)</span> and boundary condition on the left (<span class="math notranslate nohighlight">\(x=0\)</span>) and right side</p>
+<p>This notebook will illustrate the Crank-Nicolson Difference method for the Heat Equation with the <strong>initial conditions</strong></p>
+<div class="amsmath math notranslate nohighlight" id="equation-6455d555-8101-487d-b3fc-cd60dedb724c">
+<span class="eqno">(742)<a class="headerlink" href="#equation-6455d555-8101-487d-b3fc-cd60dedb724c" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=2x, \ \ 0 \leq x \leq \frac{1}{2}, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-22dc4d6e-c2f8-4507-97da-242b78542de1">
+<span class="eqno">(743)<a class="headerlink" href="#equation-22dc4d6e-c2f8-4507-97da-242b78542de1" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=2(1-x), \ \ \frac{1}{2}  \leq x \leq 1, \end{equation}\]</div>
+<p>and <strong>boundary condition</strong></p>
+<div class="amsmath math notranslate nohighlight" id="equation-e2193d55-98c1-4384-88a9-3b8c92d8014a">
+<span class="eqno">(744)<a class="headerlink" href="#equation-e2193d55-98c1-4384-88a9-3b8c92d8014a" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(0,t)=0,  u(1,t)=0. \end{equation}\]</div>
+</div>
+<div class="section" id="crank-nicolson-difference-method">
+<h2>Crank-Nicolson Difference method<a class="headerlink" href="#crank-nicolson-difference-method" title="Permalink to this headline">¶</a></h2>
+<p>The implicit Crank-Nicolson difference equation of the Heat Equation
+is derived by discretising the</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4423bd0f-67a1-48bc-8b8d-eb208a5cca53">
+<span class="eqno">(745)<a class="headerlink" href="#equation-4423bd0f-67a1-48bc-8b8d-eb208a5cca53" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u_{ij+\frac{1}{2}}}{\partial t} = \frac{\partial^2 u_{ij+\frac{1}{2}}}{\partial x^2},\end{equation}\]</div>
+<p>around <span class="math notranslate nohighlight">\((x_i,t_{j+\frac{1}{2}})\)</span> giving the difference equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ee9a938a-3bcf-4ca0-b52a-7f7a35213efa">
+<span class="eqno">(746)<a class="headerlink" href="#equation-ee9a938a-3bcf-4ca0-b52a-7f7a35213efa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\frac{w_{ij+1}-w_{ij}}{k}=\frac{1}{2}\left(\frac{w_{i+1j+1}-2w_{ij+1}+w_{i-1j+1}}{h^2}+\frac{w_{i+1j}-2w_{ij}+w_{i-1j}}{h^2}\right).
+\end{equation}\]</div>
+<p>Rearranging give the difference equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0e7233bd-0fda-4305-86de-0b28c2893307">
+<span class="eqno">(747)<a class="headerlink" href="#equation-0e7233bd-0fda-4305-86de-0b28c2893307" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+-rw_{i-1j+1}+(2+2r)w_{ij+1}-rw_{i+1j+1}=rw_{i-1j}+(2-2r)w_{ij}+rw_{i+1j}
+\end{equation}\]</div>
+<p>for <span class="math notranslate nohighlight">\(i=1,...9\)</span> where <span class="math notranslate nohighlight">\(r=\frac{k}{h^2}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LIBRARY</span>
+<span class="c1"># vector manipulation</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># math functions</span>
+<span class="kn">import</span> <span class="nn">math</span> 
+
+<span class="c1"># THIS IS FOR PLOTTING</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># side-stepping mpl backend</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="discete-grid">
+<h2>Discete Grid<a class="headerlink" href="#discete-grid" title="Permalink to this headline">¶</a></h2>
+<p>The region <span class="math notranslate nohighlight">\(\Omega\)</span> is discretised into a uniform mesh <span class="math notranslate nohighlight">\(\Omega_h\)</span>. In the space <span class="math notranslate nohighlight">\(x\)</span> direction into <span class="math notranslate nohighlight">\(N\)</span> steps giving a stepsize of</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a2b2d747-0c07-468b-8983-65dfbac6cae2">
+<span class="eqno">(748)<a class="headerlink" href="#equation-a2b2d747-0c07-468b-8983-65dfbac6cae2" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{1-0}{N},\end{equation}\]</div>
+<p>resulting in</p>
+<div class="amsmath math notranslate nohighlight" id="equation-592ada4f-a971-4626-a881-e072d0e99de5">
+<span class="eqno">(749)<a class="headerlink" href="#equation-592ada4f-a971-4626-a881-e072d0e99de5" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[i]=0+ih, \ \ \  i=0,1,...,N,\end{equation}\]</div>
+<p>and into <span class="math notranslate nohighlight">\(N_t\)</span> steps in the time <span class="math notranslate nohighlight">\(t\)</span> direction giving a stepsize of</p>
+<div class="amsmath math notranslate nohighlight" id="equation-84ede642-fd69-49cf-8d2e-bfc81cade664">
+<span class="eqno">(750)<a class="headerlink" href="#equation-84ede642-fd69-49cf-8d2e-bfc81cade664" title="Permalink to this equation">¶</a></span>\[\begin{equation} k=\frac{1-0}{N_t}\end{equation}\]</div>
+<p>resulting in</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3313a72d-324f-4062-b9dd-0b151ac02df6">
+<span class="eqno">(751)<a class="headerlink" href="#equation-3313a72d-324f-4062-b9dd-0b151ac02df6" title="Permalink to this equation">¶</a></span>\[\begin{equation}t[i]=0+ik, \ \ \ k=0,...,K.\end{equation}\]</div>
+<p>The Figure below shows the discrete grid points for <span class="math notranslate nohighlight">\(N=10\)</span> and <span class="math notranslate nohighlight">\(N_t=100\)</span> , the red dots are the unknown values, the green dots are the known boundary conditions and the blue dots are the known initial conditions of the Heat Equation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">Nt</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">N</span>
+<span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">Nt</span>
+<span class="n">r</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+<span class="n">time_steps</span><span class="o">=</span><span class="mi">15</span>
+<span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,(</span><span class="n">time_steps</span><span class="o">+</span><span class="mf">.5</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.0001</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Initial Condition&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">time_steps</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">time</span><span class="p">,</span><span class="s1">&#39;go&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Boundary Condition&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="o">*</span><span class="n">time</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="s1">&#39;go&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">1.02</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;time (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Discrete Grid $\Omega_h,$ h= </span><span class="si">%s</span><span class="s1">, k=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mf">1.08</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/803_Heat Equation-Crank_Nicolson_4_0.png" src="../_images/803_Heat Equation-Crank_Nicolson_4_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="discrete-initial-and-boundary-conditions">
+<h2>Discrete Initial and Boundary Conditions<a class="headerlink" href="#discrete-initial-and-boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<p>The discrete initial conditions are</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e4fa204c-a69b-45fa-be9c-e7dfa79b29c0">
+<span class="eqno">(752)<a class="headerlink" href="#equation-e4fa204c-a69b-45fa-be9c-e7dfa79b29c0" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[i,0]=2x[i], \ \ 0 \leq x[i] \leq \frac{1}{2} \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-ba01294b-afaa-494b-b23e-39e6db48c1c9">
+<span class="eqno">(753)<a class="headerlink" href="#equation-ba01294b-afaa-494b-b23e-39e6db48c1c9" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[i,0]=2(1-x[i]), \ \ \frac{1}{2}  \leq x[i] \leq 1 \end{equation}\]</div>
+<p>and the discete boundary conditions are</p>
+<div class="amsmath math notranslate nohighlight" id="equation-74d1a4dd-e37b-42fd-af98-4b7090fca5ba">
+<span class="eqno">(754)<a class="headerlink" href="#equation-74d1a4dd-e37b-42fd-af98-4b7090fca5ba" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[0,j]=0,  w[10,j]=0, \end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(w[i,j]\)</span> is the numerical approximation of <span class="math notranslate nohighlight">\(U(x[i],t[j])\)</span>.</p>
+<p>The Figure below plots values of <span class="math notranslate nohighlight">\(w[i,0]\)</span> for the inital (blue) and boundary (red) conditions for <span class="math notranslate nohighlight">\(t[0]=0.\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">time_steps</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Initial Condition</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">:</span>
+        <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+
+<span class="c1"># Boundary Condition</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">time_steps</span><span class="p">):</span>
+    <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">w</span><span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">w</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;o:&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Initial Condition&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">]],</span><span class="n">w</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">],</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;go&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Boundary Condition t[0]=0&#39;</span><span class="p">)</span>
+<span class="c1">#plt.plot(x[N],w[N,0],&#39;go&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Intitial and Boundary Condition&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/803_Heat Equation-Crank_Nicolson_6_0.png" src="../_images/803_Heat Equation-Crank_Nicolson_6_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="the-implicit-crank-nicolson-difference-equation">
+<h2>The Implicit Crank-Nicolson Difference Equation<a class="headerlink" href="#the-implicit-crank-nicolson-difference-equation" title="Permalink to this headline">¶</a></h2>
+<p>The implicit Crank-Nicolson difference equation of the Heat Equation
+is derived by discretising the</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9b387120-bda1-43ba-ab82-7bfa95e8099b">
+<span class="eqno">(755)<a class="headerlink" href="#equation-9b387120-bda1-43ba-ab82-7bfa95e8099b" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u_{ij+\frac{1}{2}}}{\partial t} = \frac{\partial^2 u_{ij+\frac{1}{2}}}{\partial x^2},\end{equation}\]</div>
+<p>around <span class="math notranslate nohighlight">\((x_i,t_{j+\frac{1}{2}})\)</span> giving the difference equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4234043e-2585-41bb-baa8-e9617cec29c7">
+<span class="eqno">(756)<a class="headerlink" href="#equation-4234043e-2585-41bb-baa8-e9617cec29c7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\frac{w_{ij+1}-w_{ij}}{k}=\frac{1}{2}\left(\frac{w_{i+1j+1}-2w_{ij+1}+w_{i-1j+1}}{h^2}+\frac{w_{i+1j}-2w_{ij}+w_{i-1j}}{h^2}\right)
+\end{equation}\]</div>
+<p>Rearranging the equation we get</p>
+<div class="amsmath math notranslate nohighlight" id="equation-71113a44-503d-4376-8857-fec6aa043344">
+<span class="eqno">(757)<a class="headerlink" href="#equation-71113a44-503d-4376-8857-fec6aa043344" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+-rw_{i-1j+1}+(2+2r)w_{ij+1}-rw_{i+1j+1}=rw_{i-1j}+(2-2r)w_{ij}+rw_{i+1j}
+\end{equation}\]</div>
+<p>for <span class="math notranslate nohighlight">\(i=1,...9\)</span> where <span class="math notranslate nohighlight">\(r=\frac{k}{h^2}\)</span>.</p>
+<p>This gives the formula for the unknown term <span class="math notranslate nohighlight">\(w_{ij+1}\)</span> at the <span class="math notranslate nohighlight">\((ij+1)\)</span> mesh points
+in terms of <span class="math notranslate nohighlight">\(x[i]\)</span> along the jth time row.</p>
+<p>Hence we can calculate the unknown pivotal values of <span class="math notranslate nohighlight">\(w\)</span> along the first row of <span class="math notranslate nohighlight">\(j=1\)</span> in terms of the known boundary conditions.</p>
+<p>This can be written in matrix form</p>
+<div class="amsmath math notranslate nohighlight" id="equation-581b85c4-3548-4b3a-9f59-4cb90622e87b">
+<span class="eqno">(758)<a class="headerlink" href="#equation-581b85c4-3548-4b3a-9f59-4cb90622e87b" title="Permalink to this equation">¶</a></span>\[\begin{equation} A\mathbf{w}_{j+1}=B\mathbf{w}_{j} +\mathbf{b}_{j}+\mathbf{b}_{j+1} \end{equation}\]</div>
+<p>for which <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(9\times9\)</span> matrix:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5e31799f-1965-4011-8186-e90a7c9740e3">
+<span class="eqno">(759)<a class="headerlink" href="#equation-5e31799f-1965-4011-8186-e90a7c9740e3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\left(\begin{array}{cccc cccc}
+2+2r&amp;-r&amp; 0&amp;0&amp;0 &amp;0&amp;0&amp;0\\
+-r&amp;2+2r&amp;-r&amp;0&amp;0&amp;0 &amp;0&amp;0&amp;0\\
+0&amp;-r&amp;2+2r &amp;-r&amp;0&amp;0&amp; 0&amp;0&amp;0\\
+0&amp;0&amp;-r&amp;2+2r &amp;-r&amp;0&amp;0&amp; 0&amp;0\\
+0&amp;0&amp;0&amp;-r&amp;2+2r &amp;-r&amp;0&amp;0&amp; 0\\
+0&amp;0&amp;0&amp;0&amp;-r&amp;2+2r &amp;-r&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;-r&amp;2+2r &amp;-r&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-r&amp;2+2r&amp;-r\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-r&amp;2+2r\\
+\end{array}\right)
+\left(\begin{array}{c}
+w_{1j+1}\\
+w_{2j+1}\\
+w_{3j+1}\\
+w_{4j+1}\\
+w_{5j+1}\\
+w_{6j+1}\\
+w_{7j+1}\\
+w_{8j+1}\\
+w_{9j+1}\\
+\end{array}\right)=
+\left(\begin{array}{cccc cccc}
+2-2r&amp;r&amp; 0&amp;0&amp;0 &amp;0&amp;0&amp;0\\
+r&amp;2-2r&amp;r&amp;0&amp;0&amp;0 &amp;0&amp;0&amp;0\\
+0&amp;r&amp;2-2r &amp;r&amp;0&amp;0&amp; 0&amp;0&amp;0\\
+0&amp;0&amp;r&amp;2-2r &amp;r&amp;0&amp;0&amp; 0&amp;0\\
+0&amp;0&amp;0&amp;r&amp;2-2r &amp;r&amp;0&amp;0&amp; 0\\
+0&amp;0&amp;0&amp;0&amp;r&amp;2-2r &amp;r&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;r&amp;2-2r &amp;r&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;r&amp;2-2r&amp;r\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;r&amp;2-2r\\
+\end{array}\right)
+\left(\begin{array}{c}
+w_{1j}\\
+w_{2j}\\
+w_{3j}\\
+w_{4j}\\
+w_{5j}\\
+w_{6j}\\
+w_{7j}\\
+w_{8j}\\
+w_{9j}\\
+\end{array}\right)+
+\left(\begin{array}{c}
+rw_{0j}\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+rw_{10j}\\
+\end{array}\right)+
+\left(\begin{array}{c}
+rw_{0j+1}\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+rw_{10j+1}\\
+\end{array}\right).
+\end{equation}\]</div>
+<p>It is assumed that the boundary values <span class="math notranslate nohighlight">\(w_{0j}\)</span> and <span class="math notranslate nohighlight">\(w_{10j}\)</span> are known for <span class="math notranslate nohighlight">\(j=1,2,...\)</span>, and <span class="math notranslate nohighlight">\(w_{i0}\)</span> for <span class="math notranslate nohighlight">\(i=0,...,10\)</span> is the initial condition.</p>
+<p>The Figure below shows the values of the <span class="math notranslate nohighlight">\(9\times 9\)</span>  matrix in colour plot form for <span class="math notranslate nohighlight">\(r=\frac{k}{h^2}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">B</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span>
+    <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">):</span>           
+    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">=-</span><span class="n">r</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=-</span><span class="n">r</span>
+    <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">r</span>
+    <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">r</span>
+    
+<span class="n">Ainv</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>   
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mf">0.9</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mf">0.9</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">clb</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
+<span class="n">clb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Matrix elements values&#39;</span><span class="p">);</span>
+<span class="c1">#clb.set_clim((-1,1));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Matrix A r=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mf">0.9</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mf">0.9</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">clb</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
+<span class="n">clb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Matrix elements values&#39;</span><span class="p">);</span>
+<span class="c1">#clb.set_clim((-1,1));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Matrix $B$ r=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/803_Heat Equation-Crank_Nicolson_8_0.png" src="../_images/803_Heat Equation-Crank_Nicolson_8_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>To numerically approximate the solution at <span class="math notranslate nohighlight">\(t[1]\)</span> the matrix equation becomes</p>
+<div class="amsmath math notranslate nohighlight" id="equation-49b3556f-1320-4b18-b785-8d1c259061f6">
+<span class="eqno">(760)<a class="headerlink" href="#equation-49b3556f-1320-4b18-b785-8d1c259061f6" title="Permalink to this equation">¶</a></span>\[\begin{equation} \mathbf{w}_{1}=A^{-1}(B\mathbf{w}_{0} +\mathbf{b}_{1}+\mathbf{b}_{0}) \end{equation}\]</div>
+<p>where all the right hand side is known.
+To approximate solution at time <span class="math notranslate nohighlight">\(t[2]\)</span> we use the matrix equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d02e8542-bb56-40f8-8238-450c0fd6323c">
+<span class="eqno">(761)<a class="headerlink" href="#equation-d02e8542-bb56-40f8-8238-450c0fd6323c" title="Permalink to this equation">¶</a></span>\[\begin{equation}\mathbf{w}_{2}=A^{-1}(B\mathbf{w}_{1}+\mathbf{b}_{2} +\mathbf{b}_{1}). \end{equation}\]</div>
+<p>Each set of numerical solutions <span class="math notranslate nohighlight">\(w[i,j]\)</span> for all <span class="math notranslate nohighlight">\(i\)</span> at the previous time step is used to approximate the solution <span class="math notranslate nohighlight">\(w[i,j+1]\)</span>.
+The left and right plot below show the numerical approximation <span class="math notranslate nohighlight">\(w[i,j]\)</span> of the Heat Equation using the Crank-Nicolson method for <span class="math notranslate nohighlight">\(x[i]\)</span> for <span class="math notranslate nohighlight">\(i=0,...,10\)</span> and time steps <span class="math notranslate nohighlight">\(t[j]\)</span> for <span class="math notranslate nohighlight">\(j=1,...,15\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">time_steps</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">r</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">r</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">b</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">r</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">r</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">v</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">:(</span><span class="n">N</span><span class="p">),</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">:(</span><span class="n">N</span><span class="p">),</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Ainv</span><span class="p">,</span><span class="n">v</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">w</span><span class="p">[:,</span><span class="n">j</span><span class="p">],</span><span class="s1">&#39;o:&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;t[</span><span class="si">%s</span><span class="s1">]=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="c1">#plt.legend(loc=&#39;bottom&#39;, bbox_to_anchor=(0.5, -0.1))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">.4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">borderaxespad</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)),</span> <span class="n">time</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">clb</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">clb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Temperature (w)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Numerical Solution of the  Heat Equation r=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mf">1.08</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/803_Heat Equation-Crank_Nicolson_10_0.png" src="../_images/803_Heat Equation-Crank_Nicolson_10_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="local-trunction-error">
+<h2>Local Trunction Error<a class="headerlink" href="#local-trunction-error" title="Permalink to this headline">¶</a></h2>
+<p>The local truncation error of the Crank-Nicoloson we approximate</p>
+<div class="amsmath math notranslate nohighlight" id="equation-21345986-5cda-4777-bc8c-bf8593b45689">
+<span class="eqno">(762)<a class="headerlink" href="#equation-21345986-5cda-4777-bc8c-bf8593b45689" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\frac{\partial U}{\partial t} - \frac{\partial^2 U}{\partial x^2}=0,
+\end{equation}\]</div>
+<p>with</p>
+<div class="amsmath math notranslate nohighlight" id="equation-63a0fa3f-e279-42fe-822b-6604dd543445">
+<span class="eqno">(763)<a class="headerlink" href="#equation-63a0fa3f-e279-42fe-822b-6604dd543445" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+F_{ij+\frac{1}{2}}(w)=\frac{w_{ij+1}-w_{ij}}{k}-\frac{1}{2}\left(\frac{w_{i+1j}-2w_{ij}+w_{i-1j}}{h^2}
++\frac{w_{i+1j+1}-2w_{ij+1}+w_{i-1j+1}}{h^2}
+\right)=0.\end{equation}\]</div>
+<p>Subbing the exact answer into the difference equation gives the truncation error</p>
+<div class="amsmath math notranslate nohighlight" id="equation-191267cd-0328-4518-b308-59b2dbd72b3c">
+<span class="eqno">(764)<a class="headerlink" href="#equation-191267cd-0328-4518-b308-59b2dbd72b3c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+T_{ij+\frac{1}{2}}=F_{ij+\frac{1}{2}}(U)=\frac{U_{ij+1}-U_{ij}}{k}-\frac{1}{2}\left(\frac{U_{i+1j}-2U_{ij}+U_{i-1j}}{h^2}+\frac{U_{i+1j+1}-2U_{ij+1}+U_{i-1j+1}}{h^2}\right),
+\end{equation}\]</div>
+<p>simplify</p>
+<div class="amsmath math notranslate nohighlight" id="equation-45d365e1-10d9-4d8c-8b26-1556e140b2bd">
+<span class="eqno">(765)<a class="headerlink" href="#equation-45d365e1-10d9-4d8c-8b26-1556e140b2bd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+U_{ij+\frac{1}{2}}=\frac{U_{ij+1}+U_{ij}}{2},
+\end{equation}\]</div>
+<p>substitute into equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0f20ba8d-ab75-4e0e-a5ca-a10f71d452a1">
+<span class="eqno">(766)<a class="headerlink" href="#equation-0f20ba8d-ab75-4e0e-a5ca-a10f71d452a1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+T_{ij+\frac{1}{2}}=F_{ij+\frac{1}{2}}(U)=\frac{U_{ij+1}-U_{ij}}{k}-\frac{U_{i+1j+\frac{1}{2}}-2U_{ij+\frac{1}{2}}+U_{i-1j+\frac{1}{2}}}{h^2},
+\end{equation}\]</div>
+<p>By Taylors expansions we have</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+U_{i+1j+\frac{1}{2}}&amp;=&amp;U((i+1)h,(j+\frac{1}{2})k)=U(x_i+h,t_j+\frac{1}{2}k)\\
+&amp;=&amp;U_{ij+\frac{1}{2}}+h\left(\frac{\partial U}{\partial x} \right)_{ij+\frac{1}{2}}+\frac{h^2}{2}\left(\frac{\partial^2 U}{\partial x^2} \right)_{ij+\frac{1}{2}}+\frac{h^3}{6}\left(\frac{\partial^3 U}{\partial x^3} \right)_{ij+\frac{1}{2}} +...\\
+U_{i-1j+\frac{1}{2}}&amp;=&amp;U((i-1)h,(j+\frac{1}{2})k)=U(x_i-h,t_j+\frac{1}{2}k)\\
+&amp;=&amp;U_{ij+\frac{1}{2}}-h\left(\frac{\partial U}{\partial x} \right)_{ij+\frac{1}{2}}+\frac{h^2}{2}\left(\frac{\partial^2 U}{\partial x^2} \right)_{ij+\frac{1}{2}}-\frac{h^3}{6}\left(\frac{\partial^3 U}{\partial x^3} \right)_{ij+\frac{1}{2}} +...\\
+U_{ij+1}&amp;=&amp;U(ih,(j+1)k)=U(x_i,t_j+k)\\
+&amp;=&amp;U_{ij+\frac{1}{2}}+\frac{k}{2}\left(\frac{\partial U}{\partial t} \right)_{ij+\frac{1}{2}}+\frac{(\frac{k}{2})^2}{2}\left(\frac{\partial^2 U}{\partial t^2} \right)_{ij+\frac{1}{2}}+\frac{(\frac{k}{2})^3}{6}\left(\frac{\partial^3 U}{\partial t^3} \right)_{ij+\frac{1}{2}} +...\\
+U_{ij-1}&amp;=&amp;U(ih,(j-1)k)=U(x_i,t_j-k)\\
+&amp;=&amp;U_{ij+\frac{1}{2}}-\frac{k}{2}\left(\frac{\partial U}{\partial t} \right)_{ij+\frac{1}{2}}+\frac{(\frac{k}{2})^2}{2}\left(\frac{\partial^2 U}{\partial t^2} \right)_{ij+\frac{1}{2}}-\frac{(\frac{k}{2})^3}{6}\left(\frac{\partial^3 U}{\partial t^3} \right)_{ij+\frac{1}{2}} +...
+\end{eqnarray*}\]</div>
+<p>substitution into the expression for <span class="math notranslate nohighlight">\(T_{ij+\frac{1}{2}}\)</span> then gives</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+T_{ij+\frac{1}{2}}&amp;=&amp;\left(\frac{\partial U}{\partial t} - \frac{\partial^2 U}{\partial x^2} \right)_{ij+\frac{1}{2}}
+-\frac{h^2}{12}\left(\frac{\partial^4 U}{\partial x^4} \right)_{ij+\frac{1}{2}}\\
+&amp; &amp;	+\frac{k^2}{24}\left(\frac{\partial^3 U}{\partial t^3} \right)_{ij+\frac{1}{2}}
+-\frac{h^4}{360}\left(\frac{\partial^6 U}{\partial x^6} \right)_{ij+\frac{1}{2}}+ ...
+\end{eqnarray*}\]</div>
+<p>But <span class="math notranslate nohighlight">\(U\)</span> is the solution to the differential equation so</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9f3ca651-77cb-40b5-bd1c-13cae61d449a">
+<span class="eqno">(767)<a class="headerlink" href="#equation-9f3ca651-77cb-40b5-bd1c-13cae61d449a" title="Permalink to this equation">¶</a></span>\[\begin{equation} \left(\frac{\partial U}{\partial t} - \frac{\partial^2 U}{\partial x^2} \right)_{ij+\frac{1}{2}}=0,\end{equation}\]</div>
+<p>the principal part of the local truncation error is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1687fbba-95bb-460b-8c54-42b6c98d83eb">
+<span class="eqno">(768)<a class="headerlink" href="#equation-1687fbba-95bb-460b-8c54-42b6c98d83eb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\frac{k^2}{24}\left(\frac{\partial^3 U}{\partial t^3} \right)_{ij+\frac{1}{2}}-\frac{h^2}{12}\left(\frac{\partial^4 U}{\partial x^4} \right)_{ij+\frac{1}{2}}.
+\end{equation}\]</div>
+<p>Hence the truncation error is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-50c6cfaf-59b9-4ad7-820e-872e096a61b9">
+<span class="eqno">(769)<a class="headerlink" href="#equation-50c6cfaf-59b9-4ad7-820e-872e096a61b9" title="Permalink to this equation">¶</a></span>\[\begin{equation} 
+T_{ij}=O(k^2)+O(h^2).
+\end{equation}\]</div>
+</div>
+<div class="section" id="stability-analyis">
+<h2>Stability Analyis<a class="headerlink" href="#stability-analyis" title="Permalink to this headline">¶</a></h2>
+<p>To investigating the stability of the fully implicit Crank Nicolson difference method of the Heat Equation, we will use the von Neumann method.
+The difference equation is:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8038787b-3982-4b21-a9b7-d97a892fd246">
+<span class="eqno">(770)<a class="headerlink" href="#equation-8038787b-3982-4b21-a9b7-d97a892fd246" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{1}{k}(w_{pq+1}-w_{pq})=\frac{1}{2}\left(\frac{1}{h_x^2}(w_{p-1q+1}-2w_{pq+1}+w_{p+1q+1})+\frac{1}{h_x^2}(w_{p-1q}-2w_{pq}+w_{p+1q})\right),\end{equation}\]</div>
+<p>approximating</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7d581a70-e1b7-462a-85c1-0a21446e62b7">
+<span class="eqno">(771)<a class="headerlink" href="#equation-7d581a70-e1b7-462a-85c1-0a21446e62b7" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{\partial U}{\partial t}=\frac{\partial^2 U}{\partial x^2}\end{equation}\]</div>
+<p>at <span class="math notranslate nohighlight">\((ph,(q+\frac{1}{2})k)\)</span>. Substituting <span class="math notranslate nohighlight">\(w_{pq}=e^{i\beta x}\xi^{q}\)</span> into the difference equation gives:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d6bf6c96-34a2-4336-b731-3557b5adf6ae">
+<span class="eqno">(772)<a class="headerlink" href="#equation-d6bf6c96-34a2-4336-b731-3557b5adf6ae" title="Permalink to this equation">¶</a></span>\[\begin{equation}e^{i\beta ph}\xi^{q+1}-e^{i\beta ph}\xi^{q}=\frac{1}{2}\left(r\{e^{i\beta (p-1)h}\xi^{q+1}-2e^{i\beta ph}\xi^{q+1}+e^{i\beta (p+1)h}\xi^{q+1}+e^{i\beta (p-1)h}\xi^{q}-2e^{i\beta ph}\xi^{q}+e^{i\beta (p+1)h}\xi^{q} \right) \}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(r=\frac{k}{h_x^2}\)</span>. Divide across by <span class="math notranslate nohighlight">\(e^{i\beta (p)h}\xi^{q}\)</span> leads to</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8db159e3-68d5-4aa0-8905-b1bc2294d20b">
+<span class="eqno">(773)<a class="headerlink" href="#equation-8db159e3-68d5-4aa0-8905-b1bc2294d20b" title="Permalink to this equation">¶</a></span>\[\begin{equation} \xi-1=r \xi (e^{i\beta (-1)h} -2+e^{i\beta h})+r (e^{i\beta (-1)h} -2+e^{i\beta h}), \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e9e3c966-7393-4156-8079-12286a382357">
+<span class="eqno">(774)<a class="headerlink" href="#equation-e9e3c966-7393-4156-8079-12286a382357" title="Permalink to this equation">¶</a></span>\[\begin{equation}\xi-\xi r (2\cos(\beta h)-2)= 1+r (2\cos(\beta h)-2),\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-b138c780-61a3-421a-a72e-08a3e4ec1f54">
+<span class="eqno">(775)<a class="headerlink" href="#equation-b138c780-61a3-421a-a72e-08a3e4ec1f54" title="Permalink to this equation">¶</a></span>\[\begin{equation}\xi(1+4r\sin^2(\beta\frac{h}{2})) =1-4r\sin^2(\beta\frac{h}{2})\end{equation}\]</div>
+<p>Hence</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f2a6fff2-daed-4a94-b323-0f4b28b5d8db">
+<span class="eqno">(776)<a class="headerlink" href="#equation-f2a6fff2-daed-4a94-b323-0f4b28b5d8db" title="Permalink to this equation">¶</a></span>\[\begin{equation}\xi=\frac{1-4r\sin^2(\beta\frac{h}{2})}{(1+4r\sin^2(\beta\frac{h}{2}))} \leq 1\end{equation}\]</div>
+<p>therefore the equation is unconditionally stable as <span class="math notranslate nohighlight">\(0 &lt; \xi \leq 1\)</span> for all <span class="math notranslate nohighlight">\(r\)</span> and all <span class="math notranslate nohighlight">\(\beta\)</span> .</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>[1] G D Smith Numerical Solution of Partial Differential Equations: Finite Difference Method Oxford 1992</p>
+<p>[2] Butler, J. (2019). John S Butler Numerical Methods for Differential Equations. [online] Maths.dit.ie. Available at: http://www.maths.dit.ie/~johnbutler/Teaching_NumericalMethods.html [Accessed 14 Mar. 2019].</p>
+<p>[3] Wikipedia contributors. (2019, February 22). Heat equation. In Wikipedia, The Free Encyclopedia. Available at: https://en.wikipedia.org/w/index.php?title=Heat_equation&amp;oldid=884580138 [Accessed 14 Mar. 2019].</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Chapter 08 - Heat Equations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="802_Heat%20Equation-%20BTCS.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">The Implicit Backward Time Centered Space (BTCS) Difference Equation for the Heat Equation</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="804_Heat%20Equation-CN-Different_Initial_Boundary.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">The Implicit Crank-Nicolson Difference Equation for the Heat Equation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By John S Butler<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
