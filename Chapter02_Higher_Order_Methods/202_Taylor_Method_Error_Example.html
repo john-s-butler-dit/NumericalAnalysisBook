@@ -392,7 +392,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Chapter%2009%20-%20Elliptic%20Equations/901_Poisson%20Equation-Laplacian.html">
-   Finite Difference Methods for the Poisson Equation
+   Finite Difference Methods for the Laplacian Equation
   </a>
  </li>
 </ul>
@@ -540,37 +540,37 @@
 <div class="section" id="intial-value-poblem">
 <h2>Intial Value Poblem<a class="headerlink" href="#intial-value-poblem" title="Permalink to this headline">¶</a></h2>
 <p>The general form of the population growth differential equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71fb24ad-1f42-4b25-a973-271bb8361b5c">
-<span class="eqno">(144)<a class="headerlink" href="#equation-71fb24ad-1f42-4b25-a973-271bb8361b5c" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=t-y, \ \ (0 \leq t \leq 4), \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-4583cff8-8326-4cb5-b6aa-46aa1a17a6ea">
+<span class="eqno">(144)<a class="headerlink" href="#equation-4583cff8-8326-4cb5-b6aa-46aa1a17a6ea" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=t-y, \ \ (0 \leq t \leq 4), \end{equation}\]</div>
 <p>with the initial condition</p>
-<div class="amsmath math notranslate nohighlight" id="equation-589c2251-4257-4a96-ad53-622ec6c33ace">
-<span class="eqno">(145)<a class="headerlink" href="#equation-589c2251-4257-4a96-ad53-622ec6c33ace" title="Permalink to this equation">¶</a></span>\[\begin{equation}x(0)=1, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-1d39c96d-0589-4ea2-9c4d-ae5d474073d8">
+<span class="eqno">(145)<a class="headerlink" href="#equation-1d39c96d-0589-4ea2-9c4d-ae5d474073d8" title="Permalink to this equation">¶</a></span>\[\begin{equation}x(0)=1, \end{equation}\]</div>
 <p>For N=4
 with the analytic (exact) solution</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eaa092c5-f041-4366-884f-817e70e59338">
-<span class="eqno">(146)<a class="headerlink" href="#equation-eaa092c5-f041-4366-884f-817e70e59338" title="Permalink to this equation">¶</a></span>\[\begin{equation} y= 2e^{-t}+t+1. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-f7c661e3-2222-4309-91a9-5953864975d0">
+<span class="eqno">(146)<a class="headerlink" href="#equation-f7c661e3-2222-4309-91a9-5953864975d0" title="Permalink to this equation">¶</a></span>\[\begin{equation} y= 2e^{-t}+t+1. \end{equation}\]</div>
 </div>
 <div class="section" id="taylor-solution">
 <h2>Taylor Solution<a class="headerlink" href="#taylor-solution" title="Permalink to this headline">¶</a></h2>
-<div class="amsmath math notranslate nohighlight" id="equation-3530288e-73e2-4565-a093-33c1a44f6e03">
-<span class="eqno">(147)<a class="headerlink" href="#equation-3530288e-73e2-4565-a093-33c1a44f6e03" title="Permalink to this equation">¶</a></span>\[\begin{equation} f(t,y)=t-y,  \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-1e95c77d-0acf-4d35-90d4-e538ff43ed83">
+<span class="eqno">(147)<a class="headerlink" href="#equation-1e95c77d-0acf-4d35-90d4-e538ff43ed83" title="Permalink to this equation">¶</a></span>\[\begin{equation} f(t,y)=t-y,  \end{equation}\]</div>
 <p>differentiate with respect to <span class="math notranslate nohighlight">\(t\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5007ad9b-1df9-4f5a-aac6-920416d18126">
-<span class="eqno">(148)<a class="headerlink" href="#equation-5007ad9b-1df9-4f5a-aac6-920416d18126" title="Permalink to this equation">¶</a></span>\[\begin{equation} f'(t,y)=1-y'=1-t+y,  \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-a5d9369e-653d-4f44-bb38-24663f3371c3">
+<span class="eqno">(148)<a class="headerlink" href="#equation-a5d9369e-653d-4f44-bb38-24663f3371c3" title="Permalink to this equation">¶</a></span>\[\begin{equation} f'(t,y)=1-y'=1-t+y,  \end{equation}\]</div>
 <p>This gives the first order Taylor,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5974e123-c7b9-42ed-9d2b-1e4826940295">
-<span class="eqno">(149)<a class="headerlink" href="#equation-5974e123-c7b9-42ed-9d2b-1e4826940295" title="Permalink to this equation">¶</a></span>\[\begin{equation}T^1(t_i,w,i)=f(t_i,w_i)=t_i-w_i, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6f9f888b-1a1d-4583-ab49-31e6c5950e24">
+<span class="eqno">(149)<a class="headerlink" href="#equation-6f9f888b-1a1d-4583-ab49-31e6c5950e24" title="Permalink to this equation">¶</a></span>\[\begin{equation}T^1(t_i,w,i)=f(t_i,w_i)=t_i-w_i, \end{equation}\]</div>
 <p>and the second order Taylor,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f251fc87-d0dc-474a-a3a5-7b9cd90550e3">
-<span class="eqno">(150)<a class="headerlink" href="#equation-f251fc87-d0dc-474a-a3a5-7b9cd90550e3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-24bedb41-5056-47b1-a9ce-9a4e2ca93325">
+<span class="eqno">(150)<a class="headerlink" href="#equation-24bedb41-5056-47b1-a9ce-9a4e2ca93325" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 T^2(t_i,w,i)=f(t_i,w_i)+\frac{h}{2}f'(t_i,w_i)=t_i-w_i+\frac{h}{2}(1-t_i+w_i).\end{equation}\]</div>
 <p>The first order Taylor difference equation, which is identical to the Euler method, is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bba9528b-1fe1-4d1f-b091-b6f31528f854">
-<span class="eqno">(151)<a class="headerlink" href="#equation-bba9528b-1fe1-4d1f-b091-b6f31528f854" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aeae0757-a140-4788-89e6-a25600387984">
+<span class="eqno">(151)<a class="headerlink" href="#equation-aeae0757-a140-4788-89e6-a25600387984" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{i+1}=w_i+h(t_i-w_i).  \end{equation}\]</div>
 <p>The second order Taylor difference equation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1787a8b2-d6b2-4746-8918-5b033edecae5">
-<span class="eqno">(152)<a class="headerlink" href="#equation-1787a8b2-d6b2-4746-8918-5b033edecae5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c6a78adf-c867-440a-a4f9-873230954564">
+<span class="eqno">(152)<a class="headerlink" href="#equation-c6a78adf-c867-440a-a4f9-873230954564" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{i+1}=w_i+h(t_i-w_i+\frac{h}{2}(1-t_i+w_i)).  \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

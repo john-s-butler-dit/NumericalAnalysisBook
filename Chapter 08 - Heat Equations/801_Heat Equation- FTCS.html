@@ -392,7 +392,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Chapter%2009%20-%20Elliptic%20Equations/901_Poisson%20Equation-Laplacian.html">
-   Finite Difference Methods for the Poisson Equation
+   Finite Difference Methods for the Laplacian Equation
   </a>
  </li>
 </ul>
@@ -592,23 +592,23 @@
 <div class="section" id="the-heat-equation">
 <h2>The Heat Equation<a class="headerlink" href="#the-heat-equation" title="Permalink to this headline">¶</a></h2>
 <p>The Heat Equation is the first order in time (<span class="math notranslate nohighlight">\(t\)</span>) and second order in space (<span class="math notranslate nohighlight">\(x\)</span>) Partial Differential Equation [1-3]:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f7c94c8a-946f-483c-b95b-fd31d23e9b1d">
-<span class="eqno">(674)<a class="headerlink" href="#equation-f7c94c8a-946f-483c-b95b-fd31d23e9b1d" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-bfb1c99b-6754-415c-be71-d2842c5cf7a2">
+<span class="eqno">(661)<a class="headerlink" href="#equation-bfb1c99b-6754-415c-be71-d2842c5cf7a2" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2},\end{equation}\]</div>
 <p>The equation describes heat transfer on a domain</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a690bdd8-851a-421b-9eb8-d6bc41402e80">
-<span class="eqno">(675)<a class="headerlink" href="#equation-a690bdd8-851a-421b-9eb8-d6bc41402e80" title="Permalink to this equation">¶</a></span>\[\begin{equation} \Omega = \{ t \geq 0\leq x \leq 1\}. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-847f72a6-6d27-4436-a1f8-42252c8e7423">
+<span class="eqno">(662)<a class="headerlink" href="#equation-847f72a6-6d27-4436-a1f8-42252c8e7423" title="Permalink to this equation">¶</a></span>\[\begin{equation} \Omega = \{ t \geq 0\leq x \leq 1\}. \end{equation}\]</div>
 <p>with an initial condition at time <span class="math notranslate nohighlight">\(t=0\)</span> for all <span class="math notranslate nohighlight">\(x\)</span> and boundary condition on the left (<span class="math notranslate nohighlight">\(x=0\)</span>) and right side (<span class="math notranslate nohighlight">\(x=1\)</span>).</p>
 </div>
 <div class="section" id="forward-time-centered-space-ftcs-difference-method">
 <h2>Forward Time Centered Space (FTCS) Difference method<a class="headerlink" href="#forward-time-centered-space-ftcs-difference-method" title="Permalink to this headline">¶</a></h2>
 <p>This notebook will illustrate the Forward Time Centered Space (FTCS) Difference method for the Heat Equation with the <strong>initial conditions</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-58c737e7-9264-46ab-a160-d27b9aa0fa53">
-<span class="eqno">(676)<a class="headerlink" href="#equation-58c737e7-9264-46ab-a160-d27b9aa0fa53" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=2x, \ \ 0 \leq x \leq \frac{1}{2}, \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-c179beb0-da13-4ce5-b65e-b22843111117">
-<span class="eqno">(677)<a class="headerlink" href="#equation-c179beb0-da13-4ce5-b65e-b22843111117" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=2(1-x), \ \ \frac{1}{2}  \leq x \leq 1, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-5df8d41c-54ac-49d4-9fb1-1376b9c2e0f9">
+<span class="eqno">(663)<a class="headerlink" href="#equation-5df8d41c-54ac-49d4-9fb1-1376b9c2e0f9" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=2x, \ \ 0 \leq x \leq \frac{1}{2}, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-015a7215-addf-4e3b-9e36-63a571079d06">
+<span class="eqno">(664)<a class="headerlink" href="#equation-015a7215-addf-4e3b-9e36-63a571079d06" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=2(1-x), \ \ \frac{1}{2}  \leq x \leq 1, \end{equation}\]</div>
 <p>and <strong>boundary condition</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-e1f1ea1a-943b-4ff3-a15f-5197e3a6a63c">
-<span class="eqno">(678)<a class="headerlink" href="#equation-e1f1ea1a-943b-4ff3-a15f-5197e3a6a63c" title="Permalink to this equation">¶</a></span>\[\begin{equation}u(0,t)=0,  u(1,t)=0. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-0e5fcc51-c198-4a67-b896-c14c06f74545">
+<span class="eqno">(665)<a class="headerlink" href="#equation-0e5fcc51-c198-4a67-b896-c14c06f74545" title="Permalink to this equation">¶</a></span>\[\begin{equation}u(0,t)=0,  u(1,t)=0. \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LIBRARY</span>
@@ -630,17 +630,17 @@
 <div class="section" id="discete-grid">
 <h2>Discete Grid<a class="headerlink" href="#discete-grid" title="Permalink to this headline">¶</a></h2>
 <p>The region <span class="math notranslate nohighlight">\(\Omega\)</span> is discretised into a uniform mesh <span class="math notranslate nohighlight">\(\Omega_h\)</span>. In the space <span class="math notranslate nohighlight">\(x\)</span> direction into <span class="math notranslate nohighlight">\(N\)</span> steps giving a stepsize of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-516e2faf-3538-43e0-b5ac-d4cf184ab619">
-<span class="eqno">(679)<a class="headerlink" href="#equation-516e2faf-3538-43e0-b5ac-d4cf184ab619" title="Permalink to this equation">¶</a></span>\[\begin{equation}h=\frac{1-0}{N},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-7e9c6a1c-a2cd-4a8a-882d-22a19fef5dbd">
+<span class="eqno">(666)<a class="headerlink" href="#equation-7e9c6a1c-a2cd-4a8a-882d-22a19fef5dbd" title="Permalink to this equation">¶</a></span>\[\begin{equation}h=\frac{1-0}{N},\end{equation}\]</div>
 <p>resulting in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d83e481a-d224-4024-b30b-61623afd8bca">
-<span class="eqno">(680)<a class="headerlink" href="#equation-d83e481a-d224-4024-b30b-61623afd8bca" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[i]=0+ih, \ \ \  i=0,1,...,N,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-2a77dfbb-2987-49a2-a5bd-8b5fc3ad2053">
+<span class="eqno">(667)<a class="headerlink" href="#equation-2a77dfbb-2987-49a2-a5bd-8b5fc3ad2053" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[i]=0+ih, \ \ \  i=0,1,...,N,\end{equation}\]</div>
 <p>and into <span class="math notranslate nohighlight">\(N_t\)</span> steps in the time <span class="math notranslate nohighlight">\(t\)</span> direction giving a stepsize of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-491c8e67-df74-41ce-b3c7-a7b0a197d235">
-<span class="eqno">(681)<a class="headerlink" href="#equation-491c8e67-df74-41ce-b3c7-a7b0a197d235" title="Permalink to this equation">¶</a></span>\[\begin{equation} k=\frac{1-0}{N_t}\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-45dd3ad1-bf33-4f12-811d-31d5d2b1672f">
+<span class="eqno">(668)<a class="headerlink" href="#equation-45dd3ad1-bf33-4f12-811d-31d5d2b1672f" title="Permalink to this equation">¶</a></span>\[\begin{equation} k=\frac{1-0}{N_t}\end{equation}\]</div>
 <p>resulting in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f23608f2-8b4e-41b5-ae04-25aa985e821a">
-<span class="eqno">(682)<a class="headerlink" href="#equation-f23608f2-8b4e-41b5-ae04-25aa985e821a" title="Permalink to this equation">¶</a></span>\[\begin{equation}t[j]=0+jk, \ \ \ j=0,...,15.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-82d2ab46-81c0-4104-9475-ff60055eba0f">
+<span class="eqno">(669)<a class="headerlink" href="#equation-82d2ab46-81c0-4104-9475-ff60055eba0f" title="Permalink to this equation">¶</a></span>\[\begin{equation}t[j]=0+jk, \ \ \ j=0,...,15.\end{equation}\]</div>
 <p>The Figure below shows the discrete grid points for <span class="math notranslate nohighlight">\(N=10\)</span> and <span class="math notranslate nohighlight">\(Nt=100\)</span>,  the known boundary conditions (green), initial conditions (blue) and the unknown values (red) of the Heat Equation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -676,13 +676,13 @@
 <div class="section" id="discrete-initial-and-boundary-conditions">
 <h2>Discrete Initial and Boundary Conditions<a class="headerlink" href="#discrete-initial-and-boundary-conditions" title="Permalink to this headline">¶</a></h2>
 <p>The discrete initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-635a2ff0-6ba4-4d77-bea0-ea4bfa683693">
-<span class="eqno">(683)<a class="headerlink" href="#equation-635a2ff0-6ba4-4d77-bea0-ea4bfa683693" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[i,0]=2x[i], \ \ 0 \leq x[i] \leq \frac{1}{2} \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-0728b348-eb12-4446-988e-b8ee0a4f2da2">
-<span class="eqno">(684)<a class="headerlink" href="#equation-0728b348-eb12-4446-988e-b8ee0a4f2da2" title="Permalink to this equation">¶</a></span>\[\begin{equation}w[i,0]=2(1-x[i]), \ \ \frac{1}{2}  \leq x[i] \leq 1 \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e2234a72-0f47-4831-b212-1226c074b57a">
+<span class="eqno">(670)<a class="headerlink" href="#equation-e2234a72-0f47-4831-b212-1226c074b57a" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[i,0]=2x[i], \ \ 0 \leq x[i] \leq \frac{1}{2} \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-b71f446f-e270-473c-a117-231ef6fa4ac9">
+<span class="eqno">(671)<a class="headerlink" href="#equation-b71f446f-e270-473c-a117-231ef6fa4ac9" title="Permalink to this equation">¶</a></span>\[\begin{equation}w[i,0]=2(1-x[i]), \ \ \frac{1}{2}  \leq x[i] \leq 1 \end{equation}\]</div>
 <p>and the discrete boundary conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d1278f2d-1870-4186-ab4e-ada8b89d5969">
-<span class="eqno">(685)<a class="headerlink" href="#equation-d1278f2d-1870-4186-ab4e-ada8b89d5969" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[0,j]=0,  w[10,j]=0, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-95672d43-f763-4bb8-97f2-c335c2f77fab">
+<span class="eqno">(672)<a class="headerlink" href="#equation-95672d43-f763-4bb8-97f2-c335c2f77fab" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[0,j]=0,  w[10,j]=0, \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(w[i,j]\)</span> is the numerical approximation of <span class="math notranslate nohighlight">\(U(x[i],t[j])\)</span>.</p>
 <p>The Figure below plots values of <span class="math notranslate nohighlight">\(w[i,0]\)</span> for the inital (blue) and boundary (red) conditions for <span class="math notranslate nohighlight">\(t[0]=0.\)</span></p>
 <div class="cell docutils container">
@@ -724,16 +724,16 @@
 <h2>The Explicit Forward Time Centered Space (FTCS) Difference Equation<a class="headerlink" href="#the-explicit-forward-time-centered-space-ftcs-difference-equation" title="Permalink to this headline">¶</a></h2>
 <p>The explicit Forwards Time Centered Space (FTCS) difference equation of the Heat Equation
 is derived by discretising</p>
-<div class="amsmath math notranslate nohighlight" id="equation-240b6b59-2146-472f-a6e9-555bf30e466d">
-<span class="eqno">(686)<a class="headerlink" href="#equation-240b6b59-2146-472f-a6e9-555bf30e466d" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u_{ij}}{\partial t} = \frac{\partial^2 u_{ij}}{\partial x^2},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-792f9327-3cdd-4190-8e42-a94e7b650c1e">
+<span class="eqno">(673)<a class="headerlink" href="#equation-792f9327-3cdd-4190-8e42-a94e7b650c1e" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u_{ij}}{\partial t} = \frac{\partial^2 u_{ij}}{\partial x^2},\end{equation}\]</div>
 <p>around <span class="math notranslate nohighlight">\((x_i,t_{j})\)</span> giving the difference equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7945acb8-91ba-43b6-aebb-df807652d6d2">
-<span class="eqno">(687)<a class="headerlink" href="#equation-7945acb8-91ba-43b6-aebb-df807652d6d2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6baf4859-3313-461a-a11e-faa49e2e2f9b">
+<span class="eqno">(674)<a class="headerlink" href="#equation-6baf4859-3313-461a-a11e-faa49e2e2f9b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{w_{ij+1}-w_{ij}}{k}=\frac{w_{i+1j}-2w_{ij}+w_{i-1j}}{h^2},
 \end{equation}\]</div>
 <p>rearranging the equation we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ed1ad1f5-3860-4ae7-9b48-6964a13d72e6">
-<span class="eqno">(688)<a class="headerlink" href="#equation-ed1ad1f5-3860-4ae7-9b48-6964a13d72e6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bc95bea1-9557-41a3-b7a6-74da809da3a8">
+<span class="eqno">(675)<a class="headerlink" href="#equation-bc95bea1-9557-41a3-b7a6-74da809da3a8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{ij+1}=rw_{i-1j}+(1-2r)w_{ij}+rw_{i+1j},
 \end{equation}\]</div>
 <p>for <span class="math notranslate nohighlight">\(i=1,...9\)</span> where <span class="math notranslate nohighlight">\(r=\frac{k}{h^2}\)</span>.</p>
@@ -741,11 +741,11 @@ w_{ij+1}=rw_{i-1j}+(1-2r)w_{ij}+rw_{i+1j},
 in terms of <span class="math notranslate nohighlight">\(x[i]\)</span> along the jth time row.</p>
 <p>Hence we can calculate the unknown pivotal values of <span class="math notranslate nohighlight">\(w\)</span> along the first row of <span class="math notranslate nohighlight">\(j=1\)</span> in terms of the known boundary conditions.</p>
 <p>This can be written in matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf96348c-3b3d-4d04-a615-a8c2cded69fe">
-<span class="eqno">(689)<a class="headerlink" href="#equation-bf96348c-3b3d-4d04-a615-a8c2cded69fe" title="Permalink to this equation">¶</a></span>\[\begin{equation}\mathbf{w}_{j+1}=A\mathbf{w}_{j} +\mathbf{b}_{j} \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-0293c7c4-b360-4360-a135-77611f32275f">
+<span class="eqno">(676)<a class="headerlink" href="#equation-0293c7c4-b360-4360-a135-77611f32275f" title="Permalink to this equation">¶</a></span>\[\begin{equation}\mathbf{w}_{j+1}=A\mathbf{w}_{j} +\mathbf{b}_{j} \end{equation}\]</div>
 <p>for which <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(9\times9\)</span> matrix:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e995c226-b647-4a07-8560-87d6dfe94f6c">
-<span class="eqno">(690)<a class="headerlink" href="#equation-e995c226-b647-4a07-8560-87d6dfe94f6c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7ccbc33f-24b4-46a2-ac26-30a79a74289e">
+<span class="eqno">(677)<a class="headerlink" href="#equation-7ccbc33f-24b4-46a2-ac26-30a79a74289e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \left(\begin{array}{c}
 w_{1j+1}\\
 w_{2j+1}\\
@@ -825,12 +825,12 @@ rw_{10j}\\
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>To numerically approximate the solution at <span class="math notranslate nohighlight">\(t[1]\)</span> the matrix equation becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b1033571-4a22-4c96-bfb6-729ff652d5dc">
-<span class="eqno">(691)<a class="headerlink" href="#equation-b1033571-4a22-4c96-bfb6-729ff652d5dc" title="Permalink to this equation">¶</a></span>\[\begin{equation} \mathbf{w}_{1}=A\mathbf{w}_{0} +\mathbf{b}_{0} \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-ec5e8871-92bb-4b97-bfc1-30e853c9936e">
+<span class="eqno">(678)<a class="headerlink" href="#equation-ec5e8871-92bb-4b97-bfc1-30e853c9936e" title="Permalink to this equation">¶</a></span>\[\begin{equation} \mathbf{w}_{1}=A\mathbf{w}_{0} +\mathbf{b}_{0} \end{equation}\]</div>
 <p>where all the right hand side is known.
 To approximate solution at time <span class="math notranslate nohighlight">\(t[2]\)</span> we use the matrix equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1b707d77-d211-45f8-affd-1b91a256a041">
-<span class="eqno">(692)<a class="headerlink" href="#equation-1b707d77-d211-45f8-affd-1b91a256a041" title="Permalink to this equation">¶</a></span>\[\begin{equation} \mathbf{w}_{2}=A\mathbf{w}_{1} +\mathbf{b}_{1}. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-02884e97-3bfd-4aab-9146-b9950b9d35f8">
+<span class="eqno">(679)<a class="headerlink" href="#equation-02884e97-3bfd-4aab-9146-b9950b9d35f8" title="Permalink to this equation">¶</a></span>\[\begin{equation} \mathbf{w}_{2}=A\mathbf{w}_{1} +\mathbf{b}_{1}. \end{equation}\]</div>
 <p>Each set of numerical solutions <span class="math notranslate nohighlight">\(w[i,j]\)</span> for all <span class="math notranslate nohighlight">\(i\)</span> at the previous time step is used to approximate the solution <span class="math notranslate nohighlight">\(w[i,j+1]\)</span>.</p>
 <p>The Figure below shows the numerical approximation <span class="math notranslate nohighlight">\(w[i,j]\)</span> of the Heat Equation using the FTCS method at <span class="math notranslate nohighlight">\(x[i]\)</span> for <span class="math notranslate nohighlight">\(i=0,...,10\)</span> and time steps <span class="math notranslate nohighlight">\(t[j]\)</span> for <span class="math notranslate nohighlight">\(j=1,...,15\)</span>. The left plot shows the numerical approximation <span class="math notranslate nohighlight">\(w[i,j]\)</span> as a function of <span class="math notranslate nohighlight">\(x[i]\)</span> with each color representing the different time steps <span class="math notranslate nohighlight">\(t[j]\)</span>. The right plot shows the numerical approximation <span class="math notranslate nohighlight">\(w[i,j]\)</span> as colour plot as a function of <span class="math notranslate nohighlight">\(x[i]\)</span>, on the <span class="math notranslate nohighlight">\(x[i]\)</span> axis and time <span class="math notranslate nohighlight">\(t[j]\)</span> on the <span class="math notranslate nohighlight">\(y\)</span> axis.</p>
 <p>For <span class="math notranslate nohighlight">\(r&gt;\frac{1}{2}\)</span> the method is unstable resulting a solution that oscillates unnaturally between positive and negative values for each time step.</p>
@@ -871,18 +871,18 @@ To approximate solution at time <span class="math notranslate nohighlight">\(t[2
 <div class="section" id="local-trunction-error">
 <h2>Local Trunction Error<a class="headerlink" href="#local-trunction-error" title="Permalink to this headline">¶</a></h2>
 <p>The local truncation error of the classical explicit difference approach to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-79d66169-b3b4-4eba-b2b2-6acd6c980dc2">
-<span class="eqno">(693)<a class="headerlink" href="#equation-79d66169-b3b4-4eba-b2b2-6acd6c980dc2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c6eb0ef2-6dea-4a95-851e-c4d7c0174347">
+<span class="eqno">(680)<a class="headerlink" href="#equation-c6eb0ef2-6dea-4a95-851e-c4d7c0174347" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{\partial U}{\partial t} - \frac{\partial^2 U}{\partial x^2}=0,
 \end{equation}\]</div>
 <p>with</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7ff72d17-58db-4541-b14e-d0e871af1740">
-<span class="eqno">(694)<a class="headerlink" href="#equation-7ff72d17-58db-4541-b14e-d0e871af1740" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4e1eca22-49d5-485a-88f0-e5e4a783ccee">
+<span class="eqno">(681)<a class="headerlink" href="#equation-4e1eca22-49d5-485a-88f0-e5e4a783ccee" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 F_{ij}(w)=\frac{w_{ij+1}-w_{ij}}{k}-\frac{w_{i+1j}-2w_{ij}+w_{i-1j}}{h^2}=0,
 \end{equation}\]</div>
 <p>is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9919b7c2-54d5-400d-9459-8ac4462211c9">
-<span class="eqno">(695)<a class="headerlink" href="#equation-9919b7c2-54d5-400d-9459-8ac4462211c9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f22852fb-00e6-432e-811d-9a3e5d639337">
+<span class="eqno">(682)<a class="headerlink" href="#equation-f22852fb-00e6-432e-811d-9a3e5d639337" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 T_{ij}=F_{ij}(U)=\frac{U_{ij+1}-U_{ij}}{k}-\frac{U_{i+1j}-2U_{ij}+U_{i-1j}}{h^2},
 \end{equation}\]</div>
 <p>By Taylors expansions we have</p>
@@ -904,16 +904,16 @@ T_{ij}&amp;=&amp;\left(\frac{\partial U}{\partial t} - \frac{\partial^2 U}{\part
 -\frac{h^4}{360}\left(\frac{\partial^6 U}{\partial x^6} \right)_{ij}+ ...
 \end{eqnarray*}\]</div>
 <p>But <span class="math notranslate nohighlight">\(U\)</span> is the solution to the differential equation so</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4805d7bc-63d5-4a0d-9bd5-37ac28d9ffa9">
-<span class="eqno">(696)<a class="headerlink" href="#equation-4805d7bc-63d5-4a0d-9bd5-37ac28d9ffa9" title="Permalink to this equation">¶</a></span>\[\begin{equation} \left(\frac{\partial U}{\partial t} - \frac{\partial^2 U}{\partial x^2} \right)_{ij}=0,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-2e1e7861-79dc-4620-9e64-879672496c45">
+<span class="eqno">(683)<a class="headerlink" href="#equation-2e1e7861-79dc-4620-9e64-879672496c45" title="Permalink to this equation">¶</a></span>\[\begin{equation} \left(\frac{\partial U}{\partial t} - \frac{\partial^2 U}{\partial x^2} \right)_{ij}=0,\end{equation}\]</div>
 <p>the principal part of the local truncation error is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-49a4a15c-424c-46ac-b30d-7b03f78f2d85">
-<span class="eqno">(697)<a class="headerlink" href="#equation-49a4a15c-424c-46ac-b30d-7b03f78f2d85" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e1e3e835-fdb1-45ec-a1ef-058d4a011f62">
+<span class="eqno">(684)<a class="headerlink" href="#equation-e1e3e835-fdb1-45ec-a1ef-058d4a011f62" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{k}{2}\left(\frac{\partial^2 U}{\partial t^2} \right)_{ij}-\frac{h^2}{12}\left(\frac{\partial^4 U}{\partial x^4} \right)_{ij}.
 \end{equation}\]</div>
 <p>Hence the truncation error is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-454c1e3c-0ca9-4851-9591-e4c4630c0a2f">
-<span class="eqno">(698)<a class="headerlink" href="#equation-454c1e3c-0ca9-4851-9591-e4c4630c0a2f" title="Permalink to this equation">¶</a></span>\[\begin{equation} 
+<div class="amsmath math notranslate nohighlight" id="equation-35b7e15d-f1d1-4fe9-87b9-c242c19f0d95">
+<span class="eqno">(685)<a class="headerlink" href="#equation-35b7e15d-f1d1-4fe9-87b9-c242c19f0d95" title="Permalink to this equation">¶</a></span>\[\begin{equation} 
 T_{ij}=O(k)+O(h^2).
 \end{equation}\]</div>
 </div>
@@ -921,31 +921,31 @@ T_{ij}=O(k)+O(h^2).
 <h2>Stability Analysis<a class="headerlink" href="#stability-analysis" title="Permalink to this headline">¶</a></h2>
 <p>To investigating the stability of the fully explicit FTCS difference method of the Heat Equation, we will use the von Neumann method.
 The FTCS difference equation is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-623d56bd-b0b3-4e26-9330-1b73f16b1016">
-<span class="eqno">(699)<a class="headerlink" href="#equation-623d56bd-b0b3-4e26-9330-1b73f16b1016" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{1}{k}(w_{pq+1}-w_{pq})=\frac{1}{h_x^2}(w_{p-1q}-2w_{pq}+w_{p+1q}),\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-d5d2cb04-6c4a-4466-9457-dc4e8c650580">
+<span class="eqno">(686)<a class="headerlink" href="#equation-d5d2cb04-6c4a-4466-9457-dc4e8c650580" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{1}{k}(w_{pq+1}-w_{pq})=\frac{1}{h_x^2}(w_{p-1q}-2w_{pq}+w_{p+1q}),\end{equation}\]</div>
 <p>approximating</p>
-<div class="amsmath math notranslate nohighlight" id="equation-58361337-9032-453d-b67a-af5f22b6e542">
-<span class="eqno">(700)<a class="headerlink" href="#equation-58361337-9032-453d-b67a-af5f22b6e542" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{\partial U}{\partial t}=\frac{\partial^2 U}{\partial x^2}\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-8c8e260f-6b54-4b35-8230-107959fe233e">
+<span class="eqno">(687)<a class="headerlink" href="#equation-8c8e260f-6b54-4b35-8230-107959fe233e" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{\partial U}{\partial t}=\frac{\partial^2 U}{\partial x^2}\end{equation}\]</div>
 <p>at <span class="math notranslate nohighlight">\((ph,qk)\)</span>. Substituting <span class="math notranslate nohighlight">\(w_{pq}=e^{i\beta x}\xi^{q}\)</span> into the difference equation gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77acca79-389b-434f-bfac-16aecad7e72e">
-<span class="eqno">(701)<a class="headerlink" href="#equation-77acca79-389b-434f-bfac-16aecad7e72e" title="Permalink to this equation">¶</a></span>\[\begin{equation}e^{i\beta ph}\xi^{q+1}-e^{i\beta ph}\xi^{q}=r\{e^{i\beta (p-1)h}\xi^{q}-2e^{i\beta ph}\xi^{q}+e^{i\beta (p+1)h}\xi^{q} \}
+<div class="amsmath math notranslate nohighlight" id="equation-429d51a6-8951-4b1f-a212-ded554a46ee1">
+<span class="eqno">(688)<a class="headerlink" href="#equation-429d51a6-8951-4b1f-a212-ded554a46ee1" title="Permalink to this equation">¶</a></span>\[\begin{equation}e^{i\beta ph}\xi^{q+1}-e^{i\beta ph}\xi^{q}=r\{e^{i\beta (p-1)h}\xi^{q}-2e^{i\beta ph}\xi^{q}+e^{i\beta (p+1)h}\xi^{q} \}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(r=\frac{k}{h_x^2}\)</span>. Divide across by <span class="math notranslate nohighlight">\(e^{i\beta (p)h}\xi^{q}\)</span> leads to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa2108ae-1679-4ee2-8699-14e994f10994">
-<span class="eqno">(702)<a class="headerlink" href="#equation-fa2108ae-1679-4ee2-8699-14e994f10994" title="Permalink to this equation">¶</a></span>\[\begin{equation} \xi-1=r(e^{i\beta (-1)h} -2+e^{i\beta h}),\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-4862b49f-8d8a-4e2e-a3c3-d4b8c5c15e71">
-<span class="eqno">(703)<a class="headerlink" href="#equation-4862b49f-8d8a-4e2e-a3c3-d4b8c5c15e71" title="Permalink to this equation">¶</a></span>\[\begin{equation}\xi= 1+r (2\cos(\beta h)-2),\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-cf79e212-07db-4f5d-8750-3c70fa6e8804">
-<span class="eqno">(704)<a class="headerlink" href="#equation-cf79e212-07db-4f5d-8750-3c70fa6e8804" title="Permalink to this equation">¶</a></span>\[\begin{equation}\xi=1-4r(\sin^2(\beta\frac{h}{2})).\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-5589cb3e-c155-4422-874b-b80b2ef4686d">
+<span class="eqno">(689)<a class="headerlink" href="#equation-5589cb3e-c155-4422-874b-b80b2ef4686d" title="Permalink to this equation">¶</a></span>\[\begin{equation} \xi-1=r(e^{i\beta (-1)h} -2+e^{i\beta h}),\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3a8e67b5-ecca-45e1-9b6a-c5e684490862">
+<span class="eqno">(690)<a class="headerlink" href="#equation-3a8e67b5-ecca-45e1-9b6a-c5e684490862" title="Permalink to this equation">¶</a></span>\[\begin{equation}\xi= 1+r (2\cos(\beta h)-2),\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-0d457134-d3e3-4456-bc22-c881bb3bac99">
+<span class="eqno">(691)<a class="headerlink" href="#equation-0d457134-d3e3-4456-bc22-c881bb3bac99" title="Permalink to this equation">¶</a></span>\[\begin{equation}\xi=1-4r(\sin^2(\beta\frac{h}{2})).\end{equation}\]</div>
 <p>Hence</p>
-<div class="amsmath math notranslate nohighlight" id="equation-514a78a1-ffb9-4e6f-90f3-a16dd3ae805d">
-<span class="eqno">(705)<a class="headerlink" href="#equation-514a78a1-ffb9-4e6f-90f3-a16dd3ae805d" title="Permalink to this equation">¶</a></span>\[\begin{equation}\left| 1-4r(\sin^2(\beta\frac{h}{2}) )\right|\leq 1\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-f924adf8-626f-4d05-8a00-7e91e69a8fee">
+<span class="eqno">(692)<a class="headerlink" href="#equation-f924adf8-626f-4d05-8a00-7e91e69a8fee" title="Permalink to this equation">¶</a></span>\[\begin{equation}\left| 1-4r(\sin^2(\beta\frac{h}{2}) )\right|\leq 1\end{equation}\]</div>
 <p>for this to hold</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6b0b1271-e2bb-4214-9a92-a91588f55451">
-<span class="eqno">(706)<a class="headerlink" href="#equation-6b0b1271-e2bb-4214-9a92-a91588f55451" title="Permalink to this equation">¶</a></span>\[\begin{equation} 4r(\sin^2(\beta\frac{h}{2}) )\leq 2 \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-f5e61966-5260-41d6-ada0-47da246b3861">
+<span class="eqno">(693)<a class="headerlink" href="#equation-f5e61966-5260-41d6-ada0-47da246b3861" title="Permalink to this equation">¶</a></span>\[\begin{equation} 4r(\sin^2(\beta\frac{h}{2}) )\leq 2 \end{equation}\]</div>
 <p>which means</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c8fe83c5-4232-4f46-abd1-7ec70ffdd125">
-<span class="eqno">(707)<a class="headerlink" href="#equation-c8fe83c5-4232-4f46-abd1-7ec70ffdd125" title="Permalink to this equation">¶</a></span>\[\begin{equation} r\leq \frac{1}{2}.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-08372409-4c67-42f6-9eec-98b583de0635">
+<span class="eqno">(694)<a class="headerlink" href="#equation-08372409-4c67-42f6-9eec-98b583de0635" title="Permalink to this equation">¶</a></span>\[\begin{equation} r\leq \frac{1}{2}.\end{equation}\]</div>
 <p>therefore the equation is conditionally stable as <span class="math notranslate nohighlight">\(0 &lt; \xi \leq 1\)</span> for <span class="math notranslate nohighlight">\(r&lt;\frac{1}{2}\)</span> and all <span class="math notranslate nohighlight">\(\beta\)</span> .</p>
 </div>
 <div class="section" id="references">

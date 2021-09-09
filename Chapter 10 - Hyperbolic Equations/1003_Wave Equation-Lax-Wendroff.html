@@ -392,7 +392,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Chapter%2009%20-%20Elliptic%20Equations/901_Poisson%20Equation-Laplacian.html">
-   Finite Difference Methods for the Poisson Equation
+   Finite Difference Methods for the Laplacian Equation
   </a>
  </li>
 </ul>
@@ -567,11 +567,11 @@
 <div class="section" id="the-differential-equation">
 <h2>The Differential Equation<a class="headerlink" href="#the-differential-equation" title="Permalink to this headline">¶</a></h2>
 <p>Condsider the one-dimensional hyperbolic Wave Equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a83f6954-24ba-4a52-ad53-e72cff7d8c4b">
-<span class="eqno">(978)<a class="headerlink" href="#equation-a83f6954-24ba-4a52-ad53-e72cff7d8c4b" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u}{\partial t} +a\frac{\partial u}{\partial x}=0,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-c2b28057-2081-49fb-96ba-e38676f8c9f1">
+<span class="eqno">(966)<a class="headerlink" href="#equation-c2b28057-2081-49fb-96ba-e38676f8c9f1" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u}{\partial t} +a\frac{\partial u}{\partial x}=0,\end{equation}\]</div>
 <p>with the initial conditions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4ff95101-ed7b-439a-8384-06174042a6e2">
-<span class="eqno">(979)<a class="headerlink" href="#equation-4ff95101-ed7b-439a-8384-06174042a6e2" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=1-\cos(x), \ \ 0 \leq x \leq 2\pi. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-26232735-e49e-4eb8-9906-9f228e5a1844">
+<span class="eqno">(967)<a class="headerlink" href="#equation-26232735-e49e-4eb8-9906-9f228e5a1844" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=1-\cos(x), \ \ 0 \leq x \leq 2\pi. \end{equation}\]</div>
 <p>and wrap around boundary conditions.</p>
 <p>This notebook will implement the Lax-Wendroff method to appoximate the solution of the Wave Equation.
 The Lax-Wendroff method was designed by Peter Lax (https://en.wikipedia.org/wiki/Peter_Lax) and Burton Wendroff (https://en.wikipedia.org/wiki/Burton_Wendroff).</p>
@@ -596,17 +596,17 @@ The Lax-Wendroff method was designed by Peter Lax (https://en.wikipedia.org/wiki
 <div class="section" id="discete-grid">
 <h2>Discete Grid<a class="headerlink" href="#discete-grid" title="Permalink to this headline">¶</a></h2>
 <p>The region <span class="math notranslate nohighlight">\(\Omega\)</span> is discretised into a uniform mesh <span class="math notranslate nohighlight">\(\Omega_h\)</span>. In the space <span class="math notranslate nohighlight">\(x\)</span> direction into <span class="math notranslate nohighlight">\(N\)</span> steps giving a stepsize of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e38d43c-d3a1-4b86-9f54-ce8010619756">
-<span class="eqno">(980)<a class="headerlink" href="#equation-1e38d43c-d3a1-4b86-9f54-ce8010619756" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{1-0}{N},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3852925b-d775-4488-abf5-e0d2792abb4e">
+<span class="eqno">(968)<a class="headerlink" href="#equation-3852925b-d775-4488-abf5-e0d2792abb4e" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{1-0}{N},\end{equation}\]</div>
 <p>resulting in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-12707668-3133-4568-b1e0-bd7adb11c938">
-<span class="eqno">(981)<a class="headerlink" href="#equation-12707668-3133-4568-b1e0-bd7adb11c938" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[i]=0+ih, \ \ \  i=0,1,...,N,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6277f4b0-8657-46a5-9a2d-d830948ba392">
+<span class="eqno">(969)<a class="headerlink" href="#equation-6277f4b0-8657-46a5-9a2d-d830948ba392" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[i]=0+ih, \ \ \  i=0,1,...,N,\end{equation}\]</div>
 <p>and into <span class="math notranslate nohighlight">\(N_t\)</span> steps in the time <span class="math notranslate nohighlight">\(t\)</span> direction giving a stepsize of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e5f6677a-462e-4727-908e-58cf6b727a79">
-<span class="eqno">(982)<a class="headerlink" href="#equation-e5f6677a-462e-4727-908e-58cf6b727a79" title="Permalink to this equation">¶</a></span>\[\begin{equation} k=\frac{1-0}{N_t}\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-7ea0e673-1596-4086-bf9d-fce2c4214379">
+<span class="eqno">(970)<a class="headerlink" href="#equation-7ea0e673-1596-4086-bf9d-fce2c4214379" title="Permalink to this equation">¶</a></span>\[\begin{equation} k=\frac{1-0}{N_t}\end{equation}\]</div>
 <p>resulting in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52ef14c5-b2ce-49b1-8753-ba75211f2c9d">
-<span class="eqno">(983)<a class="headerlink" href="#equation-52ef14c5-b2ce-49b1-8753-ba75211f2c9d" title="Permalink to this equation">¶</a></span>\[\begin{equation}t[i]=0+ik, \ \ \ k=0,...,K.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-0142cc93-88d3-406a-b2ef-cbb072045095">
+<span class="eqno">(971)<a class="headerlink" href="#equation-0142cc93-88d3-406a-b2ef-cbb072045095" title="Permalink to this equation">¶</a></span>\[\begin{equation}t[i]=0+ik, \ \ \ k=0,...,K.\end{equation}\]</div>
 <p>The Figure below shows the discrete grid points for <span class="math notranslate nohighlight">\(N=10\)</span> and <span class="math notranslate nohighlight">\(Nt=100\)</span>,  the known boundary conditions (green), initial conditions (blue) and the unknown values (red) of the Heat Equation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -643,8 +643,8 @@ The Lax-Wendroff method was designed by Peter Lax (https://en.wikipedia.org/wiki
 <div class="section" id="initial-conditions">
 <h2>Initial Conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h2>
 <p>The discrete initial conditions is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2e255f01-a28a-4489-b532-9df399976caf">
-<span class="eqno">(984)<a class="headerlink" href="#equation-2e255f01-a28a-4489-b532-9df399976caf" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[i,0]=1-\cos(x[i]), \ \ 0 \leq x[i] \leq \pi, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-f8dd0992-434f-44cd-8160-4dfefc8cdca0">
+<span class="eqno">(972)<a class="headerlink" href="#equation-f8dd0992-434f-44cd-8160-4dfefc8cdca0" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[i,0]=1-\cos(x[i]), \ \ 0 \leq x[i] \leq \pi, \end{equation}\]</div>
 <p>The Figure below plots values of <span class="math notranslate nohighlight">\(w[i,0]\)</span> for the inital (blue) conditions for <span class="math notranslate nohighlight">\(t[0]=0.\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -676,11 +676,11 @@ The Lax-Wendroff method was designed by Peter Lax (https://en.wikipedia.org/wiki
 <div class="section" id="boundary-conditions">
 <h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
 <p>To account for the wrap-around boundary condtions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-665b80a1-9ebe-416a-b855-e97f4fa9857c">
-<span class="eqno">(985)<a class="headerlink" href="#equation-665b80a1-9ebe-416a-b855-e97f4fa9857c" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{-1,j}=w_{N,j},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-9bf97d1d-2e75-459c-9185-42cc664321c2">
+<span class="eqno">(973)<a class="headerlink" href="#equation-9bf97d1d-2e75-459c-9185-42cc664321c2" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{-1,j}=w_{N,j},\end{equation}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-18fd5f66-f1d6-40e5-adda-076d30136b61">
-<span class="eqno">(986)<a class="headerlink" href="#equation-18fd5f66-f1d6-40e5-adda-076d30136b61" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{N+1,j}=w_{0,j}.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-0d89585c-fbe7-4371-92f6-c74782ab36a7">
+<span class="eqno">(974)<a class="headerlink" href="#equation-0d89585c-fbe7-4371-92f6-c74782ab36a7" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{N+1,j}=w_{0,j}.\end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
@@ -697,13 +697,13 @@ The Lax-Wendroff method was designed by Peter Lax (https://en.wikipedia.org/wiki
 <div class="section" id="id1">
 <h2>Lax-Wendroff Method<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>The Lax-Wendroff method for the Wave Equation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6f62bbca-8761-4da6-9a48-a13be28203c3">
-<span class="eqno">(987)<a class="headerlink" href="#equation-6f62bbca-8761-4da6-9a48-a13be28203c3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-72ae12d1-a170-4f8d-bbb2-7cb263d221bb">
+<span class="eqno">(975)<a class="headerlink" href="#equation-72ae12d1-a170-4f8d-bbb2-7cb263d221bb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{w_{ij+1}-w_{ij}}{k}+a\big(\frac{w_{i+1j}-w_{i-1j}}{2h}\big)-\frac{a^2k}{2}\big(\frac{w_{i+1j}-2w_{ij}+w_{i-1j}}{h^2}\big)=0
 \end{equation}\]</div>
 <p>Rearranging the equation we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3cf5d869-e256-4bb6-b250-b876be0b7f6c">
-<span class="eqno">(988)<a class="headerlink" href="#equation-3cf5d869-e256-4bb6-b250-b876be0b7f6c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-21c91082-6526-4011-9a64-3b5899b1682d">
+<span class="eqno">(976)<a class="headerlink" href="#equation-21c91082-6526-4011-9a64-3b5899b1682d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{ij+1}=w_{ij}-\frac{\lambda}{2} a(w_{i+1j}-w_{i-1j})+\frac{\lambda^2}{2} a^2\big(\frac{w_{i+1j}-2w_{ij}+w_{i-1j}}{h^2}\big)
 \end{equation}\]</div>
 <p>for <span class="math notranslate nohighlight">\(i=0,...10\)</span> where <span class="math notranslate nohighlight">\(\lambda=\frac{k}{h}\)</span>.</p>

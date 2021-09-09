@@ -392,7 +392,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Chapter%2009%20-%20Elliptic%20Equations/901_Poisson%20Equation-Laplacian.html">
-   Finite Difference Methods for the Poisson Equation
+   Finite Difference Methods for the Laplacian Equation
   </a>
  </li>
 </ul>
@@ -599,11 +599,11 @@
 <div class="section" id="intial-value-problem">
 <h2>Intial Value Problem<a class="headerlink" href="#intial-value-problem" title="Permalink to this headline">¶</a></h2>
 <p>The differential equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-707b8b11-72cc-4ae7-90c0-1c593439bf2a">
-<span class="eqno">(439)<a class="headerlink" href="#equation-707b8b11-72cc-4ae7-90c0-1c593439bf2a" title="Permalink to this equation">¶</a></span>\[\begin{equation}y^{'}=t-y, \ \ (0 \leq t \leq 2) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6e4d2db5-66e3-4d9d-9264-f06b7383b2fd">
+<span class="eqno">(426)<a class="headerlink" href="#equation-6e4d2db5-66e3-4d9d-9264-f06b7383b2fd" title="Permalink to this equation">¶</a></span>\[\begin{equation}y^{'}=t-y, \ \ (0 \leq t \leq 2) \end{equation}\]</div>
 <p>with the initial condition</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af5ea42b-88fa-452b-b06a-3345759a1bc4">
-<span class="eqno">(440)<a class="headerlink" href="#equation-af5ea42b-88fa-452b-b06a-3345759a1bc4" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(0)=1\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-cad813fc-1dea-45d2-8897-d514d8656488">
+<span class="eqno">(427)<a class="headerlink" href="#equation-cad813fc-1dea-45d2-8897-d514d8656488" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(0)=1\end{equation}\]</div>
 <p>will be used to illustrate the method.</p>
 </div>
 <div class="section" id="python-libraries">
@@ -639,18 +639,18 @@
 <div class="section" id="discrete-interval">
 <h2>Discrete Interval<a class="headerlink" href="#discrete-interval" title="Permalink to this headline">¶</a></h2>
 <p>Defining the step size  <span class="math notranslate nohighlight">\(h\)</span>  from the interval range  <span class="math notranslate nohighlight">\(a\leq t \leq b\)</span>  and number of steps  <span class="math notranslate nohighlight">\(N\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce9da21b-4659-44aa-ac27-ba88d1dd3d63">
-<span class="eqno">(441)<a class="headerlink" href="#equation-ce9da21b-4659-44aa-ac27-ba88d1dd3d63" title="Permalink to this equation">¶</a></span>\[\begin{equation}h=\frac{b−a}{N}.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-f6f2214b-ef85-446d-9b95-fe7991b790d7">
+<span class="eqno">(428)<a class="headerlink" href="#equation-f6f2214b-ef85-446d-9b95-fe7991b790d7" title="Permalink to this equation">¶</a></span>\[\begin{equation}h=\frac{b−a}{N}.\end{equation}\]</div>
 <p>This gives the discrete time steps,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a2956cdb-ae41-4698-a9e0-649193b05373">
-<span class="eqno">(442)<a class="headerlink" href="#equation-a2956cdb-ae41-4698-a9e0-649193b05373" title="Permalink to this equation">¶</a></span>\[\begin{equation}t_i=t_0+ih,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-7ac4b47a-d483-4a46-8d8d-5bf951bc8a15">
+<span class="eqno">(429)<a class="headerlink" href="#equation-7ac4b47a-d483-4a46-8d8d-5bf951bc8a15" title="Permalink to this equation">¶</a></span>\[\begin{equation}t_i=t_0+ih,\end{equation}\]</div>
 <p>where  <span class="math notranslate nohighlight">\(t0=a.\)</span></p>
 <p>Here the interval is  <span class="math notranslate nohighlight">\(0≤t≤2\)</span>  and number of step  4</p>
-<div class="amsmath math notranslate nohighlight" id="equation-30d5f9c6-bdbf-41cf-be6a-4ae65e6b289d">
-<span class="eqno">(443)<a class="headerlink" href="#equation-30d5f9c6-bdbf-41cf-be6a-4ae65e6b289d" title="Permalink to this equation">¶</a></span>\[\begin{equation}h=\frac{2−0}{4}=0.5.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-c9cb9c22-f128-4912-be23-c3658f96e6f4">
+<span class="eqno">(430)<a class="headerlink" href="#equation-c9cb9c22-f128-4912-be23-c3658f96e6f4" title="Permalink to this equation">¶</a></span>\[\begin{equation}h=\frac{2−0}{4}=0.5.\end{equation}\]</div>
 <p>This gives the discrete time steps,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c690069b-47db-480a-923c-8c979579d7b6">
-<span class="eqno">(444)<a class="headerlink" href="#equation-c690069b-47db-480a-923c-8c979579d7b6" title="Permalink to this equation">¶</a></span>\[\begin{equation}t_i=0+i0.5,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-0989696c-0062-4d31-9343-e6e4e669f6fd">
+<span class="eqno">(431)<a class="headerlink" href="#equation-0989696c-0062-4d31-9343-e6e4e669f6fd" title="Permalink to this equation">¶</a></span>\[\begin{equation}t_i=0+i0.5,\end{equation}\]</div>
 <p>for  <span class="math notranslate nohighlight">\(i=0,1,⋯,4.\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -679,8 +679,8 @@
 <div class="section" id="exact-solution">
 <h2>Exact Solution<a class="headerlink" href="#exact-solution" title="Permalink to this headline">¶</a></h2>
 <p>The initial value problem has the exact solution</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0770b706-d68d-43a1-899b-c6afaa11b20b">
-<span class="eqno">(445)<a class="headerlink" href="#equation-0770b706-d68d-43a1-899b-c6afaa11b20b" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(t)=2e^{-t}+t-1.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-b9f4fe0f-f211-4d3b-b501-7a86c5e326de">
+<span class="eqno">(432)<a class="headerlink" href="#equation-b9f4fe0f-f211-4d3b-b501-7a86c5e326de" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(t)=2e^{-t}+t-1.\end{equation}\]</div>
 <p>The figure below plots the exact solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -714,28 +714,28 @@
 <div class="section" id="step-adams-bashforth-predictor">
 <h2>2-step Adams Bashforth (Predictor)<a class="headerlink" href="#step-adams-bashforth-predictor" title="Permalink to this headline">¶</a></h2>
 <p>The 2-step Adams Bashforth difference equation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-01a5a7c9-9ca2-4284-a80e-28dcdc2453d2">
-<span class="eqno">(446)<a class="headerlink" href="#equation-01a5a7c9-9ca2-4284-a80e-28dcdc2453d2" title="Permalink to this equation">¶</a></span>\[\begin{equation}w^{0}_{i+1} = w_{i} + \frac{h}{2}(3f(t_i,w_i)-f(t_{i-1},w_{i-1})) \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-52785103-6219-4b03-9648-a4f208b8a5e7">
-<span class="eqno">(447)<a class="headerlink" href="#equation-52785103-6219-4b03-9648-a4f208b8a5e7" title="Permalink to this equation">¶</a></span>\[\begin{equation}w^{0}_{i+1} = w_{i} + \frac{h}{2}(3(t_i-w_i)-(t_{i-1}-w_{i-1}))\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e72d13b5-f017-4fa1-b979-ea1c949a4dde">
+<span class="eqno">(433)<a class="headerlink" href="#equation-e72d13b5-f017-4fa1-b979-ea1c949a4dde" title="Permalink to this equation">¶</a></span>\[\begin{equation}w^{0}_{i+1} = w_{i} + \frac{h}{2}(3f(t_i,w_i)-f(t_{i-1},w_{i-1})) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6be3a7b5-0f31-41a8-b203-c6290b27768a">
+<span class="eqno">(434)<a class="headerlink" href="#equation-6be3a7b5-0f31-41a8-b203-c6290b27768a" title="Permalink to this equation">¶</a></span>\[\begin{equation}w^{0}_{i+1} = w_{i} + \frac{h}{2}(3(t_i-w_i)-(t_{i-1}-w_{i-1}))\end{equation}\]</div>
 </div>
 <div class="section" id="step-adams-moulton-corrector">
 <h2>1-step Adams Moulton (Corrector)<a class="headerlink" href="#step-adams-moulton-corrector" title="Permalink to this headline">¶</a></h2>
-<div class="amsmath math notranslate nohighlight" id="equation-1f161970-23af-4fc0-ae0f-bbae61b31a16">
-<span class="eqno">(448)<a class="headerlink" href="#equation-1f161970-23af-4fc0-ae0f-bbae61b31a16" title="Permalink to this equation">¶</a></span>\[\begin{equation}w^{1}_{i+1} = w_{i} + \frac{h}{2}(f(t_{i+1},w^{0}_{i+1})+f(t_{i},w_{i})) \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-779c25a1-fb9a-4461-99e1-71ec34a767ec">
-<span class="eqno">(449)<a class="headerlink" href="#equation-779c25a1-fb9a-4461-99e1-71ec34a767ec" title="Permalink to this equation">¶</a></span>\[\begin{equation} w^{1}_{i+1} = w_{i} + \frac{h}{2}((t_{i+1}-w^0_{i+1})+(t_{i}-w_{i})) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-8cc30ee0-939e-49f1-98b2-9edad9fd2af0">
+<span class="eqno">(435)<a class="headerlink" href="#equation-8cc30ee0-939e-49f1-98b2-9edad9fd2af0" title="Permalink to this equation">¶</a></span>\[\begin{equation}w^{1}_{i+1} = w_{i} + \frac{h}{2}(f(t_{i+1},w^{0}_{i+1})+f(t_{i},w_{i})) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-20e05003-23c5-418f-bd7e-db1e6e491262">
+<span class="eqno">(436)<a class="headerlink" href="#equation-20e05003-23c5-418f-bd7e-db1e6e491262" title="Permalink to this equation">¶</a></span>\[\begin{equation} w^{1}_{i+1} = w_{i} + \frac{h}{2}((t_{i+1}-w^0_{i+1})+(t_{i}-w_{i})) \end{equation}\]</div>
 <p>For <span class="math notranslate nohighlight">\(i=0\)</span> the system of difference equation is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-366e6a34-1af2-4ed7-95b5-01ce87597ece">
-<span class="eqno">(450)<a class="headerlink" href="#equation-366e6a34-1af2-4ed7-95b5-01ce87597ece" title="Permalink to this equation">¶</a></span>\[\begin{equation}w^{0}_{1} = w_{0} + \frac{h}{2}(3(t_0-w_0)-(t_{-1}-w_{-1})) \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-272755c4-219a-4471-a0e7-fe84fa9df24a">
-<span class="eqno">(451)<a class="headerlink" href="#equation-272755c4-219a-4471-a0e7-fe84fa9df24a" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{1} = w_{0} + \frac{h}{2}((t_{1}-w^{0}_{1})+(t_{0}-w_{0})). \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-15457530-3223-4d70-adb5-76f5c64a1540">
+<span class="eqno">(437)<a class="headerlink" href="#equation-15457530-3223-4d70-adb5-76f5c64a1540" title="Permalink to this equation">¶</a></span>\[\begin{equation}w^{0}_{1} = w_{0} + \frac{h}{2}(3(t_0-w_0)-(t_{-1}-w_{-1})) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-4bde7b8b-eb1a-4771-bd97-331cf515df82">
+<span class="eqno">(438)<a class="headerlink" href="#equation-4bde7b8b-eb1a-4771-bd97-331cf515df82" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{1} = w_{0} + \frac{h}{2}((t_{1}-w^{0}_{1})+(t_{0}-w_{0})). \end{equation}\]</div>
 <p>this is not solvable as <font color='red'> <span class="math notranslate nohighlight">\(w_{-1}\)</span> </font> is unknown.</p>
 <p>For <span class="math notranslate nohighlight">\(i=1\)</span> the difference equation is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dac383ef-f979-4898-b284-2e1e8b93e4d1">
-<span class="eqno">(452)<a class="headerlink" href="#equation-dac383ef-f979-4898-b284-2e1e8b93e4d1" title="Permalink to this equation">¶</a></span>\[\begin{equation}w^{0}_{2} = w_{1} + \frac{h}{2}(3(t_1-w_1)-(t_{0}-w_{0})) \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-86fb2799-7098-481c-9ca7-bc9634c642b6">
-<span class="eqno">(453)<a class="headerlink" href="#equation-86fb2799-7098-481c-9ca7-bc9634c642b6" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{2} = w_{1} + \frac{h}{2}((t_{2}-w^{0}_{2})+(t_{1}-w_{1})). \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e2e9d21d-8cee-4dfd-b292-658903d73ec6">
+<span class="eqno">(439)<a class="headerlink" href="#equation-e2e9d21d-8cee-4dfd-b292-658903d73ec6" title="Permalink to this equation">¶</a></span>\[\begin{equation}w^{0}_{2} = w_{1} + \frac{h}{2}(3(t_1-w_1)-(t_{0}-w_{0})) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-bd8a8a54-1fbf-44ea-a4ba-b9dcdbc82e88">
+<span class="eqno">(440)<a class="headerlink" href="#equation-bd8a8a54-1fbf-44ea-a4ba-b9dcdbc82e88" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{2} = w_{1} + \frac{h}{2}((t_{2}-w^{0}_{2})+(t_{1}-w_{1})). \end{equation}\]</div>
 <p>this is not solvable as <font color='red'> <span class="math notranslate nohighlight">\(w_{1}\)</span>  </font> is unknown. <span class="math notranslate nohighlight">\(w_1\)</span> can be  approximated using a one step method. Here, as the exact solution is known,
 \begin{equation}w_1=2e^{-t_1}+t_1-1.$$</p>
 <div class="cell docutils container">
@@ -795,21 +795,21 @@
 <div class="section" id="local-error">
 <h2>Local Error<a class="headerlink" href="#local-error" title="Permalink to this headline">¶</a></h2>
 <p>The error for the 1 step Adams Moulton is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bde5d10a-c2c4-4991-b530-b69f831dd80d">
-<span class="eqno">(454)<a class="headerlink" href="#equation-bde5d10a-c2c4-4991-b530-b69f831dd80d" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{y_{n+1}-y_{n}}{h}=\frac{1}{2}[f(t_{n+1},w_{n+1})+f(t_{n-1},w_{n-1})] +\frac{-h^2}{12}y^{(3)}(\eta),\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-28783748-bbfa-4948-ab9f-8875bd5e2be8">
+<span class="eqno">(441)<a class="headerlink" href="#equation-28783748-bbfa-4948-ab9f-8875bd5e2be8" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{y_{n+1}-y_{n}}{h}=\frac{1}{2}[f(t_{n+1},w_{n+1})+f(t_{n-1},w_{n-1})] +\frac{-h^2}{12}y^{(3)}(\eta),\end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\eta \in [t_{n-1},t_{n+1}]\)</span>.
 The error for the 2 step Adams Bashforth is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c5a08935-d07c-4b2d-abf3-1f3142c2ffa3">
-<span class="eqno">(455)<a class="headerlink" href="#equation-c5a08935-d07c-4b2d-abf3-1f3142c2ffa3" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{y_{n+1}-y_{n}}{h}=\frac{1}{2}[3f(t_{n},w_{n})-f(t_{n},w_{n})] +\frac{5h^2}{12}y^{(3)}(\xi),\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-92ef5d8c-4fff-4239-a785-ad66e5f7fd6e">
+<span class="eqno">(442)<a class="headerlink" href="#equation-92ef5d8c-4fff-4239-a785-ad66e5f7fd6e" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{y_{n+1}-y_{n}}{h}=\frac{1}{2}[3f(t_{n},w_{n})-f(t_{n},w_{n})] +\frac{5h^2}{12}y^{(3)}(\xi),\end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\xi \in [t_{n-1},t_{n+1}]\)</span>.</p>
 <p>Rearranging the equations gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2367fb51-f679-496f-81bf-89882259035f">
-<span class="eqno">(456)<a class="headerlink" href="#equation-2367fb51-f679-496f-81bf-89882259035f" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{w_{n+1}-w_{n+1}^0}{h}= h^2[\frac{y^{(3)}(\eta)}{12}+\frac{5y^{(3)}(\xi)}{12}]\approx h^2[\frac{6}{12}y^{(3)}(\xi)].\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-29ac242f-9866-49a0-aabb-10a09ff5f007">
+<span class="eqno">(443)<a class="headerlink" href="#equation-29ac242f-9866-49a0-aabb-10a09ff5f007" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{w_{n+1}-w_{n+1}^0}{h}= h^2[\frac{y^{(3)}(\eta)}{12}+\frac{5y^{(3)}(\xi)}{12}]\approx h^2[\frac{6}{12}y^{(3)}(\xi)].\end{equation}\]</div>
 <p>Making the assumption that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37984fb0-b630-47cf-97b2-5ded95aa842b">
-<span class="eqno">(457)<a class="headerlink" href="#equation-37984fb0-b630-47cf-97b2-5ded95aa842b" title="Permalink to this equation">¶</a></span>\[\begin{equation}y^{(3)}(\xi)\approx \frac{12}{6h^2}\frac{w_{n+1}-w_{n+1}^0}{h},\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-c82dc97b-736c-49b8-8f2e-3d6d0c6ac41a">
-<span class="eqno">(458)<a class="headerlink" href="#equation-c82dc97b-736c-49b8-8f2e-3d6d0c6ac41a" title="Permalink to this equation">¶</a></span>\[\begin{equation}y^{(3)}(\xi)\approx \frac{12}{6h^2}\frac{w_{n+1}-w_{n+1}^0}{h}.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-9ef662ef-ef61-4ead-abfb-cb196aa86f3d">
+<span class="eqno">(444)<a class="headerlink" href="#equation-9ef662ef-ef61-4ead-abfb-cb196aa86f3d" title="Permalink to this equation">¶</a></span>\[\begin{equation}y^{(3)}(\xi)\approx \frac{12}{6h^2}\frac{w_{n+1}-w_{n+1}^0}{h},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6ff1ab06-2a93-4f9e-a18f-e52b4305d94d">
+<span class="eqno">(445)<a class="headerlink" href="#equation-6ff1ab06-2a93-4f9e-a18f-e52b4305d94d" title="Permalink to this equation">¶</a></span>\[\begin{equation}y^{(3)}(\xi)\approx \frac{12}{6h^2}\frac{w_{n+1}-w_{n+1}^0}{h}.\end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time t_i&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;Adams Predictor w0&#39;</span><span class="p">:</span> <span class="n">w0</span><span class="p">,</span>

@@ -392,7 +392,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../Chapter%2009%20-%20Elliptic%20Equations/901_Poisson%20Equation-Laplacian.html">
-   Finite Difference Methods for the Poisson Equation
+   Finite Difference Methods for the Laplacian Equation
   </a>
  </li>
 </ul>
@@ -538,24 +538,24 @@
 <div class="section" id="problem-sheet-question-2a">
 <h1>Problem Sheet Question 2a<a class="headerlink" href="#problem-sheet-question-2a" title="Permalink to this headline">¶</a></h1>
 <p>The general form of the population growth differential equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-47644df3-88f8-458c-a455-529d21f10ef5">
-<span class="eqno">(469)<a class="headerlink" href="#equation-47644df3-88f8-458c-a455-529d21f10ef5" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=y-t, \ \ (0 \leq t \leq 2) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-69e9b115-bcad-4ad2-9141-784d8d58f1a7">
+<span class="eqno">(456)<a class="headerlink" href="#equation-69e9b115-bcad-4ad2-9141-784d8d58f1a7" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=y-t, \ \ (0 \leq t \leq 2) \end{equation}\]</div>
 <p>with the initial condition</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6fa76ef1-214f-4dff-acf5-eb62fc7c4d82">
-<span class="eqno">(470)<a class="headerlink" href="#equation-6fa76ef1-214f-4dff-acf5-eb62fc7c4d82" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(0)=2.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-11c0edec-84bd-41b8-b4ef-a7a1994648ef">
+<span class="eqno">(457)<a class="headerlink" href="#equation-11c0edec-84bd-41b8-b4ef-a7a1994648ef" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(0)=2.\end{equation}\]</div>
 <p>For N=4
 with the analytic (exact) solution</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5112bec9-6b7f-42b1-a94f-aea81cdf8c29">
-<span class="eqno">(471)<a class="headerlink" href="#equation-5112bec9-6b7f-42b1-a94f-aea81cdf8c29" title="Permalink to this equation">¶</a></span>\[\begin{equation} y= e^{t}+t+1.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-818aeaf3-d87a-4a4c-a533-59133e9f461b">
+<span class="eqno">(458)<a class="headerlink" href="#equation-818aeaf3-d87a-4a4c-a533-59133e9f461b" title="Permalink to this equation">¶</a></span>\[\begin{equation} y= e^{t}+t+1.\end{equation}\]</div>
 </div>
 <div class="section" id="step-adams-bashforth">
 <h1>3-step Adams Bashforth<a class="headerlink" href="#step-adams-bashforth" title="Permalink to this headline">¶</a></h1>
 <p>The 3-step Adams Bashforth difference equation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce86caab-be87-48f7-8150-d588b21fae4c">
-<span class="eqno">(472)<a class="headerlink" href="#equation-ce86caab-be87-48f7-8150-d588b21fae4c" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{12}(23f(t_i,w_i)-16f(t_{i-1},w_{i-1})+5f(t_{i-2},w_{i-2})) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-cb22645f-a418-4a65-b72b-b730968f9130">
+<span class="eqno">(459)<a class="headerlink" href="#equation-cb22645f-a418-4a65-b72b-b730968f9130" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{12}(23f(t_i,w_i)-16f(t_{i-1},w_{i-1})+5f(t_{i-2},w_{i-2})) \end{equation}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b38220ea-5658-4642-87d5-762ca3c7a286">
-<span class="eqno">(473)<a class="headerlink" href="#equation-b38220ea-5658-4642-87d5-762ca3c7a286" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{12}(23(w_i-t_i)-(w_{i-1}-t_{i-1})+5(w_{i-2}-t_{i-2})). \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6239dc2b-d76d-48bd-8409-092ebfb112f3">
+<span class="eqno">(460)<a class="headerlink" href="#equation-6239dc2b-d76d-48bd-8409-092ebfb112f3" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{12}(23(w_i-t_i)-(w_{i-1}-t_{i-1})+5(w_{i-2}-t_{i-2})). \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>

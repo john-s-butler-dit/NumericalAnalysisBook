@@ -392,7 +392,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Chapter%2009%20-%20Elliptic%20Equations/901_Poisson%20Equation-Laplacian.html">
-   Finite Difference Methods for the Poisson Equation
+   Finite Difference Methods for the Laplacian Equation
   </a>
  </li>
 </ul>
@@ -611,11 +611,11 @@
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>A one-step or multistep method is used to approximate the solution of an initial value problem of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37813fd9-ae60-4631-be25-122ba0e4a0f9">
-<span class="eqno">(481)<a class="headerlink" href="#equation-37813fd9-ae60-4631-be25-122ba0e4a0f9" title="Permalink to this equation">¶</a></span>\[\begin{equation} \frac{dy}{dt}=f(t,y), \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-1614ef38-f7f4-44da-ba6d-7d5ed8ca38a4">
+<span class="eqno">(468)<a class="headerlink" href="#equation-1614ef38-f7f4-44da-ba6d-7d5ed8ca38a4" title="Permalink to this equation">¶</a></span>\[\begin{equation} \frac{dy}{dt}=f(t,y), \end{equation}\]</div>
 <p>with the initial condition</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b128989-6c5b-494d-a63b-fcbbdaf3e4d4">
-<span class="eqno">(482)<a class="headerlink" href="#equation-9b128989-6c5b-494d-a63b-fcbbdaf3e4d4" title="Permalink to this equation">¶</a></span>\[\begin{equation}  y(a)=\alpha.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-bed7abdf-5a10-48f5-a16f-cfd9f2ab41c6">
+<span class="eqno">(469)<a class="headerlink" href="#equation-bed7abdf-5a10-48f5-a16f-cfd9f2ab41c6" title="Permalink to this equation">¶</a></span>\[\begin{equation}  y(a)=\alpha.\end{equation}\]</div>
 <p>The method should only be used if it satisfies the three criteria:</p>
 <ol class="simple">
 <li><p>that difference equation is <strong>consistent</strong> with the differential equation;</p></li>
@@ -645,11 +645,11 @@
 <h3>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h3>
 <p>A one-step and multi-step methods with local truncation error <span class="math notranslate nohighlight">\(\tau_{i}(h)\)</span> at the <span class="math notranslate nohighlight">\(i\)</span>th step is said
 to be <strong>consistent</strong> with the differential equation it approximates if</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3e76164c-6d36-4b6c-867e-5415807f4799">
-<span class="eqno">(483)<a class="headerlink" href="#equation-3e76164c-6d36-4b6c-867e-5415807f4799" title="Permalink to this equation">¶</a></span>\[\begin{equation}\lim_{h \rightarrow 0} (\max_{1 \leq i \leq N}|\tau_{i}(h)|)=0 \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-594531be-547e-4315-ae08-99221dfda682">
+<span class="eqno">(470)<a class="headerlink" href="#equation-594531be-547e-4315-ae08-99221dfda682" title="Permalink to this equation">¶</a></span>\[\begin{equation}\lim_{h \rightarrow 0} (\max_{1 \leq i \leq N}|\tau_{i}(h)|)=0 \end{equation}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5089c0e5-9e2a-4c93-8156-78fbf7605350">
-<span class="eqno">(484)<a class="headerlink" href="#equation-5089c0e5-9e2a-4c93-8156-78fbf7605350" title="Permalink to this equation">¶</a></span>\[\begin{equation}\tau_{i}(h)=\frac{y_{i+1}-y_{i}}{h}-F(t_i,y_i,h,f) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-b8a8b46e-c487-489c-8050-8641d58ac17b">
+<span class="eqno">(471)<a class="headerlink" href="#equation-b8a8b46e-c487-489c-8050-8641d58ac17b" title="Permalink to this equation">¶</a></span>\[\begin{equation}\tau_{i}(h)=\frac{y_{i+1}-y_{i}}{h}-F(t_i,y_i,h,f) \end{equation}\]</div>
 <p>As <span class="math notranslate nohighlight">\(h \rightarrow 0\)</span> does <span class="math notranslate nohighlight">\(F(t_i,y_i,h,f) \rightarrow f(t,y)\)</span>.</p>
 <p>All the Runge Kutta, and Adams methods are consistent in this course. This notebook will illustrate a non-consistent method which with great hubris I will call the Abysmal-Butler methods.</p>
 </div>
@@ -657,23 +657,23 @@ to be <strong>consistent</strong> with the differential equation it approximates
 <div class="section" id="step-abysmal-butler-method">
 <h2>2-step Abysmal Butler Method<a class="headerlink" href="#step-abysmal-butler-method" title="Permalink to this headline">¶</a></h2>
 <p>The 2-step Abysmal Butler difference equation is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46f0a3a7-215b-4ad5-b98c-2f53f19af4e3">
-<span class="eqno">(485)<a class="headerlink" href="#equation-46f0a3a7-215b-4ad5-b98c-2f53f19af4e3" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{2}(4f(t_i,w_i)-3f(t_{i-1},w_{i-1})), \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-30094093-3771-4f8a-80ad-f87596396dac">
+<span class="eqno">(472)<a class="headerlink" href="#equation-30094093-3771-4f8a-80ad-f87596396dac" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{2}(4f(t_i,w_i)-3f(t_{i-1},w_{i-1})), \end{equation}\]</div>
 <p>which can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e9129480-c6ba-4a47-9b0e-8bacb686294e">
-<span class="eqno">(486)<a class="headerlink" href="#equation-e9129480-c6ba-4a47-9b0e-8bacb686294e" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{w_{i+1} -w_{i}}{h} = \frac{1}{2}(4f(t_i,w_i)-3f(t_{i-1},w_{i-1})). \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-1c49bf5a-8d17-4a22-a9cc-22ccfe0bf9a1">
+<span class="eqno">(473)<a class="headerlink" href="#equation-1c49bf5a-8d17-4a22-a9cc-22ccfe0bf9a1" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{w_{i+1} -w_{i}}{h} = \frac{1}{2}(4f(t_i,w_i)-3f(t_{i-1},w_{i-1})). \end{equation}\]</div>
 </div>
 <div class="section" id="intial-value-problem">
 <h2>Intial Value Problem<a class="headerlink" href="#intial-value-problem" title="Permalink to this headline">¶</a></h2>
 <p>To illustrate consistency we will apply the method to a linear intial value problem given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ccb3737-b5bc-41ff-9d31-d8b40f52e9e3">
-<span class="eqno">(487)<a class="headerlink" href="#equation-1ccb3737-b5bc-41ff-9d31-d8b40f52e9e3" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=t-y, \ \ (0 \leq t \leq 2),\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6934c9c2-aa68-4ca2-ade8-b2944267988d">
+<span class="eqno">(474)<a class="headerlink" href="#equation-6934c9c2-aa68-4ca2-ade8-b2944267988d" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=t-y, \ \ (0 \leq t \leq 2),\end{equation}\]</div>
 <p>with the initial condition</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1f1b9ee1-05d7-43fa-9117-648d2213d362">
-<span class="eqno">(488)<a class="headerlink" href="#equation-1f1b9ee1-05d7-43fa-9117-648d2213d362" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(0)=1,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-2bd2f001-330b-4a1d-b175-7fb506b04cb2">
+<span class="eqno">(475)<a class="headerlink" href="#equation-2bd2f001-330b-4a1d-b175-7fb506b04cb2" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(0)=1,\end{equation}\]</div>
 <p>with the exact solution</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a3dd53ca-4878-482a-b66f-153d39bd1f58">
-<span class="eqno">(489)<a class="headerlink" href="#equation-a3dd53ca-4878-482a-b66f-153d39bd1f58" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(t)= 2e^{-t}+t-1.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-91c8b8d1-f651-4608-80df-8e17de4e4953">
+<span class="eqno">(476)<a class="headerlink" href="#equation-91c8b8d1-f651-4608-80df-8e17de4e4953" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(t)= 2e^{-t}+t-1.\end{equation}\]</div>
 </div>
 <div class="section" id="python-libraries">
 <h2>Python Libraries<a class="headerlink" href="#python-libraries" title="Permalink to this headline">¶</a></h2>
@@ -708,18 +708,18 @@ to be <strong>consistent</strong> with the differential equation it approximates
 <div class="section" id="discrete-interval">
 <h2>Discrete Interval<a class="headerlink" href="#discrete-interval" title="Permalink to this headline">¶</a></h2>
 <p>Defining the step size  <span class="math notranslate nohighlight">\(h\)</span>  from the interval range  <span class="math notranslate nohighlight">\(a \leq t\leq b\)</span>  and number of steps  <span class="math notranslate nohighlight">\(N\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-fb6e940b-e7d3-4c49-8cf9-379086e411a6">
-<span class="eqno">(490)<a class="headerlink" href="#equation-fb6e940b-e7d3-4c49-8cf9-379086e411a6" title="Permalink to this equation">¶</a></span>\[\begin{equation}h=\frac{b - a}{N}.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-595b52f9-f226-4358-8956-6b2e2f10b9d2">
+<span class="eqno">(477)<a class="headerlink" href="#equation-595b52f9-f226-4358-8956-6b2e2f10b9d2" title="Permalink to this equation">¶</a></span>\[\begin{equation}h=\frac{b - a}{N}.\end{equation}\]</div>
 <p>This gives the discrete time steps,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-75935bae-352d-4dca-a88f-4cdc90d9ddd2">
-<span class="eqno">(491)<a class="headerlink" href="#equation-75935bae-352d-4dca-a88f-4cdc90d9ddd2" title="Permalink to this equation">¶</a></span>\[\begin{equation}t_i=t_0+ih,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-659e88bb-894d-46b3-a82d-ff509408780b">
+<span class="eqno">(478)<a class="headerlink" href="#equation-659e88bb-894d-46b3-a82d-ff509408780b" title="Permalink to this equation">¶</a></span>\[\begin{equation}t_i=t_0+ih,\end{equation}\]</div>
 <p>where  <span class="math notranslate nohighlight">\(t_0=a.\)</span></p>
 <p>Here the interval is  <span class="math notranslate nohighlight">\(0\leq t \leq 2\)</span>  and number of step  40</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e2b75dc-1bb2-4f06-aab2-1b10a817c457">
-<span class="eqno">(492)<a class="headerlink" href="#equation-1e2b75dc-1bb2-4f06-aab2-1b10a817c457" title="Permalink to this equation">¶</a></span>\[\begin{equation}h=\frac{2−0}{40}=0.05.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-418971d2-4e01-4ba9-a34a-21c81b1e989d">
+<span class="eqno">(479)<a class="headerlink" href="#equation-418971d2-4e01-4ba9-a34a-21c81b1e989d" title="Permalink to this equation">¶</a></span>\[\begin{equation}h=\frac{2−0}{40}=0.05.\end{equation}\]</div>
 <p>This gives the discrete time steps,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9346f10-0cd0-4994-9dfd-5d2888f90576">
-<span class="eqno">(493)<a class="headerlink" href="#equation-d9346f10-0cd0-4994-9dfd-5d2888f90576" title="Permalink to this equation">¶</a></span>\[\begin{equation}t_i=0+i0.5,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-1c5e04b2-cdbe-4161-8814-7bd17f8d893d">
+<span class="eqno">(480)<a class="headerlink" href="#equation-1c5e04b2-cdbe-4161-8814-7bd17f8d893d" title="Permalink to this equation">¶</a></span>\[\begin{equation}t_i=0+i0.5,\end{equation}\]</div>
 <p>for  <span class="math notranslate nohighlight">\(i=0,1,⋯,40.\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -778,18 +778,18 @@ The figure below plots the exact solution.</p>
 <div class="section" id="id1">
 <h2>2-step Abysmal Butler Method<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>The 2-step Abysmal Butler difference equation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-776fa163-e2d9-4728-96e3-9b43e0fb4b9b">
-<span class="eqno">(494)<a class="headerlink" href="#equation-776fa163-e2d9-4728-96e3-9b43e0fb4b9b" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{2}(4f(t_i,w_i)-3f(t_{i-1},w_{i-1})).\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-9252f86a-6ba7-4111-a4de-09977f20f08f">
+<span class="eqno">(481)<a class="headerlink" href="#equation-9252f86a-6ba7-4111-a4de-09977f20f08f" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{2}(4f(t_i,w_i)-3f(t_{i-1},w_{i-1})).\end{equation}\]</div>
 <p>For <span class="math notranslate nohighlight">\(i=0\)</span> the system of difference equation is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bbf1e762-2af5-48cc-94a0-214354b7a663">
-<span class="eqno">(495)<a class="headerlink" href="#equation-bbf1e762-2af5-48cc-94a0-214354b7a663" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{1} = w_{0} + \frac{h}{2}(4(t_0-w_0)-3(t_{-1}-w_{-1})) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-380da3c3-0d36-4e8d-b15e-bbe45af6787d">
+<span class="eqno">(482)<a class="headerlink" href="#equation-380da3c3-0d36-4e8d-b15e-bbe45af6787d" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{1} = w_{0} + \frac{h}{2}(4(t_0-w_0)-3(t_{-1}-w_{-1})) \end{equation}\]</div>
 <p>this is not solvable as <font color='red'> <span class="math notranslate nohighlight">\(w_{-1}\)</span> </font> is unknown.</p>
 <p>For <span class="math notranslate nohighlight">\(i=1\)</span> the difference equation is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-191f5179-189c-46ab-8e87-33bb0c4dad21">
-<span class="eqno">(496)<a class="headerlink" href="#equation-191f5179-189c-46ab-8e87-33bb0c4dad21" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{2} = w_{1} + \frac{h}{2}(4(t_1-w_1)-3(t_{0}-w_{0})),\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-76107b2a-6345-4843-a6ed-911c98530a6c">
+<span class="eqno">(483)<a class="headerlink" href="#equation-76107b2a-6345-4843-a6ed-911c98530a6c" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{2} = w_{1} + \frac{h}{2}(4(t_1-w_1)-3(t_{0}-w_{0})),\end{equation}\]</div>
 <p>this is not solvable as <font color='red'> <span class="math notranslate nohighlight">\(w_{1}\)</span>  </font> is unknown. <span class="math notranslate nohighlight">\(w_1\)</span> can be  approximated using a one step method. Here, as the exact solution is known,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bbc57fcd-a0b4-49d3-87f6-172fb0ae856a">
-<span class="eqno">(497)<a class="headerlink" href="#equation-bbc57fcd-a0b4-49d3-87f6-172fb0ae856a" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_1=2e^{-t_1}+t_1-1.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-ebfed557-c9cb-476f-871c-7cc8b1f8cbaa">
+<span class="eqno">(484)<a class="headerlink" href="#equation-ebfed557-c9cb-476f-871c-7cc8b1f8cbaa" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_1=2e^{-t_1}+t_1-1.\end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Initial conditions</span>
@@ -844,14 +844,14 @@ The figure below plots the exact solution.</p>
 <div class="section" id="consistency">
 <h2>Consistency<a class="headerlink" href="#consistency" title="Permalink to this headline">¶</a></h2>
 <p>To prove that the Abysmal-Butler method does not satisfy the consistency condition,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5f8fe24-67b7-44ef-b476-0c5ef68bb779">
-<span class="eqno">(498)<a class="headerlink" href="#equation-b5f8fe24-67b7-44ef-b476-0c5ef68bb779" title="Permalink to this equation">¶</a></span>\[\begin{equation} \tau_{i}(h)=\frac{y_{i+1}-y_{i}}{h}-\frac{1}{2}[4(f(t_i,y_i)-3f(t_{i-1},y_{i-1})]. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3b97eb89-b1fd-4edf-8218-1fc8c0ae1363">
+<span class="eqno">(485)<a class="headerlink" href="#equation-3b97eb89-b1fd-4edf-8218-1fc8c0ae1363" title="Permalink to this equation">¶</a></span>\[\begin{equation} \tau_{i}(h)=\frac{y_{i+1}-y_{i}}{h}-\frac{1}{2}[4(f(t_i,y_i)-3f(t_{i-1},y_{i-1})]. \end{equation}\]</div>
 <p>As <span class="math notranslate nohighlight">\(h \rightarrow 0\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-e91ad315-37e5-417e-bff0-a46a842b8852">
-<span class="eqno">(499)<a class="headerlink" href="#equation-e91ad315-37e5-417e-bff0-a46a842b8852" title="Permalink to this equation">¶</a></span>\[\begin{equation} \frac{1}{2}[4f(t_i,y_i)-3f(t_{i-1},y_{i-1})] \rightarrow \frac{f(t_i,y_i)}{2}.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-c8df0550-b62a-4a3e-9fe9-d8b21ad579e7">
+<span class="eqno">(486)<a class="headerlink" href="#equation-c8df0550-b62a-4a3e-9fe9-d8b21ad579e7" title="Permalink to this equation">¶</a></span>\[\begin{equation} \frac{1}{2}[4f(t_i,y_i)-3f(t_{i-1},y_{i-1})] \rightarrow \frac{f(t_i,y_i)}{2}.\end{equation}\]</div>
 <p>While as <span class="math notranslate nohighlight">\(h \rightarrow 0\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-d4ea505d-54d4-4758-be79-354435e83031">
-<span class="eqno">(500)<a class="headerlink" href="#equation-d4ea505d-54d4-4758-be79-354435e83031" title="Permalink to this equation">¶</a></span>\[\begin{equation} \frac{y_{i+1}-y_{i}}{h} \rightarrow y^{'}=f(t_i,y_i).\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-b54b2916-e50a-48b4-bb0d-60822b1234aa">
+<span class="eqno">(487)<a class="headerlink" href="#equation-b54b2916-e50a-48b4-bb0d-60822b1234aa" title="Permalink to this equation">¶</a></span>\[\begin{equation} \frac{y_{i+1}-y_{i}}{h} \rightarrow y^{'}=f(t_i,y_i).\end{equation}\]</div>
 <p>Hence as <span class="math notranslate nohighlight">\(h \rightarrow 0\)</span> \begin{equation} \frac{y_{i+1}-y_{i}}{h}-\frac{1}{2}[4(f(t_i,y_i)-3f(t_{i-1},y_{i-1})]\rightarrow f(t_i,y_i)-\frac{f(t_i,y_i)}{2}=\frac{f(t_i,y_i)}{2},\end{equation}
 which violates the consistency condition (inconsistent).</p>
 <div class="cell docutils container">

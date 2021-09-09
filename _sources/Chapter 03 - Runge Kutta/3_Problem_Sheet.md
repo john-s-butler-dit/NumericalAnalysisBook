@@ -1,4 +1,4 @@
-# Problem Sheet 1
+# Problem Sheet 3
 
 1.  Show that the following functions satisfy the Lipschitz condition on $y$ on the indicated set $D$:
 

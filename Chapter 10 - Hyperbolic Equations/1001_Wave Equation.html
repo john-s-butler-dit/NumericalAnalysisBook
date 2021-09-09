@@ -392,7 +392,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Chapter%2009%20-%20Elliptic%20Equations/901_Poisson%20Equation-Laplacian.html">
-   Finite Difference Methods for the Poisson Equation
+   Finite Difference Methods for the Laplacian Equation
   </a>
  </li>
 </ul>
@@ -577,11 +577,11 @@
 <div class="section" id="the-differential-equation">
 <h2>The Differential Equation<a class="headerlink" href="#the-differential-equation" title="Permalink to this headline">¶</a></h2>
 <p>Condsider the one-dimensional hyperbolic Wave Equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8dafb33f-7c5d-44a2-b30f-aa5013979308">
-<span class="eqno">(956)<a class="headerlink" href="#equation-8dafb33f-7c5d-44a2-b30f-aa5013979308" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u}{\partial t} +a\frac{\partial u}{\partial x}=0,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-ded982fb-edc6-4ca2-91a9-b86db2c7096b">
+<span class="eqno">(944)<a class="headerlink" href="#equation-ded982fb-edc6-4ca2-91a9-b86db2c7096b" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u}{\partial t} +a\frac{\partial u}{\partial x}=0,\end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a=1\)</span>, with the initial conditions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-25d5082c-2ca7-4be2-a306-6a0c69846322">
-<span class="eqno">(957)<a class="headerlink" href="#equation-25d5082c-2ca7-4be2-a306-6a0c69846322" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=1-\cos(x), \ \ 0 \leq x \leq 2\pi. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-eef51db3-70f6-475d-b3e4-55b5f98641db">
+<span class="eqno">(945)<a class="headerlink" href="#equation-eef51db3-70f6-475d-b3e4-55b5f98641db" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=1-\cos(x), \ \ 0 \leq x \leq 2\pi. \end{equation}\]</div>
 <p>with wrap around boundary conditions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -604,17 +604,17 @@
 <div class="section" id="discete-grid">
 <h2>Discete Grid<a class="headerlink" href="#discete-grid" title="Permalink to this headline">¶</a></h2>
 <p>The region <span class="math notranslate nohighlight">\(\Omega\)</span> is discretised into a uniform mesh <span class="math notranslate nohighlight">\(\Omega_h\)</span>. In the space <span class="math notranslate nohighlight">\(x\)</span> direction into <span class="math notranslate nohighlight">\(N\)</span> steps giving a stepsize of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9690158-d20f-4e7c-95a2-c2c9e674fda8">
-<span class="eqno">(958)<a class="headerlink" href="#equation-c9690158-d20f-4e7c-95a2-c2c9e674fda8" title="Permalink to this equation">¶</a></span>\[\begin{equation} \Delta_x=\frac{2\pi-0}{N},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-a812caa4-8b41-429c-8b12-f2468cfbbd11">
+<span class="eqno">(946)<a class="headerlink" href="#equation-a812caa4-8b41-429c-8b12-f2468cfbbd11" title="Permalink to this equation">¶</a></span>\[\begin{equation} \Delta_x=\frac{2\pi-0}{N},\end{equation}\]</div>
 <p>resulting in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-98851730-95b6-44dd-9c23-69d542952216">
-<span class="eqno">(959)<a class="headerlink" href="#equation-98851730-95b6-44dd-9c23-69d542952216" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[j]=0+j\Delta_x, \ \ \  j=0,1,...,N,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-a7ce26ee-74e1-4d07-90e3-34c89d206c49">
+<span class="eqno">(947)<a class="headerlink" href="#equation-a7ce26ee-74e1-4d07-90e3-34c89d206c49" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[j]=0+j\Delta_x, \ \ \  j=0,1,...,N,\end{equation}\]</div>
 <p>and into <span class="math notranslate nohighlight">\(N_t\)</span> steps in the time <span class="math notranslate nohighlight">\(t\)</span> direction giving a stepsize of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29fbf110-1d74-42ec-8dc3-08b2a1b789f2">
-<span class="eqno">(960)<a class="headerlink" href="#equation-29fbf110-1d74-42ec-8dc3-08b2a1b789f2" title="Permalink to this equation">¶</a></span>\[\begin{equation} \Delta_t=\frac{1-0}{N_t}\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-5b2886da-257f-42a8-867b-f3b65f2eeb0b">
+<span class="eqno">(948)<a class="headerlink" href="#equation-5b2886da-257f-42a8-867b-f3b65f2eeb0b" title="Permalink to this equation">¶</a></span>\[\begin{equation} \Delta_t=\frac{1-0}{N_t}\end{equation}\]</div>
 <p>resulting in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-150d3449-458f-4c2e-91cd-c53813e1bace">
-<span class="eqno">(961)<a class="headerlink" href="#equation-150d3449-458f-4c2e-91cd-c53813e1bace" title="Permalink to this equation">¶</a></span>\[\begin{equation}t[n]=0+n\Delta_t, \ \ \ n=0,...,K.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-fb4971a3-93ef-4375-a5bb-98f72c129145">
+<span class="eqno">(949)<a class="headerlink" href="#equation-fb4971a3-93ef-4375-a5bb-98f72c129145" title="Permalink to this equation">¶</a></span>\[\begin{equation}t[n]=0+n\Delta_t, \ \ \ n=0,...,K.\end{equation}\]</div>
 <p>The Figure below shows the discrete grid points for <span class="math notranslate nohighlight">\(N=10\)</span> and <span class="math notranslate nohighlight">\(Nt=100\)</span>,  the known boundary conditions (green), initial conditions (blue) and the unknown values (red) of the Heat Equation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -649,8 +649,8 @@
 <div class="section" id="initial-conditions">
 <h2>Initial Conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h2>
 <p>The discrete initial conditions is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e265131-7b0f-492d-8468-02fb17922807">
-<span class="eqno">(962)<a class="headerlink" href="#equation-7e265131-7b0f-492d-8468-02fb17922807" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[0,j]=1-\cos(x[j]), \ \ 0 \leq x[j] \leq \pi, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-77ffab90-c008-40aa-bc28-145aa8bc10fd">
+<span class="eqno">(950)<a class="headerlink" href="#equation-77ffab90-c008-40aa-bc28-145aa8bc10fd" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[0,j]=1-\cos(x[j]), \ \ 0 \leq x[j] \leq \pi, \end{equation}\]</div>
 <p>The figure below plots values of <span class="math notranslate nohighlight">\(w[j,0]\)</span> for the inital (blue) conditions for <span class="math notranslate nohighlight">\(t[0]=0.\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -680,11 +680,11 @@
 <div class="section" id="boundary-conditions">
 <h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
 <p>To account for the wrap-around boundary conditions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eac02245-5488-4a06-916d-bf831f0d50c7">
-<span class="eqno">(963)<a class="headerlink" href="#equation-eac02245-5488-4a06-916d-bf831f0d50c7" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{-1,n}=w_{N,n},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-9e7a6348-5277-4cb0-8c56-571b0587264e">
+<span class="eqno">(951)<a class="headerlink" href="#equation-9e7a6348-5277-4cb0-8c56-571b0587264e" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{-1,n}=w_{N,n},\end{equation}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-14e5c98a-ed55-4b89-9cb7-e53976e3cfaa">
-<span class="eqno">(964)<a class="headerlink" href="#equation-14e5c98a-ed55-4b89-9cb7-e53976e3cfaa" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{N+1,n}=w_{0,n}.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6d89bb24-baa4-44d3-8798-a1d7983277a1">
+<span class="eqno">(952)<a class="headerlink" href="#equation-6d89bb24-baa4-44d3-8798-a1d7983277a1" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{N+1,n}=w_{0,n}.\end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xpos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -704,13 +704,13 @@
 <div class="section" id="the-explicit-forward-time-centered-space-difference-equation">
 <h2>The Explicit Forward Time Centered Space  Difference Equation<a class="headerlink" href="#the-explicit-forward-time-centered-space-difference-equation" title="Permalink to this headline">¶</a></h2>
 <p>The explicit Forward Time Centered Space difference equation of the Wave Equation is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a97f979e-553f-481b-9bb0-c862d416c8b6">
-<span class="eqno">(965)<a class="headerlink" href="#equation-a97f979e-553f-481b-9bb0-c862d416c8b6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b6edb02d-abf7-4feb-b7e2-2dd86688667f">
+<span class="eqno">(953)<a class="headerlink" href="#equation-b6edb02d-abf7-4feb-b7e2-2dd86688667f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{w^{n+1}_{j}-w^{n}_{j}}{\Delta_t}+\big(\frac{w^n_{j+1}-w^n_{j-1}}{2\Delta_x}\big)=0.
 \end{equation}\]</div>
 <p>Rearranging the equation we get,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-607df9a2-39fe-4d4f-9c5d-ef037fc8c446">
-<span class="eqno">(966)<a class="headerlink" href="#equation-607df9a2-39fe-4d4f-9c5d-ef037fc8c446" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9726b4b3-6c13-4e3c-9091-931c447f9a99">
+<span class="eqno">(954)<a class="headerlink" href="#equation-9726b4b3-6c13-4e3c-9091-931c447f9a99" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{j}^{n+1}=w^{n}_{j}-\lambda a(w_{j+1}^{n}-w_{j-1}^{n}),
 \end{equation}\]</div>
 <p>for <span class="math notranslate nohighlight">\(j=0,...10\)</span> where <span class="math notranslate nohighlight">\(\lambda=\frac{\Delta_t}{\Delta_x}\)</span>.</p>
