@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Problem Sheet 3 &#8212; Numerical Analysis</title>
+    <title>Problem Sheet 3 - Runge Kutta &#8212; Numerical Analysis</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -145,7 +145,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/201_3rd_Order_Taylor_Population_growth.html">
+  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/201_3rd%20Order%20Taylor_Population_growth.html">
    Taylor Method
   </a>
  </li>
@@ -160,7 +160,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/202_Taylor_Method_Error_Example.html">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/202_Taylor%20Method%20Error%20Example.html">
      1st vs 2nd order Taylor methods
     </a>
    </li>
@@ -215,7 +215,7 @@
    </li>
    <li class="toctree-l2 current active has-children">
     <a class="current reference internal" href="#">
-     Problem Sheet 3
+     Problem Sheet 3 - Runge Kutta
     </a>
     <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
@@ -430,8 +430,18 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter%2009%20-%20Elliptic%20Equations/901_Poisson%20Equation-Laplacian.html">
+   Finite Difference Methods for the Laplacian Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../Chapter%2009%20-%20Elliptic%20Equations/902_Poisson%20Equation-Zero%20Boundary%20Conditions.html">
    Finite Difference Methods for the Poisson Equation with Zero Boundary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter%2009%20-%20Elliptic%20Equations/903_Poisson%20Equation-Boundary.html">
+   Finite Difference Methods for the Poisson Equation
   </a>
  </li>
 </ul>
@@ -555,18 +565,44 @@
         
               <div>
                 
-  <div class="section" id="problem-sheet-3">
-<h1>Problem Sheet 3<a class="headerlink" href="#problem-sheet-3" title="Permalink to this headline">¶</a></h1>
-<ol>
-<li><p>Show that the following functions satisfy the Lipschitz condition on <span class="math notranslate nohighlight">\(y\)</span> on the indicated set <span class="math notranslate nohighlight">\(D\)</span>:</p>
-<p>a. <span class="math notranslate nohighlight">\(f(t,y)=ty^3,\)</span>  <span class="math notranslate nohighlight">\(D=\{(t,y);-1\leq t \leq 1, 0\leq y \leq 10\};\)</span></p>
-<p>b. <span class="math notranslate nohighlight">\(f(t,y)=\frac{t^2y^2}{1+t^2},\)</span>  <span class="math notranslate nohighlight">\(D=\{(t,y);0\leq t, -10\leq y \leq 10 \}.\)</span></p>
-</li>
-<li><p>Apply Euler’s Method to approximate the solution of the given initial value problems using the indicated number of time steps. Compare the approximate solution with the given exact solution, and compare the actual error with the theoretical error</p>
-<p>a.  <span class="math notranslate nohighlight">\(y'=t-y, \ \ (0\leq t \leq 4)\)</span> with the initial condition <span class="math notranslate nohighlight">\(y(0)=1\)</span>, <span class="math notranslate nohighlight">\(N=4\)</span>, with the exact solution <span class="math notranslate nohighlight">\(y(t)=2e^{-t}+t-1.\)</span> The Lipschitz constant is determined on  <span class="math notranslate nohighlight">\(D=\{(t,y);0\leq t \leq 4, y\in \rm I\!R \}.\)</span></p>
-<p>b.   <span class="math notranslate nohighlight">\(y'=y-t, \ \ (0\leq t \leq 2) \)</span> with the initial condition <span class="math notranslate nohighlight">\(y(0)=2,\)</span> <span class="math notranslate nohighlight">\(N=4\)</span>, with the exact solution   <span class="math notranslate nohighlight">\(y(t)=e^{t}+t+1\)</span>. The Lipschitz constant is determined on  <span class="math notranslate nohighlight">\( D=\{(t,y);0\leq t \leq 2, y\in \rm I\!R \}. \)</span></p>
-</li>
+  <!-- #region -->
+<div class="section" id="problem-sheet-3-runge-kutta">
+<h1>Problem Sheet 3 - Runge Kutta<a class="headerlink" href="#problem-sheet-3-runge-kutta" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>a) Apply the Midpoint Method to approximate the solution of the given initial value problems using the indicated number of time steps. Compare the approximate solution with the given exact solution:
+$<span class="math notranslate nohighlight">\( y'=t-y, \ \ (0\leq t \leq 4),\)</span><span class="math notranslate nohighlight">\(
+with the initial condition \)</span>y(0)=1,<span class="math notranslate nohighlight">\(
+Let \)</span>N=4<span class="math notranslate nohighlight">\(,  with the exact solution
+\)</span><span class="math notranslate nohighlight">\(y(t)=2e^{-t}+t-1.\)</span>$</p></li>
+<li><p>b) Apply the Midpoint Method to approximate the solution of the given initial value problems using the indicated number of time steps. Compare the approximate solution with the given exact solution:
+$<span class="math notranslate nohighlight">\(y'=y-t, \ \ (0\leq t \leq 2),\)</span><span class="math notranslate nohighlight">\(
+with the initial condition \)</span>y(0)=2,<span class="math notranslate nohighlight">\(
+Let \)</span>N=4<span class="math notranslate nohighlight">\(, with the exact solution
+\)</span><span class="math notranslate nohighlight">\(y(t)=e^{t}+t+1.\)</span>$</p></li>
+<li><p>a) Apply the 4th Order Runge Kutta Method to approximate the solution of the given initial value problems using the indicated number of time steps. Compare the approximate solution with the given exact solution
+$<span class="math notranslate nohighlight">\(y'=t-y, \ \ (0\leq t \leq 4),\)</span><span class="math notranslate nohighlight">\(
+with the initial condition \)</span>y(0)=1,<span class="math notranslate nohighlight">\(
+Let \)</span>N=4<span class="math notranslate nohighlight">\(, with the exact solution
+\)</span><span class="math notranslate nohighlight">\(y(t)=2e^{-t}+t-1.\)</span>$</p></li>
+<li><p>b) Apply the 4th Order Runge Kutta Method to approximate the solution of the given initial value problems using the indicated number of time steps. Compare the approximate solution with the given exact solution
+$<span class="math notranslate nohighlight">\(y'=y-t, \ \ (0\leq t \leq 2)\)</span><span class="math notranslate nohighlight">\(
+with the initial condition \)</span>y(0)=2,<span class="math notranslate nohighlight">\(
+\)</span>N=4<span class="math notranslate nohighlight">\(, with the exact solution
+\)</span><span class="math notranslate nohighlight">\(y(t)=e^{t}+t+1.\)</span>$</p></li>
+<li><p>Derive the difference equation for the Midpoint Runge Kutta method
+$<span class="math notranslate nohighlight">\( w_{n+1}=w_n+k_2,\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(k_1=hf(t_n,w_n),\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(k_2=hf(t_n+\frac{1}{2}h,w_n+\frac{1}{2}k_1),\)</span><span class="math notranslate nohighlight">\(
+for solving the ordinary differential equation
+\)</span><span class="math notranslate nohighlight">\( \frac{dy}{dt}=f(t,y), \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( y(t_0)=y_0, \)</span><span class="math notranslate nohighlight">\(
+by using a formula of the form
+\)</span><span class="math notranslate nohighlight">\( w_{n+1}=w_n+ak_1+bk_2, \)</span><span class="math notranslate nohighlight">\(
+where \)</span>k_1<span class="math notranslate nohighlight">\( is defined as above,
+\)</span><span class="math notranslate nohighlight">\(k_2=hf(t_n+\alpha h,w_n+\beta k_1),\)</span><span class="math notranslate nohighlight">\(
+and \)</span>a<span class="math notranslate nohighlight">\(, \)</span>b<span class="math notranslate nohighlight">\(, \)</span>\alpha<span class="math notranslate nohighlight">\( and \)</span>\beta<span class="math notranslate nohighlight">\( are constants are determined. Prove that \)</span>a+b=1<span class="math notranslate nohighlight">\( and \)</span>b\alpha=b\beta=\frac{1}{2}$ and choose appropriate values to give the Midpoint Runge Kutta method.</p></li>
 </ol>
+<!-- #endregion -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>

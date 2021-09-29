@@ -145,7 +145,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/201_3rd_Order_Taylor_Population_growth.html">
+  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/201_3rd%20Order%20Taylor_Population_growth.html">
    Taylor Method
   </a>
  </li>
@@ -160,7 +160,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/202_Taylor_Method_Error_Example.html">
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/202_Taylor%20Method%20Error%20Example.html">
      1st vs 2nd order Taylor methods
     </a>
    </li>
@@ -215,7 +215,7 @@
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../Chapter%2003%20-%20Runge%20Kutta/3_Problem_Sheet.html">
-     Problem Sheet 3
+     Problem Sheet 3 - Runge Kutta
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
@@ -701,26 +701,26 @@
 <div class="section" id="the-differential-equation">
 <h2>The Differential Equation<a class="headerlink" href="#the-differential-equation" title="Permalink to this headline">¶</a></h2>
 <p>The general two dimensional Poisson Equation is of the form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ef9b8c2a-db5d-4065-9014-8eaf99ed7f7d">
-<span class="eqno">(780)<a class="headerlink" href="#equation-ef9b8c2a-db5d-4065-9014-8eaf99ed7f7d" title="Permalink to this equation">¶</a></span>\[\begin{equation} \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial x^2}=f(x,y), \ \ \ (x,y) \in \Omega=(0,1)\times (0,1),\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-01f190fa-5f8b-4048-bcb5-990eae225f9b">
+<span class="eqno">(780)<a class="headerlink" href="#equation-01f190fa-5f8b-4048-bcb5-990eae225f9b" title="Permalink to this equation">¶</a></span>\[\begin{equation} \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial x^2}=f(x,y), \ \ \ (x,y) \in \Omega=(0,1)\times (0,1),\end{equation}\]</div>
 <p>with boundary conditions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-256295a3-4dca-43eb-9699-e565e3408f18">
-<span class="eqno">(781)<a class="headerlink" href="#equation-256295a3-4dca-43eb-9699-e565e3408f18" title="Permalink to this equation">¶</a></span>\[\begin{equation}U(x,y) = g(x,y), \ \ \  (x,y)\in\delta\Omega\text{ - boundary}. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-8819981a-067c-40af-bdfc-26d2a267ec31">
+<span class="eqno">(781)<a class="headerlink" href="#equation-8819981a-067c-40af-bdfc-26d2a267ec31" title="Permalink to this equation">¶</a></span>\[\begin{equation}U(x,y) = g(x,y), \ \ \  (x,y)\in\delta\Omega\text{ - boundary}. \end{equation}\]</div>
 </div>
 <div class="section" id="homogenous-poisson-equation">
 <h2>Homogenous Poisson Equation<a class="headerlink" href="#homogenous-poisson-equation" title="Permalink to this headline">¶</a></h2>
 <p>This notebook will implement a finite difference scheme to approximate the homogenous form of the Poisson Equation <span class="math notranslate nohighlight">\(f(x,y)=0\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e57473cd-5b2f-4778-8930-25fe752b8600">
-<span class="eqno">(782)<a class="headerlink" href="#equation-e57473cd-5b2f-4778-8930-25fe752b8600" title="Permalink to this equation">¶</a></span>\[\begin{equation} \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial x^2}=0.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-aa2e1fab-1f26-4f74-820f-5fbd86cc836d">
+<span class="eqno">(782)<a class="headerlink" href="#equation-aa2e1fab-1f26-4f74-820f-5fbd86cc836d" title="Permalink to this equation">¶</a></span>\[\begin{equation} \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial x^2}=0.\end{equation}\]</div>
 <p>with the Boundary Conditions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be85822a-b73d-48ff-bcf2-9d4938e28593">
-<span class="eqno">(783)<a class="headerlink" href="#equation-be85822a-b73d-48ff-bcf2-9d4938e28593" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=\sin(2\pi x), \ \ \ \ \ 0 \leq x \leq 1, \text{ lower},\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-a7654728-53b1-4d64-9480-c33334c13b6e">
-<span class="eqno">(784)<a class="headerlink" href="#equation-a7654728-53b1-4d64-9480-c33334c13b6e" title="Permalink to this equation">¶</a></span>\[\begin{equation}u(x,1)=\sin(2\pi x), \ \ \ \ \ 0 \leq x \leq 1, \text{ upper},\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-53978890-e309-4961-8710-e225cda9055d">
-<span class="eqno">(785)<a class="headerlink" href="#equation-53978890-e309-4961-8710-e225cda9055d" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(0,y)=2\sin(2\pi y), \ \ \ \ \ 0 \leq y \leq 1, \text{ left},\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-c81c374d-89de-47e5-8461-d7c52d97e243">
-<span class="eqno">(786)<a class="headerlink" href="#equation-c81c374d-89de-47e5-8461-d7c52d97e243" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(1,y)=2\sin(2\pi y), \ \ \ \ \ 0 \leq y \leq 1, \text{ right}.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-b9dcf89b-229e-45ff-a869-3e6ba1615f65">
+<span class="eqno">(783)<a class="headerlink" href="#equation-b9dcf89b-229e-45ff-a869-3e6ba1615f65" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=\sin(2\pi x), \ \ \ \ \ 0 \leq x \leq 1, \text{ lower},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-9bbfb2be-2e9b-4989-957b-f9b53d5b4733">
+<span class="eqno">(784)<a class="headerlink" href="#equation-9bbfb2be-2e9b-4989-957b-f9b53d5b4733" title="Permalink to this equation">¶</a></span>\[\begin{equation}u(x,1)=\sin(2\pi x), \ \ \ \ \ 0 \leq x \leq 1, \text{ upper},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3bf83763-dc94-4f6e-bf45-289316238b36">
+<span class="eqno">(785)<a class="headerlink" href="#equation-3bf83763-dc94-4f6e-bf45-289316238b36" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(0,y)=2\sin(2\pi y), \ \ \ \ \ 0 \leq y \leq 1, \text{ left},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e2016786-28c4-42fa-8dbc-b13ac4318bfe">
+<span class="eqno">(786)<a class="headerlink" href="#equation-e2016786-28c4-42fa-8dbc-b13ac4318bfe" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(1,y)=2\sin(2\pi y), \ \ \ \ \ 0 \leq y \leq 1, \text{ right}.\end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LIBRARY</span>
@@ -745,14 +745,14 @@
 <div class="section" id="discete-grid">
 <h2>Discete Grid<a class="headerlink" href="#discete-grid" title="Permalink to this headline">¶</a></h2>
 <p>The region <span class="math notranslate nohighlight">\(\Omega=(0,1)\times(0,1)\)</span> is discretised into a uniform mesh <span class="math notranslate nohighlight">\(\Omega_h\)</span>. In the  <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> directions into <span class="math notranslate nohighlight">\(N\)</span> steps giving a stepsize of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-acca61ee-cdd0-413c-a25e-8d2b2568aa8c">
-<span class="eqno">(787)<a class="headerlink" href="#equation-acca61ee-cdd0-413c-a25e-8d2b2568aa8c" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{1-0}{N},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-bc8ab790-d262-4855-a879-c6fff3851135">
+<span class="eqno">(787)<a class="headerlink" href="#equation-bc8ab790-d262-4855-a879-c6fff3851135" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{1-0}{N},\end{equation}\]</div>
 <p>resulting in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a65cb117-1fcc-4e89-b23f-d8f8cf0e1aff">
-<span class="eqno">(788)<a class="headerlink" href="#equation-a65cb117-1fcc-4e89-b23f-d8f8cf0e1aff" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[i]=0+ih, \ \ \  i=0,1,...,N,$\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-88e7b737-f8ef-4bea-bd32-2354cc669315">
+<span class="eqno">(788)<a class="headerlink" href="#equation-88e7b737-f8ef-4bea-bd32-2354cc669315" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[i]=0+ih, \ \ \  i=0,1,...,N,$\end{equation}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-16d2d771-f03f-42aa-80e2-7c06f32f62be">
-<span class="eqno">(789)<a class="headerlink" href="#equation-16d2d771-f03f-42aa-80e2-7c06f32f62be" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[j]=0+jh, \ \ \  j=0,1,...,N,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6af48187-b58a-4024-93bf-308202d841fa">
+<span class="eqno">(789)<a class="headerlink" href="#equation-6af48187-b58a-4024-93bf-308202d841fa" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[j]=0+jh, \ \ \  j=0,1,...,N,\end{equation}\]</div>
 <p>The Figure below shows the discrete grid points for <span class="math notranslate nohighlight">\(N=10\)</span>,  the known boundary conditions (green),  and the unknown values (red) of the Poisson Equation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -787,14 +787,14 @@
 <div class="section" id="boundary-conditions">
 <h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
 <p>The  discrete boundary conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c76cc78-6694-43a2-94a5-97640d670693">
-<span class="eqno">(790)<a class="headerlink" href="#equation-1c76cc78-6694-43a2-94a5-97640d670693" title="Permalink to this equation">¶</a></span>\[\begin{equation} w_{i0}=w[i,0]=\sin(2\pi x[i]), \text{ for } i=0,...,10, \text{ upper},\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-66317be7-a4c1-4e37-8a7b-6475dd1f4d8b">
-<span class="eqno">(791)<a class="headerlink" href="#equation-66317be7-a4c1-4e37-8a7b-6475dd1f4d8b" title="Permalink to this equation">¶</a></span>\[\begin{equation}  w_{iN}=w[i,N]=\sin(2\pi x[i]), \text{ for } i=0,...,10,  \text{ lower},\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-e67a3048-f67c-48af-8a25-440d4dd88754">
-<span class="eqno">(792)<a class="headerlink" href="#equation-e67a3048-f67c-48af-8a25-440d4dd88754" title="Permalink to this equation">¶</a></span>\[\begin{equation}  w_{0j}=w[0,j]=2\sin(2\pi y[j]), \text{ for } j=0,...,10,   \text{ left},\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-cc393e6d-5a73-40d2-85f2-77fb34c09e83">
-<span class="eqno">(793)<a class="headerlink" href="#equation-cc393e6d-5a73-40d2-85f2-77fb34c09e83" title="Permalink to this equation">¶</a></span>\[\begin{equation}  w_{Nj}=w[N,j]=2\sin(2\pi y[j]), \text{ for } i=0,...,10,\text{ right}. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-1629d8ef-5da4-46ab-b0e1-341f7faad7c3">
+<span class="eqno">(790)<a class="headerlink" href="#equation-1629d8ef-5da4-46ab-b0e1-341f7faad7c3" title="Permalink to this equation">¶</a></span>\[\begin{equation} w_{i0}=w[i,0]=\sin(2\pi x[i]), \text{ for } i=0,...,10, \text{ upper},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-635cb96d-5512-4129-b20e-64a8b20f4f05">
+<span class="eqno">(791)<a class="headerlink" href="#equation-635cb96d-5512-4129-b20e-64a8b20f4f05" title="Permalink to this equation">¶</a></span>\[\begin{equation}  w_{iN}=w[i,N]=\sin(2\pi x[i]), \text{ for } i=0,...,10,  \text{ lower},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-c7e3345f-39b0-4c6c-8806-c5efb5e7b41a">
+<span class="eqno">(792)<a class="headerlink" href="#equation-c7e3345f-39b0-4c6c-8806-c5efb5e7b41a" title="Permalink to this equation">¶</a></span>\[\begin{equation}  w_{0j}=w[0,j]=2\sin(2\pi y[j]), \text{ for } j=0,...,10,   \text{ left},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-bbd8ec81-47e5-4feb-8f4c-e11d029c5caf">
+<span class="eqno">(793)<a class="headerlink" href="#equation-bbd8ec81-47e5-4feb-8f4c-e11d029c5caf" title="Permalink to this equation">¶</a></span>\[\begin{equation}  w_{Nj}=w[N,j]=2\sin(2\pi y[j]), \text{ for } i=0,...,10,\text{ right}. \end{equation}\]</div>
 <p>The Figure below plots the boundary values of <span class="math notranslate nohighlight">\(w[i,j]\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -830,31 +830,31 @@
 <h2>Numerical Method<a class="headerlink" href="#numerical-method" title="Permalink to this headline">¶</a></h2>
 <p>The Poisson Equation  is discretised using
 <span class="math notranslate nohighlight">\(\delta_x^2\)</span> is the central difference approximation of the second derivative in the <span class="math notranslate nohighlight">\(x\)</span> direction</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9a058bf-2631-4061-98d6-32e8272b4091">
-<span class="eqno">(794)<a class="headerlink" href="#equation-d9a058bf-2631-4061-98d6-32e8272b4091" title="Permalink to this equation">¶</a></span>\[\begin{equation}\delta_x^2=\frac{1}{h^2}(w_{i+1j}-2w_{ij}+w_{i-1j}), \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-fb323627-3a79-420f-b2b6-d7949b82958b">
+<span class="eqno">(794)<a class="headerlink" href="#equation-fb323627-3a79-420f-b2b6-d7949b82958b" title="Permalink to this equation">¶</a></span>\[\begin{equation}\delta_x^2=\frac{1}{h^2}(w_{i+1j}-2w_{ij}+w_{i-1j}), \end{equation}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\delta_y^2\)</span> is the central difference approximation of the second derivative in the <span class="math notranslate nohighlight">\(y\)</span> direction</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d1b1dee0-0120-44cf-9cec-4cae98223f23">
-<span class="eqno">(795)<a class="headerlink" href="#equation-d1b1dee0-0120-44cf-9cec-4cae98223f23" title="Permalink to this equation">¶</a></span>\[\begin{equation}\delta_y^2=\frac{1}{h^2}(w_{ij+1}-2w_{ij}+w_{ij-1}). \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-fab74e8a-3158-428f-92a8-fc303c1e11b2">
+<span class="eqno">(795)<a class="headerlink" href="#equation-fab74e8a-3158-428f-92a8-fc303c1e11b2" title="Permalink to this equation">¶</a></span>\[\begin{equation}\delta_y^2=\frac{1}{h^2}(w_{ij+1}-2w_{ij}+w_{ij-1}). \end{equation}\]</div>
 <p>The gives the Poisson Difference Equation,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a72aed3-0c53-4984-8675-4ba87226c3f2">
-<span class="eqno">(796)<a class="headerlink" href="#equation-7a72aed3-0c53-4984-8675-4ba87226c3f2" title="Permalink to this equation">¶</a></span>\[\begin{equation}-(\delta_x^2w_{ij}+\delta_y^2w_{ij})=f_{ij} \ \ (x_i,y_j) \in \Omega_h, \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-433b4390-daff-48ad-b38a-5b033ad68742">
-<span class="eqno">(797)<a class="headerlink" href="#equation-433b4390-daff-48ad-b38a-5b033ad68742" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{ij}=g_{ij} \ \ (x_i,y_j) \in \partial\Omega_h, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3b303728-a601-4db9-9c04-2cae05dead98">
+<span class="eqno">(796)<a class="headerlink" href="#equation-3b303728-a601-4db9-9c04-2cae05dead98" title="Permalink to this equation">¶</a></span>\[\begin{equation}-(\delta_x^2w_{ij}+\delta_y^2w_{ij})=f_{ij} \ \ (x_i,y_j) \in \Omega_h, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-ac63d4c9-9967-4796-b032-5d7d6ac2af2e">
+<span class="eqno">(797)<a class="headerlink" href="#equation-ac63d4c9-9967-4796-b032-5d7d6ac2af2e" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{ij}=g_{ij} \ \ (x_i,y_j) \in \partial\Omega_h, \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(w_ij\)</span> is the numerical approximation of <span class="math notranslate nohighlight">\(U\)</span> at <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_j\)</span>.
 Expanding the  the Poisson Difference Equation gives the five point method,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-94f15533-5d8a-4a12-8c76-72fde25a4f24">
-<span class="eqno">(798)<a class="headerlink" href="#equation-94f15533-5d8a-4a12-8c76-72fde25a4f24" title="Permalink to this equation">¶</a></span>\[\begin{equation}-(w_{i-1j}+w_{ij-1}-4w_{ij}+w_{ij+1}+w_{i+1j})=h^2f_{ij} \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3fdffb13-9ae3-4ffb-a536-95fa5a88c458">
+<span class="eqno">(798)<a class="headerlink" href="#equation-3fdffb13-9ae3-4ffb-a536-95fa5a88c458" title="Permalink to this equation">¶</a></span>\[\begin{equation}-(w_{i-1j}+w_{ij-1}-4w_{ij}+w_{ij+1}+w_{i+1j})=h^2f_{ij} \end{equation}\]</div>
 <p>for <span class="math notranslate nohighlight">\(i=1,...,N-1\)</span> and <span class="math notranslate nohighlight">\(j=1,...,N-1\)</span> which can be written</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f7be06aa-6ca4-4fb2-9e87-cb890656799f">
-<span class="eqno">(799)<a class="headerlink" href="#equation-f7be06aa-6ca4-4fb2-9e87-cb890656799f" title="Permalink to this equation">¶</a></span>\[\begin{equation}\nabla^2_h w_{ij}=f_{ij}. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-c39ed107-5070-4b84-a426-73b5f642fc01">
+<span class="eqno">(799)<a class="headerlink" href="#equation-c39ed107-5070-4b84-a426-73b5f642fc01" title="Permalink to this equation">¶</a></span>\[\begin{equation}\nabla^2_h w_{ij}=f_{ij}. \end{equation}\]</div>
 <div class="section" id="matrix-form">
 <h3>Matrix form<a class="headerlink" href="#matrix-form" title="Permalink to this headline">¶</a></h3>
 <p>This can be written as a system of <span class="math notranslate nohighlight">\((N-1)\times(N-1)\)</span> equations can be arranged in matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-174b33d5-0a31-40d5-bc23-47e4f708d99c">
-<span class="eqno">(800)<a class="headerlink" href="#equation-174b33d5-0a31-40d5-bc23-47e4f708d99c" title="Permalink to this equation">¶</a></span>\[\begin{equation} A\mathbf{w}=\mathbf{r},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-dccc7dc6-507e-416b-8092-14d6b9cb1cd4">
+<span class="eqno">(800)<a class="headerlink" href="#equation-dccc7dc6-507e-416b-8092-14d6b9cb1cd4" title="Permalink to this equation">¶</a></span>\[\begin{equation} A\mathbf{w}=\mathbf{r},\end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\((N-1)^2\times(N-1)^2\)</span>  matrix made up of the following block tridiagonal structure</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6dfa2b95-41e6-49f2-b72c-f37d7a8c9fd4">
-<span class="eqno">(801)<a class="headerlink" href="#equation-6dfa2b95-41e6-49f2-b72c-f37d7a8c9fd4" title="Permalink to this equation">¶</a></span>\[\begin{equation}\left(\begin{array}{ccccccc}
+<div class="amsmath math notranslate nohighlight" id="equation-ce291b69-d30a-4e5a-b04f-ff18e0b2b22c">
+<span class="eqno">(801)<a class="headerlink" href="#equation-ce291b69-d30a-4e5a-b04f-ff18e0b2b22c" title="Permalink to this equation">¶</a></span>\[\begin{equation}\left(\begin{array}{ccccccc}
 T&amp;I&amp;0&amp;0&amp;.&amp;.&amp;.\\
 I&amp;T&amp;I&amp;0&amp;0&amp;.&amp;.\\
 .&amp;.&amp;.&amp;.&amp;.&amp;.&amp;.\\
@@ -863,8 +863,8 @@ I&amp;T&amp;I&amp;0&amp;0&amp;.&amp;.\\
 \end{array}\right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I\)</span> denotes an <span class="math notranslate nohighlight">\(N-1 \times N-1\)</span> identity matrix and <span class="math notranslate nohighlight">\(T\)</span> is the tridiagonal matrix of the form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6bed1b79-9755-4e0f-bac4-c17130ae3686">
-<span class="eqno">(802)<a class="headerlink" href="#equation-6bed1b79-9755-4e0f-bac4-c17130ae3686" title="Permalink to this equation">¶</a></span>\[\begin{equation} T=\left(\begin{array}{ccccccc}
+<div class="amsmath math notranslate nohighlight" id="equation-6dcb91a2-06b6-4606-a1f5-09b421d969c0">
+<span class="eqno">(802)<a class="headerlink" href="#equation-6dcb91a2-06b6-4606-a1f5-09b421d969c0" title="Permalink to this equation">¶</a></span>\[\begin{equation} T=\left(\begin{array}{ccccccc}
 -4&amp;1&amp;0&amp;0&amp;.&amp;.&amp;.\\
 1&amp;-4&amp;1&amp;0&amp;0&amp;.&amp;.\\
 .&amp;.&amp;.&amp;.&amp;.&amp;.&amp;.\\
@@ -924,8 +924,8 @@ I&amp;T&amp;I&amp;0&amp;0&amp;.&amp;.\\
 </div>
 </div>
 <p>The vector <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is of length <span class="math notranslate nohighlight">\((N-1)\times(N-1)\)</span> which made up of <span class="math notranslate nohighlight">\(N-1\)</span> subvectors <span class="math notranslate nohighlight">\(\mathbf{w}_j\)</span>  of length <span class="math notranslate nohighlight">\(N-1\)</span> of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-339ff2ba-1c64-416c-904d-a3ffc93456c5">
-<span class="eqno">(803)<a class="headerlink" href="#equation-339ff2ba-1c64-416c-904d-a3ffc93456c5" title="Permalink to this equation">¶</a></span>\[\begin{equation}\mathbf{w}_j=\left(\begin{array}{c}
+<div class="amsmath math notranslate nohighlight" id="equation-d6c8ec9c-a151-4102-a015-2581ad41e2c9">
+<span class="eqno">(803)<a class="headerlink" href="#equation-d6c8ec9c-a151-4102-a015-2581ad41e2c9" title="Permalink to this equation">¶</a></span>\[\begin{equation}\mathbf{w}_j=\left(\begin{array}{c}
 w_{1j}\\
 w_{2j}\\
 .\\
@@ -936,8 +936,8 @@ w_{N-1j}\\
 \end{equation}\]</div>
 <p>The vector <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> is of length <span class="math notranslate nohighlight">\((N-1)\times(N-1)\)</span> which made up of <span class="math notranslate nohighlight">\(N-1\)</span> subvectors of the form <span class="math notranslate nohighlight">\(\mathbf{r}_j=-h^2\mathbf{f}_j-\mathbf{bx}_{j}-\mathbf{by}_j\)</span>,
 where <span class="math notranslate nohighlight">\(\mathbf{bx}_j \)</span> is the vector of left and right boundary conditions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b685f08c-ab25-493f-90a1-aa52d194e1fc">
-<span class="eqno">(804)<a class="headerlink" href="#equation-b685f08c-ab25-493f-90a1-aa52d194e1fc" title="Permalink to this equation">¶</a></span>\[\begin{equation}\mathbf{bx}_j =\left(\begin{array}{c}
+<div class="amsmath math notranslate nohighlight" id="equation-3e62a7fd-46fd-4397-a6d0-d2c4ba8e0681">
+<span class="eqno">(804)<a class="headerlink" href="#equation-3e62a7fd-46fd-4397-a6d0-d2c4ba8e0681" title="Permalink to this equation">¶</a></span>\[\begin{equation}\mathbf{bx}_j =\left(\begin{array}{c}
 w_{0j}\\
 0\\
 .\\
@@ -947,8 +947,8 @@ w_{Nj}
 \end{array}\right),
 \end{equation}\]</div>
 <p>for <span class="math notranslate nohighlight">\(j=1,..,N-1\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{by}_j\)</span> is the vector of the lower boundary condition for <span class="math notranslate nohighlight">\(j=1\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-76dd6a64-2705-4cf3-8440-05f11a3a2158">
-<span class="eqno">(805)<a class="headerlink" href="#equation-76dd6a64-2705-4cf3-8440-05f11a3a2158" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ba0df9ef-d1b5-43b3-a029-ac64893cb6e5">
+<span class="eqno">(805)<a class="headerlink" href="#equation-ba0df9ef-d1b5-43b3-a029-ac64893cb6e5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{by}_{1} =\left(\begin{array}{c}
 w_{10}\\
 w_{20}\\
@@ -959,8 +959,8 @@ w_{N-10}\\
 \end{array}\right),
 \end{equation}\]</div>
 <p>upper boundary condition for <span class="math notranslate nohighlight">\(j=N-1\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3c3e153b-5483-4a5d-a411-48df0d82630e">
-<span class="eqno">(806)<a class="headerlink" href="#equation-3c3e153b-5483-4a5d-a411-48df0d82630e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-85c5b906-21ed-4ad0-84dc-78ea3a35362c">
+<span class="eqno">(806)<a class="headerlink" href="#equation-85c5b906-21ed-4ad0-84dc-78ea3a35362c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{by}_{N-1} =\left(\begin{array}{c}
 w_{1N}\\
 w_{2N}\\
@@ -971,11 +971,11 @@ w_{N-1N}\\
 \end{array}\right),
 \end{equation}\]</div>
 <p>for <span class="math notranslate nohighlight">\(j=2,...,N-2\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b5ae989-10f2-4b11-b6c0-51c74991cdb3">
-<span class="eqno">(807)<a class="headerlink" href="#equation-5b5ae989-10f2-4b11-b6c0-51c74991cdb3" title="Permalink to this equation">¶</a></span>\[\begin{equation}\mathbf{by}_j=0,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e4e9363f-f88f-4ac7-937d-4a99b8f23f68">
+<span class="eqno">(807)<a class="headerlink" href="#equation-e4e9363f-f88f-4ac7-937d-4a99b8f23f68" title="Permalink to this equation">¶</a></span>\[\begin{equation}\mathbf{by}_j=0,\end{equation}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4c407f0-8366-43a7-bdd9-c3a12dd93f76">
-<span class="eqno">(808)<a class="headerlink" href="#equation-e4c407f0-8366-43a7-bdd9-c3a12dd93f76" title="Permalink to this equation">¶</a></span>\[\begin{equation}\mathbf{f}_j =-\left(\begin{array}{c}
+<div class="amsmath math notranslate nohighlight" id="equation-17a7c5b1-f82c-42c0-9ba3-c1fc95a0856d">
+<span class="eqno">(808)<a class="headerlink" href="#equation-17a7c5b1-f82c-42c0-9ba3-c1fc95a0856d" title="Permalink to this equation">¶</a></span>\[\begin{equation}\mathbf{f}_j =-\left(\begin{array}{c}
 0\\
 0\\
 .\\
@@ -1014,11 +1014,11 @@ w_{N-1N}\\
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>To solve the system for <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> invert the matrix <span class="math notranslate nohighlight">\(A\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e8d247c-5034-4124-b3bc-c75783acf6ee">
-<span class="eqno">(809)<a class="headerlink" href="#equation-1e8d247c-5034-4124-b3bc-c75783acf6ee" title="Permalink to this equation">¶</a></span>\[\begin{equation} A\mathbf{w}=\mathbf{r},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-4bafa9f5-f0a8-4929-bcf4-1597e37c3ad5">
+<span class="eqno">(809)<a class="headerlink" href="#equation-4bafa9f5-f0a8-4929-bcf4-1597e37c3ad5" title="Permalink to this equation">¶</a></span>\[\begin{equation} A\mathbf{w}=\mathbf{r},\end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd04c4b3-37b0-48ae-b51f-04fb4c8ed1e6">
-<span class="eqno">(810)<a class="headerlink" href="#equation-bd04c4b3-37b0-48ae-b51f-04fb4c8ed1e6" title="Permalink to this equation">¶</a></span>\[\begin{equation} \mathbf{w}=A^{-1}\mathbf{r}.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-5e101109-fb91-4b81-baec-0aa98e0c6d36">
+<span class="eqno">(810)<a class="headerlink" href="#equation-5e101109-fb91-4b81-baec-0aa98e0c6d36" title="Permalink to this equation">¶</a></span>\[\begin{equation} \mathbf{w}=A^{-1}\mathbf{r}.\end{equation}\]</div>
 <p>Lastly, as <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is in vector it has to be reshaped into grid form to plot.</p>
 <p>The figure below shows the numerical approximation of the homogeneous Equation.</p>
 <div class="cell docutils container">
@@ -1052,19 +1052,19 @@ w_{N-1N}\\
 <div class="section" id="consitency-definition">
 <h3>Consitency (Definition)<a class="headerlink" href="#consitency-definition" title="Permalink to this headline">¶</a></h3>
 <p>Let</p>
-<div class="amsmath math notranslate nohighlight" id="equation-12072b9d-ef1b-4e8f-95df-a74c4fdc6933">
-<span class="eqno">(811)<a class="headerlink" href="#equation-12072b9d-ef1b-4e8f-95df-a74c4fdc6933" title="Permalink to this equation">¶</a></span>\[\begin{equation}\nabla^2_h(\varphi)=-(\varphi_{i-1j}+\varphi_{ij-1}-4\varphi_{ij}+\varphi_{ij+1}+\varphi_{i+1j})\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3e25fb47-4038-4baa-896e-bdd53f846107">
+<span class="eqno">(811)<a class="headerlink" href="#equation-3e25fb47-4038-4baa-896e-bdd53f846107" title="Permalink to this equation">¶</a></span>\[\begin{equation}\nabla^2_h(\varphi)=-(\varphi_{i-1j}+\varphi_{ij-1}-4\varphi_{ij}+\varphi_{ij+1}+\varphi_{i+1j})\end{equation}\]</div>
 <p>denote the finite difference approximation associated with the grid <span class="math notranslate nohighlight">\(\Omega_h\)</span> having the mesh size <span class="math notranslate nohighlight">\(h\)</span>, to a partial differential operator</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d01c7cb4-4eb2-497e-bc93-ed1dd665cad3">
-<span class="eqno">(812)<a class="headerlink" href="#equation-d01c7cb4-4eb2-497e-bc93-ed1dd665cad3" title="Permalink to this equation">¶</a></span>\[\begin{equation}\nabla^2(\varphi)=\frac{\partial^2 \varphi}{\partial x^2}+\frac{\partial^2 \varphi}{\partial y^2}\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-1758da2c-7d94-4908-b3dc-349493e922b5">
+<span class="eqno">(812)<a class="headerlink" href="#equation-1758da2c-7d94-4908-b3dc-349493e922b5" title="Permalink to this equation">¶</a></span>\[\begin{equation}\nabla^2(\varphi)=\frac{\partial^2 \varphi}{\partial x^2}+\frac{\partial^2 \varphi}{\partial y^2}\end{equation}\]</div>
 <p>defined on
 a simply connected, open set <span class="math notranslate nohighlight">\(\Omega \subset R^2\)</span>. For a given function <span class="math notranslate nohighlight">\(\varphi\in C^{\infty}(\Omega)\)</span>,
 the truncation error of <span class="math notranslate nohighlight">\(\nabla^2_h\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d091e1b-a8d7-4709-92db-5ac35bc6f7f9">
-<span class="eqno">(813)<a class="headerlink" href="#equation-4d091e1b-a8d7-4709-92db-5ac35bc6f7f9" title="Permalink to this equation">¶</a></span>\[\begin{equation}\tau_{h}(\mathbf{x})=(\nabla^2-\nabla^2_h)\varphi(\mathbf{x}) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-be8c987a-7de1-4c76-a05e-752fdbce27f9">
+<span class="eqno">(813)<a class="headerlink" href="#equation-be8c987a-7de1-4c76-a05e-752fdbce27f9" title="Permalink to this equation">¶</a></span>\[\begin{equation}\tau_{h}(\mathbf{x})=(\nabla^2-\nabla^2_h)\varphi(\mathbf{x}) \end{equation}\]</div>
 <p>The approximation <span class="math notranslate nohighlight">\(\nabla^2_h\)</span> is consistent with <span class="math notranslate nohighlight">\(\nabla^2\)</span> if</p>
-<div class="amsmath math notranslate nohighlight" id="equation-787cb8e9-a407-41d5-a36f-7227ab5bc1d5">
-<span class="eqno">(814)<a class="headerlink" href="#equation-787cb8e9-a407-41d5-a36f-7227ab5bc1d5" title="Permalink to this equation">¶</a></span>\[\begin{equation} \lim_{h\rightarrow 0}\tau_h(\mathbf{x})=0,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-49046428-eb0b-477c-894d-0bb28d48f2c4">
+<span class="eqno">(814)<a class="headerlink" href="#equation-49046428-eb0b-477c-894d-0bb28d48f2c4" title="Permalink to this equation">¶</a></span>\[\begin{equation} \lim_{h\rightarrow 0}\tau_h(\mathbf{x})=0,\end{equation}\]</div>
 <p>for all <span class="math notranslate nohighlight">\(\mathbf{x} \in D\)</span> and all <span class="math notranslate nohighlight">\(\varphi \in C^{\infty}(\Omega)\)</span>. The approximation is consistent to order <span class="math notranslate nohighlight">\(p\)</span> if <span class="math notranslate nohighlight">\(\tau_h(\mathbf{x})=O(h^p)\)</span>.</p>
 <p><em>In other words a method is consistent with the differential equation it is approximating.</em></p>
 </div>
@@ -1079,24 +1079,24 @@ the truncation error of <span class="math notranslate nohighlight">\(\nabla^2_h\
 \varphi(x\pm h,y)&amp;=&amp;\varphi(x,y) \pm h \frac{\partial \varphi}{\partial x}(x,y)+\frac{h^2}{2!}\frac{\partial^2 \varphi}{\partial x^2}(x,y) \pm\frac{h^3}{3!}\frac{\partial^3 \varphi}{\partial x^3}(x,y)+\frac{h^4}{4!}\frac{\partial^4 \varphi}{\partial x^4}(\zeta^{\pm},y)
 \end{eqnarray*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\zeta^{\pm} \in (x-h,x+h)\)</span>. Adding this pair of equation together and rearranging , we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-81b21f48-f0ea-4f01-a615-b54457fcc033">
-<span class="eqno">(815)<a class="headerlink" href="#equation-81b21f48-f0ea-4f01-a615-b54457fcc033" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{1}{h^2}[\varphi(x+h,y)-2\varphi(x,y)+\varphi(x-h,y) ] -\frac{\partial^2 \varphi}{\partial x^2}(x,y)=\frac{h^2}{4!}\left[\frac{\partial^4 \varphi}{\partial x^4}(\zeta^{+},y)+
+<div class="amsmath math notranslate nohighlight" id="equation-98604304-b202-43fc-ae21-bf2c6567aef5">
+<span class="eqno">(815)<a class="headerlink" href="#equation-98604304-b202-43fc-ae21-bf2c6567aef5" title="Permalink to this equation">¶</a></span>\[\begin{equation}\frac{1}{h^2}[\varphi(x+h,y)-2\varphi(x,y)+\varphi(x-h,y) ] -\frac{\partial^2 \varphi}{\partial x^2}(x,y)=\frac{h^2}{4!}\left[\frac{\partial^4 \varphi}{\partial x^4}(\zeta^{+},y)+
 \frac{\partial^4 \varphi}{\partial x^4}(\zeta^{-},y)
  \right]
 \end{equation}\]</div>
 <p>By the intermediate value theorem</p>
-<div class="amsmath math notranslate nohighlight" id="equation-795efa3e-5417-428e-bc90-88781e039914">
-<span class="eqno">(816)<a class="headerlink" href="#equation-795efa3e-5417-428e-bc90-88781e039914" title="Permalink to this equation">¶</a></span>\[\begin{equation}\left[\frac{\partial^4 \varphi}{\partial x^4}(\zeta^{+},y)+
+<div class="amsmath math notranslate nohighlight" id="equation-c3179c40-1c99-43d1-805d-6597f7b32d30">
+<span class="eqno">(816)<a class="headerlink" href="#equation-c3179c40-1c99-43d1-805d-6597f7b32d30" title="Permalink to this equation">¶</a></span>\[\begin{equation}\left[\frac{\partial^4 \varphi}{\partial x^4}(\zeta^{+},y)+
 \frac{\partial^4 \varphi}{\partial x^4}(\zeta^{-},y)
  \right]
 =2\frac{\partial^4 \varphi}{\partial x^4}(\zeta,y),\end{equation}\]</div>
 <p>for some <span class="math notranslate nohighlight">\(\zeta \in (x-h,x+h)\)</span>.  Therefore,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a27dbcb1-9a64-4e05-9522-9f882f2da881">
-<span class="eqno">(817)<a class="headerlink" href="#equation-a27dbcb1-9a64-4e05-9522-9f882f2da881" title="Permalink to this equation">¶</a></span>\[\begin{equation}\delta_x^2(x,y)
+<div class="amsmath math notranslate nohighlight" id="equation-537c3819-fbe1-4c40-82cc-4901c7b02d6e">
+<span class="eqno">(817)<a class="headerlink" href="#equation-537c3819-fbe1-4c40-82cc-4901c7b02d6e" title="Permalink to this equation">¶</a></span>\[\begin{equation}\delta_x^2(x,y)
 =\frac{\partial^2 \varphi}{\partial x^2}(x,y)+\frac{h^2}{2!}\frac{\partial^4 \varphi}{\partial x^4}(\zeta,y)\end{equation}\]</div>
 <p>Similar reasoning shows that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9762a755-25e1-44e7-8f9f-d2f0cd96326c">
-<span class="eqno">(818)<a class="headerlink" href="#equation-9762a755-25e1-44e7-8f9f-d2f0cd96326c" title="Permalink to this equation">¶</a></span>\[\begin{equation}\delta_y^2(x,y)
+<div class="amsmath math notranslate nohighlight" id="equation-8b64a1c8-bf6b-4e8e-bb7c-54606ee1c0b6">
+<span class="eqno">(818)<a class="headerlink" href="#equation-8b64a1c8-bf6b-4e8e-bb7c-54606ee1c0b6" title="Permalink to this equation">¶</a></span>\[\begin{equation}\delta_y^2(x,y)
 =\frac{\partial^2 \varphi}{\partial y^2}(x,y)+\frac{h^2}{2!}\frac{\partial^4 \varphi}{\partial y^4}(x,\eta)
 \end{equation}\]</div>
 <p>for some <span class="math notranslate nohighlight">\(\eta \in (y-h,y+h)\)</span>. We conclude that <span class="math notranslate nohighlight">\(\tau_h(x,y)=(\nabla-\nabla_h)\varphi(x,y)=O(h^2).\)</span></p>
@@ -1106,17 +1106,17 @@ the truncation error of <span class="math notranslate nohighlight">\(\nabla^2_h\
 <div class="section" id="definition">
 <h3>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(\nabla^2_hw(\mathbf{x}_j)=f(\mathbf{x}_j)\)</span> be a finite difference approximation, defined on a grid mesh size <span class="math notranslate nohighlight">\(h\)</span>, to a PDE <span class="math notranslate nohighlight">\(\nabla^2U(\mathbf{x})=f(\mathbf{x})\)</span> on a simply connected set <span class="math notranslate nohighlight">\(D \subset R^n\)</span>. Assume that <span class="math notranslate nohighlight">\(w(x,y)=U(x,y)\)</span> at all points <span class="math notranslate nohighlight">\((x,y)\)</span> on the boundary <span class="math notranslate nohighlight">\(\partial\Omega\)</span>.  The finite difference scheme converges (or is convergent) if</p>
-<div class="amsmath math notranslate nohighlight" id="equation-23cba1bb-18e3-49a7-9eb4-f22da15873b5">
-<span class="eqno">(819)<a class="headerlink" href="#equation-23cba1bb-18e3-49a7-9eb4-f22da15873b5" title="Permalink to this equation">¶</a></span>\[\begin{equation} \max_j|U(\mathbf{x}_j)-w(\mathbf{x}_j)| \rightarrow 0 \mbox{  as  } h \rightarrow 0.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-151f48e2-1bf9-4c7e-8cd1-d548e804099c">
+<span class="eqno">(819)<a class="headerlink" href="#equation-151f48e2-1bf9-4c7e-8cd1-d548e804099c" title="Permalink to this equation">¶</a></span>\[\begin{equation} \max_j|U(\mathbf{x}_j)-w(\mathbf{x}_j)| \rightarrow 0 \mbox{  as  } h \rightarrow 0.\end{equation}\]</div>
 </div>
 <div class="section" id="theorem-discrete-maximum-principle">
 <h3>Theorem (DISCRETE MAXIMUM PRINCIPLE).<a class="headerlink" href="#theorem-discrete-maximum-principle" title="Permalink to this headline">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(\nabla^2_hV_{ij}\geq 0\)</span> for all points <span class="math notranslate nohighlight">\((x_i,y_j) \in \Omega_h\)</span>, then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e8a9f0ed-3fdc-47b1-87e0-8eb07df8dc9a">
-<span class="eqno">(820)<a class="headerlink" href="#equation-e8a9f0ed-3fdc-47b1-87e0-8eb07df8dc9a" title="Permalink to this equation">¶</a></span>\[\begin{equation} \max_{(x_i,y_j)\in\Omega_h}V_{ij}\leq  \max_{(x_i,y_j)\in\partial\Omega_h}V_{ij},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-ab195eb2-dc5a-4195-846b-37b86e8ebdfa">
+<span class="eqno">(820)<a class="headerlink" href="#equation-ab195eb2-dc5a-4195-846b-37b86e8ebdfa" title="Permalink to this equation">¶</a></span>\[\begin{equation} \max_{(x_i,y_j)\in\Omega_h}V_{ij}\leq  \max_{(x_i,y_j)\in\partial\Omega_h}V_{ij},\end{equation}\]</div>
 <p>If <span class="math notranslate nohighlight">\(\nabla^2_hV_{ij}\leq 0\)</span> for all points <span class="math notranslate nohighlight">\((x_i,y_j) \in \Omega_h\)</span>, then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d837035b-9bf2-4930-a893-bdd9cbb92bef">
-<span class="eqno">(821)<a class="headerlink" href="#equation-d837035b-9bf2-4930-a893-bdd9cbb92bef" title="Permalink to this equation">¶</a></span>\[\begin{equation} \min_{(x_i,y_j)\in\Omega_h}V_{ij}\geq  \min_{(x_i,y_j)\in\partial\Omega_h}V_{ij}.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-58bb9d32-d6dc-4475-ae6b-032d6df3d198">
+<span class="eqno">(821)<a class="headerlink" href="#equation-58bb9d32-d6dc-4475-ae6b-032d6df3d198" title="Permalink to this equation">¶</a></span>\[\begin{equation} \min_{(x_i,y_j)\in\Omega_h}V_{ij}\geq  \min_{(x_i,y_j)\in\partial\Omega_h}V_{ij}.\end{equation}\]</div>
 </div>
 <div class="section" id="propositions">
 <h3>Propositions<a class="headerlink" href="#propositions" title="Permalink to this headline">¶</a></h3>
@@ -1124,47 +1124,47 @@ the truncation error of <span class="math notranslate nohighlight">\(\nabla^2_h\
 <li><p>The zero grid function for which <span class="math notranslate nohighlight">\(U_{ij}=0\)</span> for all <span class="math notranslate nohighlight">\((x_i,y_j) \in \Omega_h \bigcup \partial\Omega_h\)</span>
 is the only solution to the finite difference problem</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-29a57e3d-3c41-4831-87f6-c077117195bf">
-<span class="eqno">(822)<a class="headerlink" href="#equation-29a57e3d-3c41-4831-87f6-c077117195bf" title="Permalink to this equation">¶</a></span>\[\begin{equation}\nabla_h^2U_{ij}=0 \mbox{ for }(x_i,y_j)\in\Omega_h,\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-ce6b9a49-8fb1-472c-9fbb-ea86019ceeb3">
-<span class="eqno">(823)<a class="headerlink" href="#equation-ce6b9a49-8fb1-472c-9fbb-ea86019ceeb3" title="Permalink to this equation">¶</a></span>\[\begin{equation}U_{ij}=0 \mbox{ for }(x_i,y_j)\in\partial\Omega_h.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-76250b1d-be2e-4314-87d9-eb0ff2520255">
+<span class="eqno">(822)<a class="headerlink" href="#equation-76250b1d-be2e-4314-87d9-eb0ff2520255" title="Permalink to this equation">¶</a></span>\[\begin{equation}\nabla_h^2U_{ij}=0 \mbox{ for }(x_i,y_j)\in\Omega_h,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-fe3b73c5-2524-435a-9dec-5da4ff36dce0">
+<span class="eqno">(823)<a class="headerlink" href="#equation-fe3b73c5-2524-435a-9dec-5da4ff36dce0" title="Permalink to this equation">¶</a></span>\[\begin{equation}U_{ij}=0 \mbox{ for }(x_i,y_j)\in\partial\Omega_h.\end{equation}\]</div>
 <ol class="simple">
 <li><p>For prescribed grid functions <span class="math notranslate nohighlight">\(f_{ij}\)</span> and <span class="math notranslate nohighlight">\(g_{ij}\)</span>, there exists a unique solution to the problem</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-f91aa8f0-db58-4c3c-ae86-3763c88d9fe8">
-<span class="eqno">(824)<a class="headerlink" href="#equation-f91aa8f0-db58-4c3c-ae86-3763c88d9fe8" title="Permalink to this equation">¶</a></span>\[\begin{equation}\nabla_h^2U_{ij}=f_{ij} \mbox{ for }(x_i,y_j)\in\Omega_h,\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-e1a10ec9-d28a-48ee-b0d9-265ad2e77fd6">
-<span class="eqno">(825)<a class="headerlink" href="#equation-e1a10ec9-d28a-48ee-b0d9-265ad2e77fd6" title="Permalink to this equation">¶</a></span>\[\begin{equation}U_{ij}=g_{ij} \mbox{ for }(x_i,y_j)\in\partial\Omega_h.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-2558430f-6376-4616-8716-8053ae15a0d9">
+<span class="eqno">(824)<a class="headerlink" href="#equation-2558430f-6376-4616-8716-8053ae15a0d9" title="Permalink to this equation">¶</a></span>\[\begin{equation}\nabla_h^2U_{ij}=f_{ij} \mbox{ for }(x_i,y_j)\in\Omega_h,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3d562d04-89da-47f9-97b9-f3ce49f01112">
+<span class="eqno">(825)<a class="headerlink" href="#equation-3d562d04-89da-47f9-97b9-f3ce49f01112" title="Permalink to this equation">¶</a></span>\[\begin{equation}U_{ij}=g_{ij} \mbox{ for }(x_i,y_j)\in\partial\Omega_h.\end{equation}\]</div>
 </div>
 <div class="section" id="id1">
 <h3>Definition<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>For any grid function <span class="math notranslate nohighlight">\(V:\Omega_h\bigcup\partial\Omega_h \rightarrow R\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d8d0542-f199-4a6b-b825-a685f61286b0">
-<span class="eqno">(826)<a class="headerlink" href="#equation-4d8d0542-f199-4a6b-b825-a685f61286b0" title="Permalink to this equation">¶</a></span>\[\begin{equation}||V||_{\Omega} =\max_{(x_i,y_j)\in\Omega_h}|V_{ij}|, \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-2bb400cb-a814-49ab-9245-5fc7de03d1f7">
-<span class="eqno">(827)<a class="headerlink" href="#equation-2bb400cb-a814-49ab-9245-5fc7de03d1f7" title="Permalink to this equation">¶</a></span>\[\begin{equation}||V||_{\partial\Omega} =\max_{(x_i,y_j)\in\partial\Omega_h}|V_{ij}|. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-cecde16a-64f2-423c-8dd6-a08f482547f8">
+<span class="eqno">(826)<a class="headerlink" href="#equation-cecde16a-64f2-423c-8dd6-a08f482547f8" title="Permalink to this equation">¶</a></span>\[\begin{equation}||V||_{\Omega} =\max_{(x_i,y_j)\in\Omega_h}|V_{ij}|, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-32a6162a-fe5b-4dd0-a7e9-efe5104d4c67">
+<span class="eqno">(827)<a class="headerlink" href="#equation-32a6162a-fe5b-4dd0-a7e9-efe5104d4c67" title="Permalink to this equation">¶</a></span>\[\begin{equation}||V||_{\partial\Omega} =\max_{(x_i,y_j)\in\partial\Omega_h}|V_{ij}|. \end{equation}\]</div>
 </div>
 <div class="section" id="lemma">
 <h3>Lemma<a class="headerlink" href="#lemma" title="Permalink to this headline">¶</a></h3>
 <p>If the grid function <span class="math notranslate nohighlight">\(V:\Omega_h\bigcup\partial\Omega_h\rightarrow R\)</span> satisfies the boundary condition <span class="math notranslate nohighlight">\(V_{ij}=0\)</span> for <span class="math notranslate nohighlight">\((x_i,y_j)\in \partial\Omega_h\)</span>, then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-94b9d6c4-d961-429b-ba58-1c1ca04b34ab">
-<span class="eqno">(828)<a class="headerlink" href="#equation-94b9d6c4-d961-429b-ba58-1c1ca04b34ab" title="Permalink to this equation">¶</a></span>\[\begin{equation}||V_||_{\Omega}\leq \frac{1}{8}||\nabla_h^2V||_{\Omega}. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-11b12b91-bb83-48b2-bc57-57252ca1fab2">
+<span class="eqno">(828)<a class="headerlink" href="#equation-11b12b91-bb83-48b2-bc57-57252ca1fab2" title="Permalink to this equation">¶</a></span>\[\begin{equation}||V_||_{\Omega}\leq \frac{1}{8}||\nabla_h^2V||_{\Omega}. \end{equation}\]</div>
 <p>Given these Lemmas and Propositions, we can now prove that the solution to the five point scheme <span class="math notranslate nohighlight">\(\nabla^2_h\)</span> is convergent to the exact solution of the Poisson Equation <span class="math notranslate nohighlight">\(\nabla^2\)</span>.</p>
 </div>
 <div class="section" id="convergence-theorem">
 <h3>Convergence Theorem<a class="headerlink" href="#convergence-theorem" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(U\)</span> be a solution to the Poisson equation and let <span class="math notranslate nohighlight">\(w\)</span> be the grid function
 that satisfies the discrete analog</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bb33b23c-ad1f-4fba-a82b-a37e8466498f">
-<span class="eqno">(829)<a class="headerlink" href="#equation-bb33b23c-ad1f-4fba-a82b-a37e8466498f" title="Permalink to this equation">¶</a></span>\[\begin{equation}-\nabla_h^2w_{ij}=f_{ij} \ \ \mbox{ for } (x_i,y_j)\in\Omega_h, \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-18724404-628c-4d43-980c-967f4d7dc5e9">
-<span class="eqno">(830)<a class="headerlink" href="#equation-18724404-628c-4d43-980c-967f4d7dc5e9" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{ij}=g_{ij} \ \ \mbox{ for } (x_i,y_j)\in\partial\Omega_h. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-5277ab94-4082-47dd-9c55-e344ce3451df">
+<span class="eqno">(829)<a class="headerlink" href="#equation-5277ab94-4082-47dd-9c55-e344ce3451df" title="Permalink to this equation">¶</a></span>\[\begin{equation}-\nabla_h^2w_{ij}=f_{ij} \ \ \mbox{ for } (x_i,y_j)\in\Omega_h, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-92bcd76d-c9fb-4251-bffc-5e4e97b4dd37">
+<span class="eqno">(830)<a class="headerlink" href="#equation-92bcd76d-c9fb-4251-bffc-5e4e97b4dd37" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{ij}=g_{ij} \ \ \mbox{ for } (x_i,y_j)\in\partial\Omega_h. \end{equation}\]</div>
 <p>Then there exists a positive constant <span class="math notranslate nohighlight">\(K\)</span> such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37620dc7-3072-4d66-b007-a0ea3e7e54d7">
-<span class="eqno">(831)<a class="headerlink" href="#equation-37620dc7-3072-4d66-b007-a0ea3e7e54d7" title="Permalink to this equation">¶</a></span>\[\begin{equation}||U-w||_{\Omega}\leq KMh^2, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-57a95fea-007f-416c-b42f-c6793145facd">
+<span class="eqno">(831)<a class="headerlink" href="#equation-57a95fea-007f-416c-b42f-c6793145facd" title="Permalink to this equation">¶</a></span>\[\begin{equation}||U-w||_{\Omega}\leq KMh^2, \end{equation}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f8de4fde-1197-4609-b79d-913158973db1">
-<span class="eqno">(832)<a class="headerlink" href="#equation-f8de4fde-1197-4609-b79d-913158973db1" title="Permalink to this equation">¶</a></span>\[\begin{equation} M=\left\{
+<div class="amsmath math notranslate nohighlight" id="equation-eddeb631-d95d-4bfc-8167-751f597cf740">
+<span class="eqno">(832)<a class="headerlink" href="#equation-eddeb631-d95d-4bfc-8167-751f597cf740" title="Permalink to this equation">¶</a></span>\[\begin{equation} M=\left\{
 \left|\left|\frac{\partial^4 U}{\partial x^4} \right|\right|_{\infty},
 \left|\left|\frac{\partial^4 U}{\partial y^4} \right|\right|_{\infty}
  \right\}\end{equation}\]</div>
@@ -1173,18 +1173,18 @@ that satisfies the discrete analog</p>
 holds if <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are smooth enough.
 \begin{proof}
 Following from the proof of the Proposition we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fb882dcd-cce8-4e9a-b3cb-b5738f30f1fe">
-<span class="eqno">(833)<a class="headerlink" href="#equation-fb882dcd-cce8-4e9a-b3cb-b5738f30f1fe" title="Permalink to this equation">¶</a></span>\[\begin{equation} (\nabla_h^2-\nabla^2)U_{ij}=\frac{h^2}{12}\left[ \frac{\partial^4 U}{\partial x^4}(\zeta_i,y_j)+\frac{\partial^4 U}{\partial y^4}(x_i,\eta_j) \right],\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3cd20217-bf15-4649-8600-141eba5731ef">
+<span class="eqno">(833)<a class="headerlink" href="#equation-3cd20217-bf15-4649-8600-141eba5731ef" title="Permalink to this equation">¶</a></span>\[\begin{equation} (\nabla_h^2-\nabla^2)U_{ij}=\frac{h^2}{12}\left[ \frac{\partial^4 U}{\partial x^4}(\zeta_i,y_j)+\frac{\partial^4 U}{\partial y^4}(x_i,\eta_j) \right],\end{equation}\]</div>
 <p>for some <span class="math notranslate nohighlight">\(\zeta \in (x_{i-1},x_{i+1})\)</span> and <span class="math notranslate nohighlight">\(\eta_j\in(y_{j-1},y_{j+1})\)</span>.  Therefore,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3017feb6-2f27-4115-ad88-4d517b2b70d6">
-<span class="eqno">(834)<a class="headerlink" href="#equation-3017feb6-2f27-4115-ad88-4d517b2b70d6" title="Permalink to this equation">¶</a></span>\[\begin{equation} -\nabla_h^2U_{ij}=f_{ij}-\frac{h^2}{12}\left[ \frac{\partial^4 U}{\partial x^4}(\zeta_i,y_j)+\frac{\partial^4 U}{\partial y^4}(x_i,\eta_j) \right].\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e46f43f8-b855-429f-9e18-9127dda4a8a0">
+<span class="eqno">(834)<a class="headerlink" href="#equation-e46f43f8-b855-429f-9e18-9127dda4a8a0" title="Permalink to this equation">¶</a></span>\[\begin{equation} -\nabla_h^2U_{ij}=f_{ij}-\frac{h^2}{12}\left[ \frac{\partial^4 U}{\partial x^4}(\zeta_i,y_j)+\frac{\partial^4 U}{\partial y^4}(x_i,\eta_j) \right].\end{equation}\]</div>
 <p>If we subtract from this the identity equation <span class="math notranslate nohighlight">\(-\nabla_h^2w_{ij}=f_{ij}\)</span> and note
 that <span class="math notranslate nohighlight">\(U-w\)</span> vanishes on <span class="math notranslate nohighlight">\(\partial\Omega_h\)</span>, we find that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-142677d8-8846-4921-94c5-4341db2d9246">
-<span class="eqno">(835)<a class="headerlink" href="#equation-142677d8-8846-4921-94c5-4341db2d9246" title="Permalink to this equation">¶</a></span>\[\begin{equation} \nabla_h^2(U_{ij}-w_{ij})=\frac{h^2}{12}\left[ \frac{\partial^4 U}{\partial x^4}(\zeta_i,y_j)+\frac{\partial^4 U}{\partial y^4}(x_i,\eta_j) \right].\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3875bec9-60ef-4f5a-ab66-3699a965faca">
+<span class="eqno">(835)<a class="headerlink" href="#equation-3875bec9-60ef-4f5a-ab66-3699a965faca" title="Permalink to this equation">¶</a></span>\[\begin{equation} \nabla_h^2(U_{ij}-w_{ij})=\frac{h^2}{12}\left[ \frac{\partial^4 U}{\partial x^4}(\zeta_i,y_j)+\frac{\partial^4 U}{\partial y^4}(x_i,\eta_j) \right].\end{equation}\]</div>
 <p>It follows that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-917e6fc6-1473-4fd2-837e-35560d53dd3d">
-<span class="eqno">(836)<a class="headerlink" href="#equation-917e6fc6-1473-4fd2-837e-35560d53dd3d" title="Permalink to this equation">¶</a></span>\[\begin{equation} ||U-w||_{\Omega}\leq\frac{1}{8}||\nabla_h^2(U-w)||_{\Omega}\leq KMh^2.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-4bbbcaa1-ff12-41c9-a630-08c738054717">
+<span class="eqno">(836)<a class="headerlink" href="#equation-4bbbcaa1-ff12-41c9-a630-08c738054717" title="Permalink to this equation">¶</a></span>\[\begin{equation} ||U-w||_{\Omega}\leq\frac{1}{8}||\nabla_h^2(U-w)||_{\Omega}\leq KMh^2.\end{equation}\]</div>
 </div>
 </div>
 </div>
