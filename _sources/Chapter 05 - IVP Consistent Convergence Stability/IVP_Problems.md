@@ -2,6 +2,7 @@
 
 
 # Initial Value Problem Review Questions
+## Question 1
 1. a) Derive the Euler approximation show it has a local truncation error of $O(h)$ of the Ordinary Differential Equation
 \begin{equation} y^{'}(x)=f(x,y), \end{equation}
 with initial condition
@@ -31,6 +32,8 @@ at x=1, using $h=0.25$.
 
 
 [8 marks]
+
+## Question 2
 
 2. a) Derive the difference equation for the Midpoint Runge-Kutta method\\
 \begin{equation} w_{n+1}=w_n+k_2\end{equation}
@@ -62,6 +65,8 @@ with $h=0.2$ with the exact solution $y(t)=t +\frac{1}{1-t}$.
 
 [10 marks]
 
+## Question 3
+
 3. a) Derive the two step Adams-Bashforth method:
 \begin{equation} w_{n+1}=w_n+(\frac{3}{2}hf(t_{n},w_{n})-\frac{1}{2}hf(t_{n-1},w_{n-1})),\end{equation}
 and the local truncation error
@@ -74,6 +79,8 @@ and the local truncation error
 Using $N=4$ steps, given that $y_1=0.6872$.
 
 [15 marks]
+
+## Question 4
 
 4. a) 
 Derive the Adams-Moulton two step method and its truncation error which is of the form
@@ -99,6 +106,8 @@ and a numerical method which generates a numerical solution $(w_n)_{n=0}^{N}$, e
 
 [5 marks]
 
+## Question 5
+
 5. b) Using the 2-step Adams-Bashforth method:
 \begin{equation} w_{n+1}=w_n+\frac{3}{2}hf(t_n,w_n)-\frac{1}{2}hf(t_{n-1},w_{n-1})\end{equation}
 as a predictor, and the 2-step Adams-Moulton method: 
@@ -113,7 +122,9 @@ using N=4 steps, given $y_1=0.5$.
 
 [10 marks]
 
-6 a) Given the  Midpoint point (Runge-Kutta) method
+## Question 6
+
+6. a) Given the  Midpoint point (Runge-Kutta) method
 \begin{equation}w_0=y_0\end{equation}
 \begin{equation}w_{i+1}=w_{i}+hf(x_i+\frac{h}{2},w_i+\frac{h}{2}f(x_i,w_i) ) \end{equation}
 Assume that the Runge-Kutta method satisfies the Lipschitz condition. Then

@@ -637,11 +637,11 @@
 <div class="section" id="the-burger-differential-equation">
 <h2>The Burger Differential Equation<a class="headerlink" href="#the-burger-differential-equation" title="Permalink to this headline">¶</a></h2>
 <p>Consider the one-dimensional non-linear Burger Equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c4e2ac49-1981-4f5b-9c5e-fe594d7415c2">
-<span class="eqno">(1053)<a class="headerlink" href="#equation-c4e2ac49-1981-4f5b-9c5e-fe594d7415c2" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u}{\partial t} +u\frac{\partial u}{\partial x}=0,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-cd0a860c-7109-474a-924b-dd986dcc3f2d">
+<span class="eqno">(1053)<a class="headerlink" href="#equation-cd0a860c-7109-474a-924b-dd986dcc3f2d" title="Permalink to this equation">¶</a></span>\[\begin{equation}  \frac{\partial u}{\partial t} +u\frac{\partial u}{\partial x}=0,\end{equation}\]</div>
 <p>with the initial conditions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c6557378-8708-428a-82ad-080e15bfb507">
-<span class="eqno">(1054)<a class="headerlink" href="#equation-c6557378-8708-428a-82ad-080e15bfb507" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=1-\cos(x), \ \ 0 \leq x \leq 2\pi. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-cae36889-0c1e-435e-8491-9525bce8bdef">
+<span class="eqno">(1054)<a class="headerlink" href="#equation-cae36889-0c1e-435e-8491-9525bce8bdef" title="Permalink to this equation">¶</a></span>\[\begin{equation} u(x,0)=1-\cos(x), \ \ 0 \leq x \leq 2\pi. \end{equation}\]</div>
 <p>and wrap around boundary conditions.</p>
 <p>This notebook will implement the Lax-Friedrich method to appoximate the solution of the Burger Equation.
 The Lax-Fredrich method was designed by Peter Lax (https://en.wikipedia.org/wiki/Peter_Lax) and Kurt Otto Friedrichs (https://en.wikipedia.org/wiki/Kurt_Otto_Friedrichs).</p>
@@ -666,17 +666,17 @@ The Lax-Fredrich method was designed by Peter Lax (https://en.wikipedia.org/wiki
 <div class="section" id="discete-grid">
 <h2>Discete Grid<a class="headerlink" href="#discete-grid" title="Permalink to this headline">¶</a></h2>
 <p>The region <span class="math notranslate nohighlight">\(\Omega\)</span> is discretised into a uniform mesh <span class="math notranslate nohighlight">\(\Omega_h\)</span>. In the space <span class="math notranslate nohighlight">\(x\)</span> direction into <span class="math notranslate nohighlight">\(N\)</span> steps giving a stepsize of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ceec6b49-fb9e-45c7-98cf-ce5c62b9d3d2">
-<span class="eqno">(1055)<a class="headerlink" href="#equation-ceec6b49-fb9e-45c7-98cf-ce5c62b9d3d2" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{1-0}{N},\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-41253f20-addf-4a8d-8ad1-79cded474fa7">
+<span class="eqno">(1055)<a class="headerlink" href="#equation-41253f20-addf-4a8d-8ad1-79cded474fa7" title="Permalink to this equation">¶</a></span>\[\begin{equation} h=\frac{1-0}{N},\end{equation}\]</div>
 <p>resulting in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f67cbde0-6e59-4471-b597-9b0576017678">
-<span class="eqno">(1056)<a class="headerlink" href="#equation-f67cbde0-6e59-4471-b597-9b0576017678" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[i]=0+ih, \ \ \  i=0,1,...,N,\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-86ca950a-4e9a-4672-a5f3-295b6c22f4c1">
+<span class="eqno">(1056)<a class="headerlink" href="#equation-86ca950a-4e9a-4672-a5f3-295b6c22f4c1" title="Permalink to this equation">¶</a></span>\[\begin{equation}x[i]=0+ih, \ \ \  i=0,1,...,N,\end{equation}\]</div>
 <p>and into <span class="math notranslate nohighlight">\(N_t\)</span> steps in the time <span class="math notranslate nohighlight">\(t\)</span> direction giving a stepsize of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7d7f4549-a33c-4be8-be63-ec7582223eab">
-<span class="eqno">(1057)<a class="headerlink" href="#equation-7d7f4549-a33c-4be8-be63-ec7582223eab" title="Permalink to this equation">¶</a></span>\[\begin{equation} k=\frac{1-0}{N_t}\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-a2ba678c-83f2-4807-8530-9286aa2cabc0">
+<span class="eqno">(1057)<a class="headerlink" href="#equation-a2ba678c-83f2-4807-8530-9286aa2cabc0" title="Permalink to this equation">¶</a></span>\[\begin{equation} k=\frac{1-0}{N_t}\end{equation}\]</div>
 <p>resulting in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d6f243fa-8c24-45f8-8cdc-241c0b54f4a6">
-<span class="eqno">(1058)<a class="headerlink" href="#equation-d6f243fa-8c24-45f8-8cdc-241c0b54f4a6" title="Permalink to this equation">¶</a></span>\[\begin{equation}t[i]=0+ik, \ \ \ k=0,...,K.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-bc24b819-680f-4fde-9c77-883e87fd2310">
+<span class="eqno">(1058)<a class="headerlink" href="#equation-bc24b819-680f-4fde-9c77-883e87fd2310" title="Permalink to this equation">¶</a></span>\[\begin{equation}t[i]=0+ik, \ \ \ k=0,...,K.\end{equation}\]</div>
 <p>The Figure below shows the discrete grid points for <span class="math notranslate nohighlight">\(N=10\)</span> and <span class="math notranslate nohighlight">\(Nt=100\)</span>,  the known boundary conditions (green), initial conditions (blue) and the unknown values (red) of the Heat Equation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -713,8 +713,8 @@ The Lax-Fredrich method was designed by Peter Lax (https://en.wikipedia.org/wiki
 <div class="section" id="initial-conditions">
 <h2>Initial Conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h2>
 <p>The discrete initial conditions is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-38009037-cc07-4461-98fd-42cacc103745">
-<span class="eqno">(1059)<a class="headerlink" href="#equation-38009037-cc07-4461-98fd-42cacc103745" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[0,j]=1-\cos(x[j]), \ \ 0 \leq x[j] \leq \pi, \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-cd2da110-1bf2-4a72-bb28-a08ba14b1b33">
+<span class="eqno">(1059)<a class="headerlink" href="#equation-cd2da110-1bf2-4a72-bb28-a08ba14b1b33" title="Permalink to this equation">¶</a></span>\[\begin{equation} w[0,j]=1-\cos(x[j]), \ \ 0 \leq x[j] \leq \pi, \end{equation}\]</div>
 <p>The Figure below plots values of <span class="math notranslate nohighlight">\(w[0,j]\)</span> for the inital (blue) conditions for <span class="math notranslate nohighlight">\(t[0]=0.\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -752,13 +752,13 @@ The Lax-Fredrich method was designed by Peter Lax (https://en.wikipedia.org/wiki
 <div class="section" id="lax-friedrichs-method">
 <h2>Lax-Friedrichs Method<a class="headerlink" href="#lax-friedrichs-method" title="Permalink to this headline">¶</a></h2>
 <p>The Lax-Friedrichs Method of the Burger Equation is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9d1bf29-bfbf-43ab-960b-5abb3e4e8062">
-<span class="eqno">(1060)<a class="headerlink" href="#equation-d9d1bf29-bfbf-43ab-960b-5abb3e4e8062" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fa4dc4b4-185e-4bd6-8fa4-c903849148d3">
+<span class="eqno">(1060)<a class="headerlink" href="#equation-fa4dc4b4-185e-4bd6-8fa4-c903849148d3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{w_{ij+1}-\frac{w_{ij+1}+w_{ij-1}}{2}}{k}+aw_{ij}\big(\frac{w_{i+1j}-w_{i-1j}}{2h}\big)=0.
 \end{equation}\]</div>
 <p>Rearranging the equation we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4cfccfb-e4a5-4d27-aeb7-72b7248f5ed0">
-<span class="eqno">(1061)<a class="headerlink" href="#equation-e4cfccfb-e4a5-4d27-aeb7-72b7248f5ed0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ab748f75-ba7d-48fb-b09a-bd0eb318680f">
+<span class="eqno">(1061)<a class="headerlink" href="#equation-ab748f75-ba7d-48fb-b09a-bd0eb318680f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{ij+1}=\frac{w_{ij+1}+w_{ij-1}}{2}-w_{ij}\frac{\lambda}{2} a(w_{i+1j}-w_{i-1j}),
 \end{equation}\]</div>
 <p>for <span class="math notranslate nohighlight">\(i=0,...10\)</span> where <span class="math notranslate nohighlight">\(\lambda=\frac{k}{h}\)</span>.</p>

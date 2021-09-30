@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Problem Sheet Question 2a &#8212; Numerical Analysis</title>
+    <title>Problem Sheet Question 1a &#8212; Numerical Analysis</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,7 +54,7 @@
     <link rel="shortcut icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Problem Sheet Question 2a" href="401b_Problem_Sheet.html" />
+    <link rel="next" title="Problem Sheet Question 1b" href="401b_Problem_Sheet.html" />
     <link rel="prev" title="Problem Sheet 4 - Multistep Methods" href="../4_Problem_Sheet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -300,12 +300,12 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Problem Sheet Question 2a
+     Problem Sheet Question 1a
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="401b_Problem_Sheet.html">
-     Problem Sheet Question 2a
+     Problem Sheet Question 1b
     </a>
    </li>
    <li class="toctree-l2">
@@ -315,7 +315,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="406b_Problem_Sheet.html">
-     Problem Sheet Question 2a
+     Problem Sheet Question 6b
     </a>
    </li>
   </ul>
@@ -586,7 +586,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Problem Sheet Question 2a
+   Problem Sheet Question 1a
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -606,27 +606,27 @@
               <div>
                 
   <p><a href="https://colab.research.google.com/github/john-s-butler-dit/Numerical-Analysis-Python/blob/master/Chapter%2004%20-%20Multistep%20Methods/4_Problem_Sheet/401a_Problem_Sheet.ipynb" target="_parent"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
-<div class="section" id="problem-sheet-question-2a">
-<h1>Problem Sheet Question 2a<a class="headerlink" href="#problem-sheet-question-2a" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="problem-sheet-question-1a">
+<h1>Problem Sheet Question 1a<a class="headerlink" href="#problem-sheet-question-1a" title="Permalink to this headline">¶</a></h1>
 <p>The general form of the population growth differential equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-accbf218-3325-4a1d-a953-08c6befd833f">
-<span class="eqno">(482)<a class="headerlink" href="#equation-accbf218-3325-4a1d-a953-08c6befd833f" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=t-y, \ \ (0 \leq t \leq 4) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6a05b8f6-5342-4b78-975b-01857de0175b">
+<span class="eqno">(482)<a class="headerlink" href="#equation-6a05b8f6-5342-4b78-975b-01857de0175b" title="Permalink to this equation">¶</a></span>\[\begin{equation} y^{'}=t-y, \ \ (0 \leq t \leq 4) \end{equation}\]</div>
 <p>with the initial condition</p>
-<div class="amsmath math notranslate nohighlight" id="equation-69d4b2a9-5021-4ab6-a6e4-1c69935751a9">
-<span class="eqno">(483)<a class="headerlink" href="#equation-69d4b2a9-5021-4ab6-a6e4-1c69935751a9" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(0)=1\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-691b4a65-4ebf-4af5-95c7-6e1a08aa820b">
+<span class="eqno">(483)<a class="headerlink" href="#equation-691b4a65-4ebf-4af5-95c7-6e1a08aa820b" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(0)=1\end{equation}\]</div>
 <p>For N=4
 with the analytic (exact) solution</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dfd431b8-9496-46b6-ae75-587dd53569de">
-<span class="eqno">(484)<a class="headerlink" href="#equation-dfd431b8-9496-46b6-ae75-587dd53569de" title="Permalink to this equation">¶</a></span>\[\begin{equation} y= 2e^{-t}+t-1.\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-50449884-6400-44e5-8fcd-f0d3a380893d">
+<span class="eqno">(484)<a class="headerlink" href="#equation-50449884-6400-44e5-8fcd-f0d3a380893d" title="Permalink to this equation">¶</a></span>\[\begin{equation} y= 2e^{-t}+t-1.\end{equation}\]</div>
 </div>
 <div class="section" id="step-adams-bashforth">
 <h1>3-step Adams Bashforth<a class="headerlink" href="#step-adams-bashforth" title="Permalink to this headline">¶</a></h1>
 <p>The 3-step Adams Bashforth difference equation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fbd59457-19f6-4ee7-8593-2f86c75c2a42">
-<span class="eqno">(485)<a class="headerlink" href="#equation-fbd59457-19f6-4ee7-8593-2f86c75c2a42" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{12}(23f(t_i,w_i)-16f(t_{i-1},w_{i-1})+5f(t_{i-2},w_{i-2})) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-cdb4134a-a26f-4b41-bef9-76e24dbd690b">
+<span class="eqno">(485)<a class="headerlink" href="#equation-cdb4134a-a26f-4b41-bef9-76e24dbd690b" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{12}(23f(t_i,w_i)-16f(t_{i-1},w_{i-1})+5f(t_{i-2},w_{i-2})) \end{equation}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c63fbf17-cc93-45d6-b187-c487f1fb6a15">
-<span class="eqno">(486)<a class="headerlink" href="#equation-c63fbf17-cc93-45d6-b187-c487f1fb6a15" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{12}(23(t_i-w_i)-16(t_{i-1}-w_{i-1})+5(t_{i-2}-w_{i-2})) \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-41b99171-a14c-4f37-ac53-65298a7a048c">
+<span class="eqno">(486)<a class="headerlink" href="#equation-41b99171-a14c-4f37-ac53-65298a7a048c" title="Permalink to this equation">¶</a></span>\[\begin{equation}w_{i+1} = w_{i} + \frac{h}{12}(23(t_i-w_i)-16(t_{i-1}-w_{i-1})+5(t_{i-2}-w_{i-2})) \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -768,7 +768,7 @@ with the analytic (exact) solution</p>
         <a class="right-next" href="401b_Problem_Sheet.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Problem Sheet Question 2a</p>
+                <p class="prevnext-title">Problem Sheet Question 1b</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
