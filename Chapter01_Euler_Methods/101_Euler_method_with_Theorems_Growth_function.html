@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Euler Method with Theorems Applied to Non-Linear Population Equations" href="102_Euler_method_with_Theorems_nonlinear_Growth_function.html" />
-    <link rel="prev" title="Finite Difference Methods for the Poisson Equation" href="../Chapter09-Elliptic%20Equations/903_Poisson_Equation_Boundary.html" />
+    <link rel="prev" title="Numerical Analysis" href="../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -92,33 +92,50 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Name of Part 1
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter09-Elliptic%20Equations/901_Poisson_Equation_Laplacian.html">
-   Finite Difference Methods for the Poisson Equation
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    First Order Initial Value Problem
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="102_Euler_method_with_Theorems_nonlinear_Growth_function.html">
+   Euler Method with Theorems Applied to Non-Linear Population Equations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Name of Part 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/201_3rd_Order_Taylor_Population_growth.html">
+   Taylor Method
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/202_Taylor_Method_Error_Example.html">
+   1st vs 2nd order Taylor methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="102_Euler_method_with_Theorems_nonlinear_Growth_function.html">
-     Euler Method with Theorems Applied to Non-Linear Population Equations
+    <a class="reference internal" href="../Chapter02_Higher_Order_Methods/203_3rd%20Order_Taylor_Supplementary_Examples.html">
+     Supplementary Examples - 3rd Order Taylor Method
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter02_Higher_Order_Methods/201_3rd_Order_Taylor_Population_growth.html">
-   Taylor Method
-  </a>
  </li>
 </ul>
 
@@ -460,8 +477,8 @@ The plot below shows the exact solution \)</span>y<span class="math notranslate 
 <div class="section" id="derivation-of-euler-local-truncation-error">
 <h3>Derivation of  Euler Local truncation error<a class="headerlink" href="#derivation-of-euler-local-truncation-error" title="Permalink to this headline">¶</a></h3>
 <p>The left hand side of a initial value problem <span class="math notranslate nohighlight">\(\frac{dy}{dt}\)</span> is approximated by <strong>Taylors theorem</strong> expand about a point <span class="math notranslate nohighlight">\(t_0\)</span> giving:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c3dbb14a-4a17-4246-9d43-b02763d9162c">
-<span class="eqno">(1)<a class="headerlink" href="#equation-c3dbb14a-4a17-4246-9d43-b02763d9162c" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(t_1) = y(t_0)+(t_1-t_0)y^{'}(t_0) + \frac{(t_1-t_0)^2}{2!}y^{''}(\xi), \ \ \ \ \ \ \xi \in [t_0,t_1]. \end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-0c42c4f2-7ee6-47dd-8a08-40145828b24e">
+<span class="eqno">(1)<a class="headerlink" href="#equation-0c42c4f2-7ee6-47dd-8a08-40145828b24e" title="Permalink to this equation">¶</a></span>\[\begin{equation}y(t_1) = y(t_0)+(t_1-t_0)y^{'}(t_0) + \frac{(t_1-t_0)^2}{2!}y^{''}(\xi), \ \ \ \ \ \ \xi \in [t_0,t_1]. \end{equation}\]</div>
 <p>Rearranging and letting <span class="math notranslate nohighlight">\(h=t_1-t_0\)</span> the equation becomes
 $<span class="math notranslate nohighlight">\(y^{'}(t_0)=\frac{y(t_1)-y(t_0)}{h}-\frac{h}{2}y^{''}(\xi). \)</span><span class="math notranslate nohighlight">\(
 From this the local truncation error is
@@ -713,8 +730,6 @@ positive integer N.  Then for \)</span>i=0,1,…,N<span class="math notranslate 
 </div>
 </div>
 </div>
-<div class="toctree-wrapper compound">
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -747,11 +762,11 @@ positive integer N.  Then for \)</span>i=0,1,…,N<span class="math notranslate 
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../Chapter09-Elliptic%20Equations/903_Poisson_Equation_Boundary.html" title="previous page">
+        <a class="left-prev" href="../index.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Finite Difference Methods for the Poisson Equation</p>
+                <p class="prevnext-title">Numerical Analysis</p>
             </div>
         </a>
     </div>
